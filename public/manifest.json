@@ -1,0 +1,17 @@
+{
+  "name": "Vision Hub — Digital Solutions Agency",
+  "short_name": "Vision Hub",
+  "description": "Premium software agency delivering enterprise-grade web, mobile, and digital solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050a15",
+  "theme_color": "#0070f3",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
