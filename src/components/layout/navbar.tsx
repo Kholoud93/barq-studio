@@ -35,8 +35,15 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [menuPath, setMenuPath] = useState("");
   const pathname = usePathname();
   const { t } = useApp();
+
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    setMobileOpen(false);
+    setServicesOpen(false);
+  }
 
   const navLinks = [
     { href: "/", label: t.nav.home },
@@ -52,11 +59,6 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-    setServicesOpen(false);
-  }, [pathname]);
 
   return (
     <header

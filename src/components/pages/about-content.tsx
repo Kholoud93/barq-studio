@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { AnimatedSection, AnimatedItem } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
-import { GradientText } from "@/components/shared/gradient-text";
 import { Button } from "@/components/ui/button";
 import { Statistics } from "@/components/home/statistics";
 import { useApp } from "@/providers/app-provider";

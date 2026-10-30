@@ -3,9 +3,9 @@
 import {
   createContext,
   useContext,
-  useEffect,
-  useState,
   useCallback,
+  useEffect,
+  useSyncExternalStore,
 } from "react";
 import {
   type Locale,
@@ -30,49 +30,109 @@ interface AppContextValue {
 
 const AppContext = createContext<AppContextValue | null>(null);
 
+type Prefs = { locale: Locale; theme: Theme };
+
+let prefs: Prefs = { locale: defaultLocale, theme: defaultTheme };
+const listeners = new Set<() => void>();
+
+function emit() {
+  listeners.forEach((listener) => listener());
+}
+
+function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+}
+
+function getPrefsSnapshot(): Prefs {
+  return prefs;
+}
+
+function getServerPrefsSnapshot(): Prefs {
+  return { locale: defaultLocale, theme: defaultTheme };
+}
+
+function readStoredPrefs(): Prefs {
+  try {
+    const savedLocale = localStorage.getItem(localeStorageKey);
+    const savedTheme = localStorage.getItem(themeStorageKey);
+    return {
+      locale: savedLocale === "en" || savedLocale === "ar" ? savedLocale : defaultLocale,
+      theme: savedTheme === "light" || savedTheme === "dark" ? savedTheme : defaultTheme,
+    };
+  } catch {
+    return { locale: defaultLocale, theme: defaultTheme };
+  }
+}
+
+function writePrefs(next: Prefs) {
+  prefs = next;
+  try {
+    localStorage.setItem(localeStorageKey, next.locale);
+    localStorage.setItem(themeStorageKey, next.theme);
+  } catch {}
+  emit();
+}
+
+function applyDocumentPrefs(next: Prefs) {
+  document.documentElement.lang = next.locale;
+  document.documentElement.dir = next.locale === "ar" ? "rtl" : "ltr";
+  document.documentElement.classList.remove("light", "dark");
+  document.documentElement.classList.add(next.theme);
+}
+
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(defaultLocale);
-  const [theme, setThemeState] = useState<Theme>(defaultTheme);
-  const [mounted, setMounted] = useState(false);
+  const snapshot = useSyncExternalStore(
+    subscribe,
+    getPrefsSnapshot,
+    getServerPrefsSnapshot
+  );
 
   useEffect(() => {
-    const savedLocale = localStorage.getItem(localeStorageKey) as Locale | null;
-    const savedTheme = localStorage.getItem(themeStorageKey) as Theme | null;
-    if (savedLocale === "en" || savedLocale === "ar") setLocaleState(savedLocale);
-    if (savedTheme === "light" || savedTheme === "dark") {
-      setThemeState(savedTheme);
-    } else {
-      setThemeState(defaultTheme);
-    }
-    setMounted(true);
+    const stored = readStoredPrefs();
+    writePrefs(stored);
+    applyDocumentPrefs(stored);
   }, []);
 
   useEffect(() => {
-    if (!mounted) return;
-    document.documentElement.lang = locale;
-    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-    localStorage.setItem(localeStorageKey, locale);
-    localStorage.setItem(themeStorageKey, theme);
-  }, [locale, theme, mounted]);
+    applyDocumentPrefs(snapshot);
+  }, [snapshot]);
 
-  const setLocale = useCallback((l: Locale) => setLocaleState(l), []);
-  const setTheme = useCallback((t: Theme) => setThemeState(t), []);
-  const toggleLocale = useCallback(
-    () => setLocaleState((l) => (l === "en" ? "ar" : "en")),
-    []
-  );
-  const toggleTheme = useCallback(
-    () => setThemeState((t) => (t === "dark" ? "light" : "dark")),
-    []
-  );
+  const setLocale = useCallback((locale: Locale) => {
+    writePrefs({ ...prefs, locale });
+  }, []);
 
-  const t = getTranslation(locale);
+  const setTheme = useCallback((theme: Theme) => {
+    writePrefs({ ...prefs, theme });
+  }, []);
+
+  const toggleLocale = useCallback(() => {
+    writePrefs({
+      ...prefs,
+      locale: prefs.locale === "en" ? "ar" : "en",
+    });
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    writePrefs({
+      ...prefs,
+      theme: prefs.theme === "dark" ? "light" : "dark",
+    });
+  }, []);
+
+  const t = getTranslation(snapshot.locale);
 
   return (
     <AppContext.Provider
-      value={{ locale, theme, t, setLocale, setTheme, toggleLocale, toggleTheme }}
+      value={{
+        locale: snapshot.locale,
+        theme: snapshot.theme,
+        t,
+        setLocale,
+        setTheme,
+        toggleLocale,
+        toggleTheme,
+      }}
     >
       {children}
     </AppContext.Provider>
