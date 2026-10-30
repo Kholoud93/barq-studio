@@ -5,11 +5,10 @@ import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
-  Building2,
   Calendar,
   CheckCircle,
-  Clock,
   Sparkles,
+  Tag,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/animated-section";
@@ -20,6 +19,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ContactCTA } from "@/components/home/contact-cta";
 import { getAdjacentProjects, getRelatedProjects } from "@/data/projects";
+import { services } from "@/data/services";
 import { useApp } from "@/providers/app-provider";
 import { localizeProject } from "@/lib/projects-i18n";
 import type { Project } from "@/data/projects";
@@ -28,32 +28,25 @@ interface ProjectDetailContentProps {
   project: Project;
 }
 
-function parseImpact(results: string[]) {
-  return results.slice(0, 4).map((result) => {
-    const match = result.match(/^([+\-]?\d[\d.,]*%?x?|[0-9.]+(?:\+|x)?)/i);
-    if (match) {
-      return {
-        value: match[1],
-        label: result.slice(match[0].length).replace(/^[\s\-–—:]+/, "").trim() || result,
-      };
-    }
-    return { value: "★", label: result };
-  });
-}
-
 export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
   const { t, locale } = useApp();
+  const isAr = locale === "ar";
   const localized = localizeProject(project, locale);
-  const impact = parseImpact(localized.localizedResults);
   const { prev, next } = getAdjacentProjects(project.slug);
   const related = getRelatedProjects(project.slug, 3);
   const prevLocalized = prev ? localizeProject(prev, locale) : null;
   const nextLocalized = next ? localizeProject(next, locale) : null;
+  const hasResults = localized.localizedResults.length > 0;
+
+  const relatedServiceLabels = project.services
+    .map((slug) => services.find((service) => service.slug === slug))
+    .filter(Boolean)
+    .map((service) => (isAr ? service!.titleAr : service!.title));
 
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="relative flex min-h-[78vh] items-end sm:min-h-[88vh]">
+        <div className="relative flex min-h-[70vh] items-end sm:min-h-[80vh]">
           <motion.div layoutId={`project-image-${project.slug}`} className="absolute inset-0">
             <Image
               src={project.image}
@@ -66,7 +59,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
           </motion.div>
           <div className="neon-project-glow absolute inset-0 z-[1] opacity-90" />
           <div className="absolute inset-0 z-[1] bg-gradient-to-t from-background via-background/55 to-black/30" />
-          <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_70%_30%,rgba(184,243,75,0.2),transparent_50%)]" />
+          <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_70%_30%,rgba(182,255,53,0.2),transparent_50%)]" />
           <div className="case-study-orb absolute -right-20 top-24 h-72 w-72" />
           <div className="case-study-orb absolute -left-16 bottom-32 h-56 w-56 opacity-60" />
 
@@ -87,11 +80,11 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-4xl"
+              className="max-w-4xl rtl:text-right"
             >
               <div className="mb-5 flex flex-wrap items-center gap-3 rtl:flex-row-reverse">
                 <Badge className="border-primary/40 bg-primary/15 text-primary">
-                  {t.projects.caseStudy}
+                  {localized.localizedKind}
                 </Badge>
                 <Badge variant="outline" className="border-white/20 bg-white/10 text-white">
                   {localized.localizedCategory}
@@ -105,41 +98,16 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
               </p>
               <div className="mt-8 flex flex-wrap gap-6 text-sm text-white/70 rtl:flex-row-reverse">
                 <span className="inline-flex items-center gap-2 rtl:flex-row-reverse">
-                  <Building2 className="h-4 w-4 text-primary" />
-                  {project.client}
+                  <Tag className="h-4 w-4 text-primary" />
+                  {t.projects.kind}: {localized.localizedKind}
                 </span>
                 <span className="inline-flex items-center gap-2 rtl:flex-row-reverse">
                   <Calendar className="h-4 w-4 text-primary" />
-                  {project.year}
-                </span>
-                <span className="inline-flex items-center gap-2 rtl:flex-row-reverse">
-                  <Clock className="h-4 w-4 text-primary" />
-                  {localized.localizedDuration}
+                  {t.projects.year}: {project.year}
                 </span>
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      <section className="relative border-y border-primary/10 bg-card/40">
-        <div className="absolute inset-x-0 top-0 h-px case-study-beam opacity-70" />
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {impact.map((item, index) => (
-            <motion.div
-              key={`${item.value}-${index}`}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08, duration: 0.45 }}
-              className="rounded-2xl border border-primary/15 bg-background/50 p-5 neon-rim"
-            >
-              <p className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-                {item.value}
-              </p>
-              <p className="mt-2 text-sm leading-snug text-muted-foreground">{item.label}</p>
-            </motion.div>
-          ))}
         </div>
       </section>
 
@@ -187,35 +155,43 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
       </AnimatedSection>
 
       <AnimatedSection className="relative overflow-hidden py-20 sm:py-28">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(184,243,75,0.08),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(182,255,53,0.08),transparent_60%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 max-w-2xl rtl:text-right">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-              {t.projects.impact}
+          {hasResults ? (
+            <>
+              <div className="mb-10 max-w-2xl rtl:text-right">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+                  {t.projects.impact}
+                </p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                  <GradientText as="span">{t.projects.results}</GradientText>
+                </h2>
+              </div>
+              <div className="mb-12 grid gap-4 sm:grid-cols-2">
+                {localized.localizedResults.map((result, index) => (
+                  <motion.div
+                    key={result}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.06, duration: 0.45 }}
+                    className="flex items-start gap-4 rounded-2xl border border-primary/15 bg-card/60 p-5 backdrop-blur-sm rtl:flex-row-reverse"
+                  >
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary shadow-[0_0_20px_rgba(182,255,53,0.25)]">
+                      <CheckCircle className="h-4 w-4" />
+                    </span>
+                    <p className="text-base leading-relaxed text-foreground/90">{result}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <p className="mb-12 max-w-2xl text-sm text-muted-foreground rtl:text-right">
+              {t.projects.resultsNote}
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-              <GradientText as="span">{t.projects.results}</GradientText>
-            </h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {localized.localizedResults.map((result, index) => (
-              <motion.div
-                key={result}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.06, duration: 0.45 }}
-                className="flex items-start gap-4 rounded-2xl border border-primary/15 bg-card/60 p-5 backdrop-blur-sm rtl:flex-row-reverse"
-              >
-                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary shadow-[0_0_20px_rgba(184,243,75,0.25)]">
-                  <CheckCircle className="h-4 w-4" />
-                </span>
-                <p className="text-base leading-relaxed text-foreground/90">{result}</p>
-              </motion.div>
-            ))}
-          </div>
+          )}
 
-          <div className="mt-12 grid gap-6 rounded-[1.75rem] border border-primary/15 bg-card/50 p-6 neon-rim sm:grid-cols-2 sm:p-8">
+          <div className="grid gap-6 rounded-[1.75rem] border border-primary/15 bg-card/50 p-6 neon-rim sm:grid-cols-2 sm:p-8">
             <div className="rtl:text-right">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 {t.projects.technologies}
@@ -233,7 +209,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
                 {t.projects.servicesProvided}
               </h3>
               <div className="mt-4 flex flex-wrap gap-2 rtl:flex-row-reverse">
-                {localized.localizedServices.map((service) => (
+                {relatedServiceLabels.map((service) => (
                   <Badge key={service} variant="outline">
                     {service}
                   </Badge>

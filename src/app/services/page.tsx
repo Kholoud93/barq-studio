@@ -2,9 +2,9 @@ import { ServicesContent } from "@/components/pages/services-content";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "خدمات برق ستوديو — ويب، جوال، خلفية و UI/UX",
+  title: "Digital Services | Web, Mobile, CRM, UI/UX & AI",
   description:
-    "خدمات برق ستوديو: تطوير واجهات أمامية، أنظمة خلفية وواجهات برمجة، تطبيقات جوال بـ React Native، وتصميم UI/UX للشركات في مصر والشرق الأوسط.",
+    "BARQ STUDIO services include web development, mobile apps, e-commerce, custom CRM systems, UI/UX design, and AI automation for businesses in Egypt.",
   path: "/services",
   keywords: [
     "خدمات برق ستوديو",

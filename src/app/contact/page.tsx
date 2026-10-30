@@ -2,9 +2,9 @@ import { ContactContent } from "@/components/pages/contact-content";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "تواصل مع برق ستوديو | Contact Barq Studio",
+  title: "Contact BARQ STUDIO | Start a Project",
   description:
-    "تواصل مع برق ستوديو لبدء مشروع ويب أو جوال أو تصميم UI/UX. راسلنا عبر البريد أو الهاتف أو واتساب من الإسكندرية، مصر.",
+    "Tell BARQ STUDIO about your website, mobile app, CRM, UI/UX, or AI automation idea. Reach us by form, email, or WhatsApp.",
   path: "/contact",
   keywords: [
     "تواصل برق ستوديو",

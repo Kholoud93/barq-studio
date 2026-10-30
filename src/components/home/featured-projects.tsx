@@ -10,11 +10,10 @@ import { StaggerContainer, StaggerItem } from "@/components/shared/stagger-conta
 import { Button } from "@/components/ui/button";
 import { getFeaturedProjects } from "@/data/projects";
 import { useApp } from "@/providers/app-provider";
-import { cn } from "@/lib/utils";
 
 export function FeaturedProjects() {
   const { t } = useApp();
-  const featured = getFeaturedProjects().slice(0, 5);
+  const featured = getFeaturedProjects().slice(0, 3);
 
   return (
     <AnimatedSection className="relative overflow-hidden py-24 sm:py-32">
@@ -24,10 +23,11 @@ export function FeaturedProjects() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-40"
+          className="object-cover opacity-45 dark:opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
-        <div className="neon-project-glow absolute inset-0 opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-background/50 to-background/90 dark:from-background/45 dark:via-background/65 dark:to-background" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,rgba(182,255,53,0.08),transparent_70%)] dark:hidden" />
+        <div className="neon-project-glow absolute inset-0 opacity-25 dark:opacity-45" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -37,11 +37,8 @@ export function FeaturedProjects() {
           description={t.projects.description}
         />
         <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((project, index) => (
-            <StaggerItem
-              key={project.slug}
-              className={cn(index === 0 && "sm:col-span-2 lg:col-span-2")}
-            >
+          {featured.map((project) => (
+            <StaggerItem key={project.slug}>
               <ProjectCard project={project} />
             </StaggerItem>
           ))}

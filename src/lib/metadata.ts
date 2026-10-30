@@ -10,22 +10,22 @@ const siteUrl =
       : "http://localhost:3000");
 
 export const siteConfig = {
-  name: "Barq Studio",
-  shortName: "Barq",
+  name: "BARQ STUDIO",
+  shortName: "BARQ",
   nameAr: "برق ستوديو",
-  tagline: "سرعة التنفيذ .. قوة الأثر",
+  tagline: "Turn Ideas Into Reality.",
+  taglineAr: "نحوّل الأفكار إلى واقع.",
   description:
-    "برق ستوديو (Barq Studio) وكالة برمجيات في الإسكندرية، مصر — تطوير مواقع ويب، تطبيقات جوال، أنظمة خلفية، وتصميم UI/UX للشركات والمؤسسات.",
+    "برق ستوديو (BARQ STUDIO) استوديو حلول رقمية في مصر — تصميم وتطوير مواقع ويب وتطبيقات جوال وأنظمة مخصصة تساعد الشركات على النمو وتحويل الأفكار إلى منتجات عملية.",
   descriptionEn:
-    "Barq Studio (برق ستوديو) is a premium software agency in Alexandria, Egypt delivering enterprise web development, mobile apps, backend systems, and UI/UX design.",
+    "BARQ STUDIO is a digital solutions studio in Egypt that designs and develops modern websites, mobile applications, and custom software that help businesses grow and turn ideas into reality.",
   url: siteUrl,
   email: "kholouudaiman93@gmail.com",
   phone: "+20 12 00715693",
   whatsapp: "201200715693",
-  address: "Alexandria, Egypt",
+  address: "Egypt",
+  addressAr: "مصر",
   social: {
-    linkedin: "https://linkedin.com/company/barqstudio",
-    twitter: "https://twitter.com/barqstudio",
     github: "https://github.com/Kholoud93",
   },
 };
@@ -48,9 +48,9 @@ export function createMetadata({
   const pageTitle = title
     ? title.includes(siteConfig.name) || title.includes(siteConfig.nameAr)
       ? title
-      : `${title} | ${siteConfig.nameAr} | ${siteConfig.name}`
-    : `${siteConfig.nameAr} | ${siteConfig.name} — تطوير ويب وتطبيقات وتصميم UI/UX`;
-  const pageDescription = description || siteConfig.description;
+      : `${title} | ${siteConfig.name}`
+    : `${siteConfig.name} | Web Development & Digital Solutions in Egypt`;
+  const pageDescription = description || siteConfig.descriptionEn;
   const canonical = `${siteConfig.url}${path}`;
   const ogImage = image || "/og-image.svg";
   const allKeywords = Array.from(new Set([...siteKeywords, ...keywords]));
@@ -58,10 +58,10 @@ export function createMetadata({
   return {
     title: {
       default: pageTitle,
-      template: `%s | ${siteConfig.nameAr} | ${siteConfig.name}`,
+      template: `%s | ${siteConfig.name}`,
     },
     description: pageDescription,
-    applicationName: `${siteConfig.name} | ${siteConfig.nameAr}`,
+    applicationName: siteConfig.name,
     authors: [{ name: siteConfig.name, url: siteConfig.url }],
     creator: siteConfig.name,
     publisher: siteConfig.name,
@@ -79,16 +79,16 @@ export function createMetadata({
       title: pageTitle,
       description: pageDescription,
       url: canonical,
-      siteName: `${siteConfig.nameAr} | ${siteConfig.name}`,
+      siteName: siteConfig.name,
       type: "website",
-      locale: "ar_EG",
-      alternateLocale: ["en_US"],
+      locale: "en_US",
+      alternateLocale: ["ar_EG"],
       images: [
         {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${siteConfig.nameAr} | ${siteConfig.name} — وكالة حلول رقمية`,
+          alt: `${siteConfig.name} — Turn Ideas Into Reality`,
         },
       ],
     },
@@ -113,10 +113,8 @@ export function createMetadata({
         },
     keywords: allKeywords,
     other: {
-      "geo.region": "EG-ALX",
-      "geo.placename": "Alexandria",
-      "geo.position": "31.2001;29.9187",
-      ICBM: "31.2001, 29.9187",
+      "geo.region": "EG",
+      "geo.placename": "Egypt",
     },
   };
 }

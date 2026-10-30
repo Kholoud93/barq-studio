@@ -3,314 +3,423 @@ const en = {
     home: "Home",
     about: "About",
     services: "Services",
-    portfolio: "Portfolio",
+    projects: "Projects",
+    portfolio: "Projects",
+    blog: "Insights",
     contact: "Contact",
     startProject: "Start a Project",
   },
   hero: {
-    brand: "Barq Studio",
-    line1: "Ship faster.",
-    line2: "Hit harder.",
+    brand: "BARQ STUDIO",
+    label: "DIGITAL SOLUTIONS STUDIO",
+    line1: "We Build Digital Experiences That",
+    line2: "Move Businesses Forward.",
     description:
-      "Barq Studio builds sharp web, mobile, and backend products for teams that move with urgency.",
+      "BARQ STUDIO designs and develops modern websites, mobile applications, and custom digital solutions that help businesses grow, operate smarter, and turn ideas into reality.",
     cta1: "Start Your Project",
-    cta2: "View Our Work",
-    trust1: "Trusted by 50+ enterprises",
-    trust2: "80+ projects delivered",
-    trust3: "98% client satisfaction",
+    cta2: "Explore Our Work",
+    trust1: "Client-Focused Approach",
+    trust2: "Quality-Driven Development",
+    trust3: "Transparent Communication",
+  },
+  trust: {
+    badge: "How We Work",
+    title: "Built on Trust, Clarity, and Craft",
+    description:
+      "We focus on clear communication, thoughtful design, and reliable development — without inflated claims.",
+    items: [
+      {
+        title: "Client-Focused Approach",
+        description: "Every decision starts with your goals, audience, and operational reality.",
+      },
+      {
+        title: "Quality-Driven Development",
+        description: "Clean architecture, careful implementation, and attention to detail.",
+      },
+      {
+        title: "Transparent Communication",
+        description: "Clear updates, honest timelines, and no black-box process.",
+      },
+      {
+        title: "Long-Term Support",
+        description: "Help after launch when you need improvements, fixes, or guidance.",
+      },
+    ],
   },
   intro: {
-    badge: "Who We Are",
-    title: "Engineering that moves at lightning speed",
+    badge: "About BARQ STUDIO",
+    title: "More Than Just Development. We Build Digital Experiences.",
     description:
-      "Barq Studio is a software agency that turns complex business challenges into fast, polished digital products.",
-    p1: "Founded to close the gap between bold ideas and technical execution, Barq Studio partners with ambitious companies across the Middle East and beyond. Our engineers, designers, and product leads ship systems that perform under real pressure.",
-    p2: "We don't just write code — we build digital products ready to scale. From first concept to launch and beyond, every decision is guided by speed, clarity, and the standards your brand demands.",
-    tagline: "Speed with impact",
+      "BARQ STUDIO is a digital solutions studio focused on helping businesses transform ideas into practical, scalable digital products.",
+    p1: "We combine development, design, and modern technology to create solutions that solve real problems and support business growth.",
+    p2: "Whether you need a website, mobile app, custom system, or thoughtful UI/UX, we work closely with you from idea to launch — and beyond when support is needed.",
+    tagline: "Turn Ideas Into Reality.",
   },
   services: {
-    badge: "What We Do",
-    title: "Services Built for Scale",
+    badge: "Services",
+    title: "Complete Digital Solutions for Your Business",
     description:
-      "End-to-end digital solutions from strategy and design through development, deployment, and ongoing support.",
+      "From idea to launch, we provide digital solutions tailored to your business goals.",
     explore: "Explore All Services",
-    pageTitle: "End-to-End Digital Solutions",
+    learnMore: "Learn More",
+    pageTitle: "Digital Services Built for Growing Businesses",
     pageDescription:
-      "From concept to deployment, we provide comprehensive software development services tailored to enterprise needs.",
+      "Web development, mobile apps, e-commerce, CRM systems, UI/UX design, and AI automation — delivered with clarity and care.",
     included: "What's Included",
     discuss: "Discuss This Service",
-    featuredLabel: "Flagship capability",
+    problems: "Problems We Solve",
+    approach: "Our Approach",
+    technologies: "Relevant Technologies",
+    relatedProjects: "Related Work",
+    relatedServices: "Related Services",
+    faqTitle: "Service FAQ",
+    featuredLabel: "Core service",
     items: {
-      frontend: {
-        title: "Frontend Development",
+      web: {
+        title: "Web Development",
         description:
-          "We craft blazing-fast, pixel-perfect interfaces that convert visitors into customers. Our frontend engineers build scalable component architectures with modern frameworks and rigorous performance standards.",
-        outcome: "Ship polished interfaces in 6–8 weeks",
-        features: [
-          "Component-driven architecture",
-          "Server-side rendering & static generation",
-          "Performance optimization & Core Web Vitals",
-          "Accessibility compliance (WCAG 2.1)",
-          "Design system implementation",
-        ],
-      },
-      backend: {
-        title: "Backend Development",
-        description:
-          "Robust, secure, and scalable server infrastructure that powers mission-critical applications. We design APIs and backend systems built to handle enterprise workloads with confidence.",
-        outcome: "APIs built for enterprise load",
-        features: [
-          "RESTful & GraphQL API design",
-          "OAuth 2.0 & JWT authentication",
-          "PostgreSQL, MongoDB & Redis",
-          "Custom admin dashboards",
-          "CRM & workflow automation",
-        ],
+          "We build responsive, high-performance websites that provide excellent user experiences and help businesses grow online.",
+        outcome: "Business websites, landing pages, and web apps",
       },
       mobile: {
         title: "Mobile App Development",
         description:
-          "Native-quality mobile experiences for iOS and Android. From concept to App Store launch, we deliver polished applications that users love and businesses rely on.",
-        outcome: "Store-ready apps, native feel",
-        features: [
-          "Cross-platform development",
-          "Native module integration",
-          "Push notifications & offline support",
-          "App Store & Play Store deployment",
-          "Performance profiling & optimization",
-        ],
+          "We create modern mobile applications that deliver seamless experiences across iOS and Android.",
+        outcome: "iOS, Android, and cross-platform apps",
       },
-      design: {
+      ecommerce: {
+        title: "E-commerce Solutions",
+        description:
+          "We develop scalable online stores designed to simplify shopping experiences and support business growth.",
+        outcome: "Stores, catalogs, carts, and checkout flows",
+      },
+      crm: {
+        title: "CRM & Custom Business Systems",
+        description:
+          "We develop custom business systems that help companies manage operations, customers, teams, and workflows efficiently.",
+        outcome: "CRM, dashboards, and internal tools",
+      },
+      uiux: {
         title: "UI/UX Design",
         description:
-          "Human-centered design that bridges business goals and user needs. We transform complex requirements into intuitive, beautiful interfaces that drive engagement and retention.",
-        outcome: "Design systems that scale",
-        features: [
-          "User interviews & persona development",
-          "Information architecture",
-          "High-fidelity interactive prototypes",
-          "Comprehensive design systems",
-          "Usability testing & iteration",
-        ],
+          "We design intuitive, user-centered interfaces that combine usability, aesthetics, and business goals.",
+        outcome: "Research, wireframes, UI, and prototypes",
+      },
+      ai: {
+        title: "AI Automation",
+        description:
+          "We help businesses automate repetitive tasks and improve workflows using modern AI-powered solutions.",
+        outcome: "Automation, chatbots, and API integrations",
       },
     },
   },
   why: {
-    badge: "Why Barq Studio",
-    title: "The Partner Enterprises Trust",
+    badge: "Why BARQ STUDIO",
+    title: "Why Work With BARQ STUDIO?",
     description:
-      "We combine technical mastery with business acumen to deliver solutions that create lasting competitive advantage.",
+      "Clear benefits that matter when you are investing in a digital product.",
     items: [
-      { title: "Enterprise-Grade Quality", description: "Every line of code is written to production standards with comprehensive testing, security best practices, and scalable architecture patterns." },
-      { title: "Transparent Process", description: "Weekly sprint reviews, shared dashboards, and direct access to your project team. No black boxes — full visibility from day one." },
-      { title: "Dedicated Teams", description: "Your project gets a committed team of senior engineers and designers — not rotating freelancers or junior developers learning on your dime." },
-      { title: "On-Time Delivery", description: "We hit 94% of project deadlines through disciplined sprint planning, proactive risk management, and realistic scope commitments." },
-      { title: "Long-Term Partnership", description: "72% of our clients engage us for multiple projects. We build relationships, not just software — growing alongside your business." },
-      { title: "Cutting-Edge Stack", description: "We invest in modern frameworks and tools that ensure your product is fast, maintainable, and ready for the next decade of growth." },
+      {
+        title: "Solutions Tailored to Your Business",
+        description:
+          "We adapt scope, design, and technology to your goals instead of forcing a one-size template.",
+      },
+      {
+        title: "Modern and Scalable Technologies",
+        description:
+          "We use proven modern stacks that stay maintainable as your product grows.",
+      },
+      {
+        title: "Clear Communication",
+        description:
+          "You always know what is happening, what is next, and what decisions matter.",
+      },
+      {
+        title: "Focus on User Experience",
+        description:
+          "Interfaces are designed to be understandable, usable, and aligned with real user journeys.",
+      },
+      {
+        title: "Transparent Project Process",
+        description:
+          "Discovery, planning, design, development, testing, and support follow a clear path.",
+      },
+      {
+        title: "Ongoing Technical Support",
+        description:
+          "After launch, we can help with fixes, improvements, and continued product evolution.",
+      },
     ],
   },
   tech: {
-    badge: "Tech Stack",
-    title: "Built with Modern Technology",
+    badge: "Technologies",
+    title: "Modern Technologies We Work With",
     description:
-      "We leverage battle-tested frameworks and tools to build fast, secure, and maintainable applications.",
+      "A focused stack we can genuinely use to design, build, and maintain digital products.",
+    categories: {
+      Frontend: "Frontend",
+      Backend: "Backend",
+      Databases: "Databases",
+      Mobile: "Mobile",
+      Tools: "Tools & Infrastructure",
+    },
   },
   process: {
-    badge: "Our Process",
-    title: "From Concept to Launch",
+    badge: "Process",
+    title: "From Idea to Launch",
     description:
-      "A proven six-phase methodology that ensures quality, transparency, and on-time delivery at every stage.",
+      "A clear path from understanding your needs to shipping and supporting the product.",
     steps: [
-      { title: "Discovery", description: "We dive deep into your business goals, user needs, and technical requirements through structured workshops and stakeholder interviews." },
-      { title: "Strategy", description: "We define the product roadmap, technical architecture, and project milestones with clear deliverables and success metrics." },
-      { title: "Design", description: "Our designers create wireframes, interactive prototypes, and a comprehensive design system aligned with your brand identity." },
-      { title: "Development", description: "Agile sprints with bi-weekly demos ensure transparent progress. Code reviews and automated testing maintain enterprise-grade quality." },
-      { title: "Testing", description: "Rigorous QA including unit tests, integration tests, performance audits, security scans, and cross-browser compatibility checks." },
-      { title: "Launch", description: "Coordinated deployment with monitoring setup, documentation handoff, team training, and post-launch support to ensure a smooth transition." },
+      {
+        title: "Discovery",
+        description:
+          "We understand your business, goals, audience, and requirements.",
+      },
+      {
+        title: "Planning",
+        description:
+          "We define the scope, technical approach, timeline, and project roadmap.",
+      },
+      {
+        title: "Design",
+        description:
+          "We create user-friendly interfaces and experiences aligned with your brand.",
+      },
+      {
+        title: "Development",
+        description:
+          "We build the solution using suitable modern technologies.",
+      },
+      {
+        title: "Testing & Launch",
+        description:
+          "We test the product, fix issues, and prepare it for launch.",
+      },
+      {
+        title: "Support & Improvement",
+        description:
+          "We provide technical support and help improve the product when needed.",
+      },
     ],
   },
-  stats: {
-    projects: "Projects Delivered",
-    clients: "Enterprise Clients",
-    satisfaction: "Client Satisfaction",
-    years: "Years of Excellence",
+  commitment: {
+    badge: "Our Commitment",
+    title: "Our Commitment to Every Project",
+    description:
+      "Authentic reviews will appear here once available. Until then, this is how we work with every client.",
+    items: [
+      {
+        title: "Honest Scoping",
+        description:
+          "We clarify goals, constraints, and priorities before promising timelines or features.",
+      },
+      {
+        title: "Collaborative Design",
+        description:
+          "You stay involved in key design and product decisions so the result fits your business.",
+      },
+      {
+        title: "Careful Delivery",
+        description:
+          "We focus on usable interfaces, maintainable code, and a launch that is ready for real use.",
+      },
+      {
+        title: "Continued Partnership",
+        description:
+          "After launch, we remain available for support, iteration, and thoughtful improvements.",
+      },
+    ],
   },
   projects: {
-    badge: "Our Work",
-    title: "Featured Projects",
+    badge: "Selected Projects",
+    title: "Selected Projects",
     description:
-      "Real solutions for real businesses. Explore how we've helped companies transform their digital presence.",
+      "A selection of digital experiences and solutions built with attention to performance, usability, and business needs.",
     viewAll: "View All Projects",
-    pageBadge: "Portfolio",
-    pageTitle: "Projects That Deliver Results",
+    viewProject: "View Project",
+    pageBadge: "Projects",
+    pageTitle: "Selected Work",
     pageDescription:
-      "Enterprise case studies — real solutions built for real businesses.",
-    caseStudies: "Enterprise Projects",
+      "Concept and selected digital product work across web, mobile, CRM, and dashboards.",
+    caseStudies: "Selected Work",
     caseDescription:
-      "Eight enterprise projects spanning fintech, healthcare, real estate, e-commerce, and more.",
+      "These entries are clearly labeled. We do not present concept work as completed client case studies.",
     filterAll: "All",
     filterWeb: "Web",
     filterMobile: "Mobile",
+    filterCrm: "CRM",
+    filterEcommerce: "E-commerce",
     filterDesign: "Design",
-    back: "Back to Portfolio",
+    back: "Back to Projects",
     challenge: "The Challenge",
     solution: "Our Solution",
     results: "Results",
+    resultsNote: "Measurable results are shown only when verified.",
     technologies: "Technologies",
-    servicesProvided: "Services Provided",
-    overview: "Overview",
-    interested: "Interested?",
-    interestedDesc: "Let's build something similar for your business.",
+    servicesProvided: "Services",
+    overview: "Project Overview",
+    interested: "Have a Similar Idea?",
+    interestedDesc: "Tell us what you want to build and we will help shape the next steps.",
     startProject: "Start a Project",
-    caseStudy: "Case Study",
+    caseStudy: "View Details",
     nextProject: "Next Project",
     prevProject: "Previous Project",
     moreProjects: "More Projects",
-    impact: "Impact",
-    client: "Client",
+    impact: "Outcomes",
     year: "Year",
-    durationLabel: "Duration",
+    kind: "Type",
   },
-  github: {
-    badge: "Open Source",
-    title: "GitHub Projects",
+  blog: {
+    badge: "Insights",
+    title: "Insights & Ideas",
     description:
-      "Explore our open-source work and live deployments — real code, real products, available on GitHub.",
-    viewAll: "View All Projects",
-    profile: "@Kholoud93 on GitHub",
-    viewProfile: "View GitHub Profile",
-    sourceCode: "Source Code",
-    liveDemo: "Live Demo",
-    openSource: "Open Source",
-  },
-  testimonials: {
-    badge: "Testimonials",
-    title: "What Our Clients Say",
-    description:
-      "Don't take our word for it. Hear from the leaders who trusted Barq Studio with their most critical projects.",
-    items: [
-      {
-        id: "1",
-        name: "Khalid Al-Rashid",
-        role: "CEO",
-        company: "Al Noor Trading Group",
-        content:
-          "Barq Studio transformed our entire sales operation. The CRM they built didn't just replace our legacy systems — it gave our teams superpowers. Lead conversion is up 47% and our sales cycle has never been faster.",
-        rating: 5,
-      },
-      {
-        id: "2",
-        name: "Sarah Mitchell",
-        role: "CTO",
-        company: "MetricFlow Inc.",
-        content:
-          "We needed a platform that could process millions of events in real-time without breaking a sweat. Barq Studio delivered exactly that, plus a UI that our customers actually enjoy using. Exceptional engineering quality.",
-        rating: 5,
-      },
-      {
-        id: "3",
-        name: "Omar Hassan",
-        role: "Product Director",
-        company: "Nova Digital Bank",
-        content:
-          "Launching a banking app is incredibly complex. Barq Studio navigated regulatory requirements, security standards, and tight deadlines with remarkable professionalism. Our app hit 250K downloads in 90 days.",
-        rating: 5,
-      },
-      {
-        id: "4",
-        name: "Fatima Al-Zahra",
-        role: "Operations Manager",
-        company: "Gulf Shield Insurance",
-        content:
-          "The analytics dashboard Barq Studio built changed how our underwriters work. Reports that took hours now generate in seconds. The ROI was visible within the first month of deployment.",
-        rating: 5,
-      },
-      {
-        id: "5",
-        name: "James Chen",
-        role: "Founder",
-        company: "Horizon Properties",
-        content:
-          "Our old website was embarrassing. Barq Studio gave us a platform that competes with international PropTech leaders. Mobile traffic tripled and our agents finally have proper lead management tools.",
-        rating: 5,
-      },
-      {
-        id: "6",
-        name: "Dr. Layla Mansour",
-        role: "Medical Director",
-        company: "MedCare Clinics",
-        content:
-          "Migrating 18 clinics from paper records to a digital system seemed impossible. Barq Studio made it seamless. Our doctors now spend their time with patients, not paperwork. Truly life-changing for our practice.",
-        rating: 5,
-      },
-    ],
+      "Practical insights, guides, and ideas about technology, development, design, and digital transformation.",
+    readMore: "Read Article",
+    back: "Back to Insights",
+    readingTime: "min read",
+    published: "Published",
+    related: "Related Articles",
+    ctaTitle: "Ready to apply these ideas?",
+    ctaDescription: "Let's discuss how BARQ STUDIO can help turn your concept into a real product.",
+    pageTitle: "Insights & Ideas",
+    pageDescription:
+      "Guides and practical articles on websites, apps, CRM systems, UX, and digital growth.",
   },
   faq: {
     badge: "FAQ",
     title: "Frequently Asked Questions",
     description:
-      "Everything you need to know about working with Barq Studio. Can't find your answer? Reach out directly.",
+      "Clear answers about working with BARQ STUDIO. Need something else? Contact us directly.",
     items: [
-      { question: "What types of projects does Barq Studio specialize in?", answer: "We specialize in enterprise web applications, mobile apps, SaaS platforms, dashboards, CRM systems, and e-commerce solutions. Our team has delivered 80+ projects across fintech, healthcare, real estate, insurance, and non-profit sectors." },
-      { question: "How long does a typical project take?", answer: "Project timelines vary based on scope and complexity. A focused MVP typically takes 8–12 weeks, while enterprise platforms range from 4–8 months. We provide detailed timelines during our discovery phase and maintain transparent milestone tracking throughout." },
-      { question: "What is your development process?", answer: "We follow a structured six-phase process: Discovery, Strategy, Design, Development, Testing, and Launch. Each phase includes client checkpoints, deliverable reviews, and iterative feedback loops to ensure alignment at every stage." },
-      { question: "Do you provide ongoing support after launch?", answer: "Yes. We offer flexible maintenance and support packages including bug fixes, security updates, performance monitoring, feature enhancements, and dedicated technical support. Most clients continue with us long-term for continuous improvement." },
-      { question: "What technologies do you work with?", answer: "Our core stack includes React, Next.js, Vue, Nuxt, TypeScript, Node.js, PostgreSQL, MongoDB, Redis, React Native, and Expo. We select technologies based on project requirements, scalability needs, and long-term maintainability." },
-      { question: "How do you handle project communication?", answer: "We assign a dedicated project manager and use structured weekly sprint reviews, shared project dashboards, and real-time messaging channels. You'll always have visibility into progress, blockers, and upcoming milestones." },
-      { question: "Can you work with our existing team?", answer: "Absolutely. We frequently collaborate with in-house development teams, providing specialized expertise, code reviews, architecture guidance, or augmenting capacity during critical phases. We adapt to your workflow, not the other way around." },
-      { question: "How do we get started?", answer: "Reach out through our contact form or WhatsApp. We'll schedule a free 30-minute discovery call to understand your goals, discuss technical requirements, and provide a preliminary scope and timeline estimate within 48 hours." },
+      {
+        question: "What types of projects does BARQ STUDIO work on?",
+        answer:
+          "We work on websites, mobile applications, e-commerce solutions, CRM and custom business systems, UI/UX design, and practical AI automation based on each project's needs.",
+      },
+      {
+        question: "How long does a project take?",
+        answer:
+          "Timelines depend on scope and complexity. After understanding requirements, we provide a clear estimate. Focused projects may take weeks, while broader systems need more time with clear phases.",
+      },
+      {
+        question: "How much does it cost to build a website?",
+        answer:
+          "Cost depends on goals, number of pages, features, design depth, and required integrations. We do not quote a fixed price without understanding scope. Contact us to discuss your idea and receive a suitable estimate.",
+      },
+      {
+        question: "Do you provide ongoing support?",
+        answer:
+          "Yes. We can provide technical support and improvements after launch based on agreement, including fixes, updates, and help evolving the product.",
+      },
+      {
+        question: "Can you work with existing projects?",
+        answer:
+          "Yes. We can review existing projects, improve performance or interface quality, add features, or help with refactoring when appropriate.",
+      },
+      {
+        question: "Do you develop mobile applications?",
+        answer:
+          "Yes. We develop modern mobile applications, often using cross-platform approaches such as React Native when they fit the project requirements.",
+      },
+      {
+        question: "Do you provide UI/UX design?",
+        answer:
+          "Yes. We provide foundational user research, wireframes, UI design, prototypes, and design systems that support clear and buildable experiences.",
+      },
+      {
+        question: "Can you integrate AI automation into existing systems?",
+        answer:
+          "Yes, when there is a clear use case. We focus on automating repetitive tasks, improving workflows, and connecting tools through APIs when practical.",
+      },
+      {
+        question: "Do you work with international clients?",
+        answer:
+          "Yes. We can work remotely with clients in Egypt and internationally as long as the project scope is clear and communication stays consistent.",
+      },
+      {
+        question: "How can I start a project?",
+        answer:
+          "Reach out through the contact form, WhatsApp, or email. Tell us about your idea and goals, and we will reply to discuss next steps and a suitable initial estimate.",
+      },
     ],
   },
   cta: {
-    title: "Ready to Build Something",
-    titleHighlight: "Extraordinary",
+    title: "Let's Build Something",
+    titleHighlight: "Great Together",
     description:
-      "Tell us briefly what you're building — we'll reply within 24 hours with next steps.",
-    contact: "Get in Touch",
-    portfolio: "See Our Work",
+      "Have a project in mind? Tell us about your idea and let's explore how we can bring it to life.",
+    contact: "Start Your Project",
+    portfolio: "Explore Our Work",
+    whatsapp: "Chat on WhatsApp",
     namePlaceholder: "Your name",
-    emailPlaceholder: "work@company.com",
+    emailPlaceholder: "you@company.com",
     messagePlaceholder: "What are you looking to build?",
-    quickSend: "Send on WhatsApp",
+    quickSend: "Continue on WhatsApp",
     sending: "Opening WhatsApp...",
-    success: "WhatsApp opened — send the message to complete your request.",
+    success: "WhatsApp opened — send the message to complete your inquiry.",
   },
   about: {
-    badge: "About Barq Studio",
-    title: "We Are Barq Studio",
+    badge: "About",
+    title: "More Than Just Development. We Build Digital Experiences.",
     description:
-      "A premium software agency on a mission to transform how businesses build, launch, and scale digital products.",
+      "BARQ STUDIO is a digital solutions studio focused on helping businesses transform ideas into practical, scalable digital products.",
+    whoTitle: "Who We Are",
+    whoText:
+      "We are a digital studio based in Egypt, building modern websites, applications, and custom systems with a practical and professional approach.",
+    whatTitle: "What We Do",
+    whatText:
+      "We design and develop web experiences, mobile apps, e-commerce solutions, CRM systems, UI/UX interfaces, and AI-assisted automation.",
+    approachTitle: "Our Approach",
+    approachText:
+      "We start by understanding the business problem, then shape a clear plan, design thoughtfully, build carefully, and support improvement after launch.",
     story: "Our Story",
-    storyP1: "Barq Studio was founded in 2019 with a simple belief: every business deserves access to world-class software engineering, regardless of size or industry. What started as a small team of passionate developers has evolved into a full-service digital agency trusted by enterprises across fintech, healthcare, real estate, and beyond.",
-    storyP2: "Today, we operate from Alexandria, Egypt with a distributed team of senior talent spanning engineering, design, and product strategy. We've delivered 80+ projects, maintained a 98% client satisfaction rate, and built lasting partnerships with companies that return to us project after project.",
+    storyP1:
+      "BARQ STUDIO was created to help businesses turn ideas into working digital products without unnecessary complexity or inflated promises.",
+    storyP2:
+      "We focus on clarity, craftsmanship, and long-term usefulness — whether the project is a focused website or a custom operational system.",
     mission: "Our Mission",
-    missionText: "To empower businesses with enterprise-grade digital solutions that drive measurable growth, operational efficiency, and competitive advantage in an increasingly digital world.",
+    missionText:
+      "To help businesses grow through thoughtful design, reliable development, and smart technology.",
     vision: "Our Vision",
-    visionText: "To be the most trusted software agency in the Middle East — recognized for engineering excellence, design innovation, and unwavering commitment to client success.",
-    valuesBadge: "Our Values",
-    valuesTitle: "What Drives Us",
-    valuesDescription: "The principles that guide every project, every decision, and every line of code we write.",
+    visionText:
+      "To be a trusted digital studio known for clarity, quality, and products that genuinely support business needs.",
+    valuesBadge: "Values",
+    valuesTitle: "What Guides Our Work",
+    valuesDescription: "The principles behind every engagement.",
     values: [
-      { title: "Precision", description: "Every pixel, every line of code, every architectural decision is made with intention and purpose." },
-      { title: "Innovation", description: "We embrace emerging technologies and creative approaches to solve problems others consider impossible." },
-      { title: "Partnership", description: "Your success is our success. We invest in long-term relationships built on trust, transparency, and results." },
-      { title: "Impact", description: "We build software that matters — products that improve lives, streamline operations, and drive real business outcomes." },
+      {
+        title: "Quality First",
+        description: "We care about usable interfaces, clean structure, and dependable delivery.",
+      },
+      {
+        title: "Client-Focused Approach",
+        description: "Your goals and constraints shape the solution — not the other way around.",
+      },
+      {
+        title: "Clear Communication",
+        description: "We explain decisions, progress, and trade-offs in plain language.",
+      },
+      {
+        title: "Continuous Improvement",
+        description: "Products evolve. We design and build with iteration in mind.",
+      },
+      {
+        title: "Long-Term Partnership",
+        description: "We aim for relationships that continue after launch through support and growth.",
+      },
     ],
-    teamBadge: "Leadership",
-    teamTitle: "Meet Our Team",
-    teamDescription: "Senior professionals with decades of combined experience building products for global enterprises.",
     ready: "Ready to Work Together?",
-    readyDesc: "Let's discuss how Barq Studio can help transform your business with world-class digital solutions.",
+    readyDesc: "Share your idea and we will help you define a practical next step.",
   },
   contact: {
-    badge: "Contact Us",
-    title: "Let's Start a",
-    titleHighlight: "Conversation",
+    badge: "Contact",
+    title: "Let's Build Something",
+    titleHighlight: "Great Together.",
     description:
-      "Tell us about your project and we'll get back to you within 24 hours with a preliminary scope and timeline.",
+      "Have a project in mind? Tell us about your idea and let's explore how we can bring it to life.",
     getInTouch: "Get in Touch",
-    getInTouchDesc: "We'd love to hear about your project. Choose the channel that works best for you.",
-    sendMessage: "Send Us a Message",
+    getInTouchDesc: "Choose the channel that works best for you.",
+    sendMessage: "Start Your Project",
     email: "Email",
     phone: "Phone",
     whatsapp: "WhatsApp",
@@ -319,37 +428,78 @@ const en = {
     hoursValue: "Sun - Thu, 9:00 AM - 6:00 PM",
     form: {
       name: "Full Name",
-      namePlaceholder: "John Smith",
+      namePlaceholder: "Your full name",
       email: "Email Address",
-      emailPlaceholder: "john@company.com",
-      company: "Company",
-      companyPlaceholder: "Your Company",
-      phone: "Phone Number",
-      phonePlaceholder: "+1 (555) 000-0000",
-      service: "Service Interested In",
-      servicePlaceholder: "e.g. Web Development, Mobile App, UI/UX Design",
-      message: "Project Details",
-      messagePlaceholder: "Tell us about your project, goals, timeline, and budget...",
-      send: "Send on WhatsApp",
+      emailPlaceholder: "you@company.com",
+      company: "Company Name",
+      companyPlaceholder: "Optional",
+      phone: "Phone / WhatsApp",
+      phonePlaceholder: "+20 ...",
+      service: "Service Required",
+      servicePlaceholder: "Select a service",
+      budget: "Estimated Budget",
+      budgetPlaceholder: "Optional",
+      message: "Project Description",
+      messagePlaceholder: "Tell us about your goals, timeline, and any important details...",
+      send: "Continue on WhatsApp",
       sending: "Opening WhatsApp...",
       success: "WhatsApp Opened",
-      successDesc: "Your message is ready in WhatsApp. Tap send to deliver it to Barq Studio.",
-      sendAnother: "Send Another Message",
+      successDesc:
+        "Your inquiry is ready in WhatsApp. Send the message to reach BARQ STUDIO.",
+      sendAnother: "Send Another Inquiry",
+      requiredError: "Please fill in all required fields.",
+      emailError: "Please enter a valid email address.",
+      services: [
+        "Web Development",
+        "Mobile App Development",
+        "E-commerce",
+        "CRM & Custom Systems",
+        "UI/UX Design",
+        "AI Automation",
+        "Other",
+      ],
     },
   },
   footer: {
     description:
-      "Barq Studio is a premium software agency delivering enterprise-grade web, mobile, and digital solutions for ambitious businesses worldwide.",
+      "BARQ STUDIO turns ideas into modern digital experiences through thoughtful design, reliable development, and smart technology.",
+    signature: "BARQ STUDIO — Turn Ideas Into Reality.",
     company: "Company",
     aboutUs: "About Us",
     servicesTitle: "Services",
-    frontend: "Frontend Development",
-    backend: "Backend Development",
-    mobile: "Mobile Development",
+    web: "Web Development",
+    mobile: "Mobile App Development",
+    ecommerce: "E-commerce",
+    crm: "CRM & Custom Systems",
     design: "UI/UX Design",
+    ai: "AI Automation",
+    insights: "Insights",
+    legal: "Legal",
+    privacy: "Privacy Policy",
+    terms: "Terms of Service",
     contactTitle: "Contact",
     rights: "All rights reserved.",
-    crafted: "Crafted with precision for enterprise excellence.",
+    crafted: "Turn Ideas Into Reality.",
+  },
+  privacy: {
+    title: "Privacy Policy",
+    updated: "Last updated: May 2026",
+    content: [
+      "BARQ STUDIO respects your privacy. When you contact us through forms, email, or WhatsApp, we use the information you provide only to respond to your inquiry and discuss potential work.",
+      "We do not sell personal information. Inquiry details may be stored temporarily to continue the conversation and prepare proposals.",
+      "If analytics tools are enabled in the future, they will be used to understand website usage and improve the experience. No secret keys are exposed in the frontend.",
+      "For privacy questions, contact us at the email listed on the contact page.",
+    ],
+  },
+  terms: {
+    title: "Terms of Service",
+    updated: "Last updated: May 2026",
+    content: [
+      "The content on this website is provided for general information about BARQ STUDIO services.",
+      "Project scope, timelines, and pricing are confirmed only through direct agreement after discussing requirements.",
+      "Concept and selected work shown in the portfolio are clearly labeled and should not be interpreted as verified client results unless stated otherwise.",
+      "By contacting us, you agree that the information you share can be used to respond to your inquiry.",
+    ],
   },
   notFound: {
     title: "Page Not Found",
@@ -357,7 +507,7 @@ const en = {
     back: "Back to Home",
   },
   common: {
-    loading: "Digital Solutions",
+    loading: "Turn Ideas Into Reality",
     themeLight: "Light mode",
     themeDark: "Dark mode",
     langEn: "EN",

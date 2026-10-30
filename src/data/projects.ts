@@ -1,236 +1,188 @@
+export type ProjectKind = "selected" | "concept" | "demo";
+
 export interface Project {
   slug: string;
   title: string;
+  titleAr: string;
   category: string;
-  client: string;
+  categoryAr: string;
+  kind: ProjectKind;
   year: string;
-  duration: string;
   description: string;
+  descriptionAr: string;
   challenge: string;
+  challengeAr: string;
   solution: string;
+  solutionAr: string;
   results: string[];
+  resultsAr: string[];
   technologies: string[];
   services: string[];
   featured: boolean;
-  gradient: string;
   image: string;
 }
 
 export const projects: Project[] = [
   {
     slug: "crm-system",
-    title: "Enterprise CRM System",
-    category: "Enterprise Software",
-    client: "Al Noor Trading Group",
+    title: "Business CRM Platform",
+    titleAr: "منصة CRM للأعمال",
+    category: "CRM Systems",
+    categoryAr: "أنظمة CRM",
+    kind: "concept",
     year: "2025",
-    duration: "6 months",
     description:
-      "A comprehensive customer relationship management platform designed to unify sales, marketing, and support operations for a multi-branch trading conglomerate with 2,000+ employees.",
+      "A concept CRM platform designed to unify contacts, pipelines, and team follow-ups in one clear workspace.",
+    descriptionAr:
+      "منصة CRM نموذجية مصممة لتوحيد جهات الاتصال وخطوط المبيعات ومتابعة الفريق في مساحة عمل واضحة.",
     challenge:
-      "The client managed customer data across five disconnected legacy systems, resulting in duplicate records, missed follow-ups, and a 40% lead conversion loss. Sales teams lacked real-time visibility into pipeline health.",
+      "Many growing teams track customers across chats, spreadsheets, and disconnected tools, which makes follow-ups easy to miss.",
+    challengeAr:
+      "كثير من الفرق المتنامية تتابع العملاء عبر المحادثات والجداول والأدوات المنفصلة، مما يجعل المتابعة سهلة الإغفال.",
     solution:
-      "We architected a modular CRM with unified contact management, automated lead scoring, pipeline analytics, and role-based dashboards. Custom integrations connected existing ERP and email systems without disrupting daily operations.",
-    results: [
-      "47% increase in lead conversion rate",
-      "3.2x faster sales cycle completion",
-      "Eliminated 98% of duplicate customer records",
-      "Unified 5 legacy systems into one platform",
-    ],
-    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Redis", "Node.js"],
-    services: ["Frontend Development", "Backend Development", "UI/UX Design"],
+      "We designed modular CRM screens for contacts, pipeline stages, reminders, and role-based dashboards focused on daily sales operations.",
+    solutionAr:
+      "صممنا شاشات CRM معيارية لجهات الاتصال ومراحل خط المبيعات والتذكيرات ولوحات حسب الدور تركز على العمليات اليومية للمبيعات.",
+    results: [],
+    resultsAr: [],
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Node.js"],
+    services: ["crm-development", "ui-ux-design", "web-development"],
     featured: true,
-    gradient: "from-blue-600 to-cyan-500",
     image: "/projects/crm-system.jpg",
   },
   {
     slug: "insurance-dashboard",
     title: "Insurance Analytics Dashboard",
-    category: "FinTech",
-    client: "Gulf Shield Insurance",
+    titleAr: "لوحة تحليلات للتأمين",
+    category: "Dashboards",
+    categoryAr: "لوحات تحكم",
+    kind: "concept",
     year: "2025",
-    duration: "4 months",
     description:
-      "A real-time analytics dashboard enabling insurance underwriters and executives to monitor claims, assess risk portfolios, and generate compliance reports across multiple product lines.",
+      "A concept analytics dashboard for monitoring claims activity, portfolio summaries, and operational reporting.",
+    descriptionAr:
+      "لوحة تحليلات نموذجية لمتابعة نشاط المطالبات وملخصات المحفظة والتقارير التشغيلية.",
     challenge:
-      "Underwriters spent hours compiling data from siloed databases before making coverage decisions. Executive reporting required manual spreadsheet work that delayed strategic decisions by days.",
+      "Decision makers often wait for manually prepared reports before they can review risk and performance trends.",
+    challengeAr:
+      "صناع القرار غالباً ينتظرون تقارير تُعد يدوياً قبل مراجعة اتجاهات المخاطر والأداء.",
     solution:
-      "We built an interactive dashboard with real-time data pipelines, customizable risk heatmaps, automated compliance reporting, and predictive claim analytics powered by historical trend analysis.",
-    results: [
-      "85% reduction in report generation time",
-      "Real-time visibility across 12 product lines",
-      "22% improvement in risk assessment accuracy",
-      "Automated regulatory compliance exports",
-    ],
-    technologies: ["React", "D3.js", "Python", "PostgreSQL", "AWS"],
-    services: ["Frontend Development", "Backend Development"],
+      "We designed a dashboard layout with summary cards, filterable tables, and visual charts that keep key metrics easy to scan.",
+    solutionAr:
+      "صممنا تخطيط لوحة تحكم ببطاقات ملخص وجداول قابلة للتصفية ومخططات بصرية تجعل المؤشرات الأساسية سهلة القراءة.",
+    results: [],
+    resultsAr: [],
+    technologies: ["React", "TypeScript", "PostgreSQL", "Node.js"],
+    services: ["web-development", "crm-development", "ui-ux-design"],
     featured: true,
-    gradient: "from-indigo-600 to-blue-500",
     image: "/projects/insurance-dashboard.jpg",
   },
   {
-    slug: "real-estate-platform",
-    title: "Real Estate Platform",
-    category: "PropTech",
-    client: "Horizon Properties",
-    year: "2024",
-    duration: "5 months",
-    description:
-      "A full-featured property marketplace with advanced search, virtual tours, mortgage calculators, and agent management tools serving buyers, sellers, and brokers across the Gulf region.",
-    challenge:
-      "The client's outdated listing website had poor search functionality, no mobile optimization, and zero lead tracking. Agents managed inquiries manually via WhatsApp and spreadsheets.",
-    solution:
-      "We delivered a responsive platform with map-based search, 3D virtual tour integration, automated lead routing to agents, and a comprehensive broker portal with performance analytics.",
-    results: [
-      "312% increase in qualified leads",
-      "68% of traffic now from mobile devices",
-      "Average time-on-site increased to 4.7 minutes",
-      "Agent response time reduced by 60%",
-    ],
-    technologies: ["Next.js", "Mapbox", "Node.js", "MongoDB", "Stripe"],
-    services: [
-      "Frontend Development",
-      "Backend Development",
-      "UI/UX Design",
-    ],
-    featured: true,
-    gradient: "from-emerald-600 to-teal-500",
-    image: "/projects/real-estate-platform.jpg",
-  },
-  {
-    slug: "ecommerce-dashboard",
-    title: "E-commerce Operations Dashboard",
-    category: "E-commerce",
-    client: "Luxe Retail Co.",
-    year: "2024",
-    duration: "3 months",
-    description:
-      "A centralized operations dashboard for a multi-brand e-commerce retailer managing inventory, orders, fulfillment, and customer analytics across three online storefronts.",
-    challenge:
-      "Operations teams juggled three separate admin panels with inconsistent data. Inventory discrepancies caused overselling, and customer support lacked order history visibility.",
-    solution:
-      "We unified all storefront data into a single dashboard with real-time inventory sync, order lifecycle tracking, automated low-stock alerts, and integrated customer support tools.",
-    results: [
-      "99.2% inventory accuracy across channels",
-      "45% faster order fulfillment",
-      "Reduced overselling incidents by 94%",
-      "Single-pane view for 3 storefronts",
-    ],
-    technologies: ["Vue", "Nuxt", "PostgreSQL", "Shopify API", "Redis"],
-    services: ["Frontend Development", "Backend Development"],
-    featured: true,
-    gradient: "from-violet-600 to-purple-500",
-    image: "/projects/ecommerce-dashboard.jpg",
-  },
-  {
-    slug: "donation-platform",
-    title: "Donation Platform",
-    category: "Non-Profit",
-    client: "Giving Hands Foundation",
-    year: "2024",
-    duration: "4 months",
-    description:
-      "A transparent donation platform enabling charitable organizations to launch campaigns, accept multi-currency payments, and provide donors with real-time impact tracking and tax receipts.",
-    challenge:
-      "The foundation relied on manual bank transfers and lacked transparency in fund allocation. Donors had no visibility into how contributions were used, reducing repeat donation rates.",
-    solution:
-      "We built a campaign management platform with secure payment processing, automated tax receipt generation, real-time fund allocation dashboards, and impact storytelling features for donors.",
-    results: [
-      "156% increase in online donations",
-      "89% donor retention rate after first gift",
-      "Automated tax receipts for 12,000+ donors",
-      "Full fund allocation transparency",
-    ],
-    technologies: ["Next.js", "Stripe", "PostgreSQL", "SendGrid", "AWS S3"],
-    services: [
-      "Frontend Development",
-      "Backend Development",
-      "UI/UX Design",
-    ],
-    featured: false,
-    gradient: "from-rose-600 to-pink-500",
-    image: "/projects/donation-platform.jpg",
-  },
-  {
     slug: "healthcare-management",
-    title: "Healthcare Management System",
-    category: "HealthTech",
-    client: "MedCare Clinics Network",
+    title: "Healthcare Mobile App",
+    titleAr: "تطبيق رعاية صحية للجوال",
+    category: "Mobile Applications",
+    categoryAr: "تطبيقات جوال",
+    kind: "concept",
     year: "2025",
-    duration: "7 months",
     description:
-      "An end-to-end clinic management system covering patient records, appointment scheduling, billing, pharmacy inventory, and insurance claim processing for a network of 18 clinics.",
+      "A concept mobile experience for appointment booking, patient updates, and clinic communication.",
+    descriptionAr:
+      "تجربة جوال نموذجية لحجز المواعيد وتحديثات المرضى والتواصل مع العيادة.",
     challenge:
-      "Paper-based patient records and manual scheduling caused appointment conflicts, billing errors, and HIPAA compliance risks. Doctors spent 30% of their time on administrative tasks.",
+      "Patients and clinic staff often rely on calls and messages that are hard to track and easy to lose.",
+    challengeAr:
+      "يعتمد المرضى وموظفو العيادة غالباً على المكالمات والرسائل التي يصعب تتبعها ويسهل فقدانها.",
     solution:
-      "We developed a HIPAA-compliant platform with electronic health records, intelligent scheduling, integrated billing, pharmacy management, and automated insurance claim submission.",
-    results: [
-      "70% reduction in administrative workload",
-      "Zero appointment scheduling conflicts",
-      "Full HIPAA compliance certification",
-      "18 clinics migrated in 3 weeks",
-    ],
-    technologies: ["React", "Node.js", "PostgreSQL", "HL7 FHIR", "Docker"],
-    services: [
-      "Frontend Development",
-      "Backend Development",
-      "UI/UX Design",
-    ],
-    featured: false,
-    gradient: "from-cyan-600 to-blue-500",
+      "We designed a mobile flow for booking, reminders, and status updates with a calm, accessible interface.",
+    solutionAr:
+      "صممنا تدفقاً للجوال للحجز والتذكيرات وتحديثات الحالة بواجهة هادئة وسهلة الوصول.",
+    results: [],
+    resultsAr: [],
+    technologies: ["React Native", "Expo", "TypeScript", "Node.js"],
+    services: ["mobile-app-development", "ui-ux-design"],
+    featured: true,
     image: "/projects/healthcare-management.jpg",
   },
   {
-    slug: "mobile-banking-app",
-    title: "Mobile Banking App",
-    category: "FinTech",
-    client: "Nova Digital Bank",
-    year: "2025",
-    duration: "8 months",
+    slug: "ecommerce-dashboard",
+    title: "E-commerce Operations Hub",
+    titleAr: "مركز عمليات للتجارة الإلكترونية",
+    category: "E-commerce",
+    categoryAr: "تجارة إلكترونية",
+    kind: "concept",
+    year: "2024",
     description:
-      "A feature-rich mobile banking application offering account management, instant transfers, bill payments, investment tracking, and biometric authentication for a digital-first bank.",
+      "A concept operations hub for catalog visibility, order tracking, and store performance monitoring.",
+    descriptionAr:
+      "مركز عمليات نموذجي لرؤية الكتالوج وتتبع الطلبات ومراقبة أداء المتجر.",
     challenge:
-      "The bank needed to launch a mobile-first experience to compete with established players. Security, regulatory compliance, and sub-second transaction speeds were non-negotiable requirements.",
+      "Store teams often jump between admin panels and spreadsheets to understand inventory and order status.",
+    challengeAr:
+      "فرق المتاجر غالباً تنتقل بين لوحات إدارة وجداول لفهم المخزون وحالة الطلبات.",
     solution:
-      "We engineered a React Native application with end-to-end encryption, biometric authentication, real-time transaction notifications, and a modular architecture supporting rapid feature releases.",
-    results: [
-      "250,000 downloads in first 90 days",
-      "4.8-star rating on both app stores",
-      "Sub-200ms transaction processing",
-      "99.99% uptime since launch",
-    ],
-    technologies: ["React Native", "Expo", "Node.js", "PostgreSQL", "AWS"],
-    services: ["Mobile App Development", "Backend Development", "UI/UX Design"],
+      "We designed a unified operations view for products, orders, and simple alerts that keep daily work organized.",
+    solutionAr:
+      "صممنا واجهة عمليات موحدة للمنتجات والطلبات والتنبيهات البسيطة التي تنظم العمل اليومي.",
+    results: [],
+    resultsAr: [],
+    technologies: ["Next.js", "Vue", "PostgreSQL", "Node.js"],
+    services: ["ecommerce-development", "web-development", "ui-ux-design"],
     featured: true,
-    gradient: "from-amber-600 to-orange-500",
-    image: "/projects/mobile-banking-app.jpg",
+    image: "/projects/ecommerce-dashboard.jpg",
+  },
+  {
+    slug: "real-estate-platform",
+    title: "Corporate Property Website",
+    titleAr: "موقع عقاري للشركات",
+    category: "Corporate Websites",
+    categoryAr: "مواقع شركات",
+    kind: "concept",
+    year: "2024",
+    description:
+      "A concept corporate website and listing experience for browsing properties with clearer search and inquiry flows.",
+    descriptionAr:
+      "موقع شركات وتجربة قوائم نموذجية لتصفح العقارات مع بحث أوضح ومسارات استفسار أفضل.",
+    challenge:
+      "Property seekers struggle when listings are hard to filter and inquiries disappear into chat threads.",
+    challengeAr:
+      "الباحثون عن عقارات يواجهون صعوبة عندما يصعب تصفية القوائم وتضيع الاستفسارات في المحادثات.",
+    solution:
+      "We designed a clean browsing experience with structured listing pages and a simple inquiry path.",
+    solutionAr:
+      "صممنا تجربة تصفح واضحة مع صفحات قوائم منظمة ومسار استفسار بسيط.",
+    results: [],
+    resultsAr: [],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
+    services: ["web-development", "ui-ux-design"],
+    featured: false,
+    image: "/projects/real-estate-platform.jpg",
   },
   {
     slug: "saas-analytics-platform",
-    title: "SaaS Analytics Platform",
-    category: "SaaS",
-    client: "MetricFlow Inc.",
+    title: "Analytics Dashboard Concept",
+    titleAr: "مفهوم لوحة تحليلات",
+    category: "Dashboards",
+    categoryAr: "لوحات تحكم",
+    kind: "concept",
     year: "2024",
-    duration: "5 months",
     description:
-      "A multi-tenant analytics platform providing real-time business intelligence, custom report builders, and team collaboration tools for B2B SaaS companies tracking product usage and revenue metrics.",
+      "A concept analytics workspace for product and business metrics with customizable summary views.",
+    descriptionAr:
+      "مساحة تحليلات نموذجية لمؤشرات المنتج والأعمال مع ملخصات قابلة للتخصيص.",
     challenge:
-      "SaaS companies struggled to correlate product usage with revenue metrics using generic analytics tools. MetricFlow needed a purpose-built platform with customizable dashboards and team sharing.",
+      "Teams often need a clearer way to review usage and performance without jumping across disconnected reports.",
+    challengeAr:
+      "تحتاج الفرق غالباً طريقة أوضح لمراجعة الاستخدام والأداء دون التنقل بين تقارير منفصلة.",
     solution:
-      "We built a scalable analytics engine with real-time event processing, drag-and-drop report builders, role-based team workspaces, and white-label embedding for client-facing dashboards.",
-    results: [
-      "10,000+ dashboards created in 6 months",
-      "Processing 50M events per day",
-      "40% reduction in customer churn for clients",
-      "White-label deployed by 35 SaaS companies",
-    ],
-    technologies: ["Next.js", "TypeScript", "ClickHouse", "Redis", "Kubernetes"],
-    services: [
-      "Frontend Development",
-      "Backend Development",
-      "UI/UX Design",
-    ],
-    featured: true,
-    gradient: "from-sky-600 to-indigo-500",
+      "We designed dashboard modules for KPI cards, trend charts, and filterable metric tables.",
+    solutionAr:
+      "صممنا وحدات لوحة تحكم لبطاقات المؤشرات ومخططات الاتجاهات وجداول قابلة للتصفية.",
+    results: [],
+    resultsAr: [],
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Redis"],
+    services: ["web-development", "crm-development", "ui-ux-design"],
+    featured: false,
     image: "/projects/saas-analytics-platform.jpg",
   },
 ];
@@ -257,4 +209,10 @@ export function getAdjacentProjects(slug: string): {
 
 export function getRelatedProjects(slug: string, limit = 3): Project[] {
   return projects.filter((p) => p.slug !== slug).slice(0, limit);
+}
+
+export function getProjectsByService(serviceSlug: string, limit = 3): Project[] {
+  return projects
+    .filter((p) => p.services.includes(serviceSlug))
+    .slice(0, limit);
 }

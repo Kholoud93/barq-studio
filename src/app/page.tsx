@@ -7,23 +7,25 @@ import { DevelopmentProcess } from "@/components/home/development-process";
 import { Statistics } from "@/components/home/statistics";
 import { FeaturedProjects } from "@/components/home/featured-projects";
 import { Testimonials } from "@/components/home/testimonials";
+import { BlogPreview } from "@/components/home/blog-preview";
 import { FAQ } from "@/components/home/faq";
 import { ContactCTA } from "@/components/home/contact-cta";
 import { FaqJsonLd } from "@/components/shared/json-ld";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
+  title: "BARQ STUDIO | Web Development & Digital Solutions in Egypt",
   description:
-    "برق ستوديو (Barq Studio) — وكالة برمجيات في الإسكندرية. تطوير مواقع ويب، تطبيقات جوال، أنظمة خلفية، وتصميم UI/UX للشركات في مصر والشرق الأوسط.",
+    "BARQ STUDIO designs and develops modern websites, mobile apps, CRM systems, UI/UX, and AI automation for businesses in Egypt. Turn ideas into reality.",
   path: "/",
   keywords: [
-    "برق",
+    "BARQ STUDIO",
     "برق ستوديو",
-    "Barq Studio",
-    "Barq",
-    "شركة برمجيات مصر",
-    "تطوير مواقع الإسكندرية",
-    "تطوير تطبيقات الجوال مصر",
+    "web development Egypt",
+    "شركة برمجة في مصر",
+    "تصميم مواقع إلكترونية",
+    "تطوير تطبيقات",
+    "UI UX Design",
   ],
 });
 
@@ -32,14 +34,15 @@ export default function HomePage() {
     <>
       <FaqJsonLd />
       <HeroSection />
-      <CompanyIntro />
-      <ServicesSection />
-      <WhyChooseUs />
-      <Technologies />
-      <DevelopmentProcess />
       <Statistics />
+      <ServicesSection />
       <FeaturedProjects />
+      <WhyChooseUs />
+      <DevelopmentProcess />
+      <Technologies />
+      <CompanyIntro />
       <Testimonials />
+      <BlogPreview />
       <FAQ />
       <ContactCTA />
     </>

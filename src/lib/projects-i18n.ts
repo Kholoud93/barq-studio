@@ -1,6 +1,5 @@
 import type { Project } from "@/data/projects";
 import type { Locale } from "@/i18n";
-import { getProjectTranslation } from "@/i18n/project-translations";
 
 export interface LocalizedProject extends Project {
   localizedTitle: string;
@@ -9,23 +8,32 @@ export interface LocalizedProject extends Project {
   localizedChallenge: string;
   localizedSolution: string;
   localizedResults: string[];
-  localizedServices: string[];
-  localizedDuration: string;
+  localizedKind: string;
 }
 
 export function localizeProject(project: Project, locale: Locale): LocalizedProject {
-  const translation = getProjectTranslation(project.slug, locale);
+  const isAr = locale === "ar";
 
   return {
     ...project,
-    localizedTitle: translation?.title ?? project.title,
-    localizedCategory: translation?.category ?? project.category,
-    localizedDescription: translation?.description ?? project.description,
-    localizedChallenge: translation?.challenge ?? project.challenge,
-    localizedSolution: translation?.solution ?? project.solution,
-    localizedResults: translation?.results ?? project.results,
-    localizedServices: translation?.services ?? project.services,
-    localizedDuration: translation?.duration ?? project.duration,
+    localizedTitle: isAr ? project.titleAr : project.title,
+    localizedCategory: isAr ? project.categoryAr : project.category,
+    localizedDescription: isAr ? project.descriptionAr : project.description,
+    localizedChallenge: isAr ? project.challengeAr : project.challenge,
+    localizedSolution: isAr ? project.solutionAr : project.solution,
+    localizedResults: isAr ? project.resultsAr : project.results,
+    localizedKind:
+      project.kind === "concept"
+        ? isAr
+          ? "مشروع مفهوم"
+          : "Concept Project"
+        : project.kind === "demo"
+          ? isAr
+            ? "مشروع تجريبي"
+            : "Demo Project"
+          : isAr
+            ? "عمل مختار"
+            : "Selected Work",
   };
 }
 

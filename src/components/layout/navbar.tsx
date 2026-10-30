@@ -3,7 +3,17 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Monitor, Server, Smartphone, Palette } from "lucide-react";
+import {
+  Menu,
+  X,
+  Monitor,
+  Smartphone,
+  ShoppingBag,
+  LayoutDashboard,
+  Palette,
+  Bot,
+  ArrowRight,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
@@ -13,10 +23,12 @@ import { useApp } from "@/providers/app-provider";
 import { cn } from "@/lib/utils";
 
 const servicePreview = [
-  { key: "frontend" as const, icon: Monitor, href: "/services/frontend-development" },
-  { key: "backend" as const, icon: Server, href: "/services/backend-development" },
+  { key: "web" as const, icon: Monitor, href: "/services/web-development" },
   { key: "mobile" as const, icon: Smartphone, href: "/services/mobile-app-development" },
-  { key: "design" as const, icon: Palette, href: "/services/ui-ux-design" },
+  { key: "ecommerce" as const, icon: ShoppingBag, href: "/services/ecommerce-development" },
+  { key: "crm" as const, icon: LayoutDashboard, href: "/services/crm-development" },
+  { key: "uiux" as const, icon: Palette, href: "/services/ui-ux-design" },
+  { key: "ai" as const, icon: Bot, href: "/services/ai-automation" },
 ];
 
 export function Navbar() {
@@ -28,9 +40,10 @@ export function Navbar() {
 
   const navLinks = [
     { href: "/", label: t.nav.home },
-    { href: "/about", label: t.nav.about },
     { href: "/services", label: t.nav.services, mega: true },
-    { href: "/portfolio", label: t.nav.portfolio },
+    { href: "/portfolio", label: t.nav.projects },
+    { href: "/about", label: t.nav.about },
+    { href: "/blog", label: t.nav.blog },
     { href: "/contact", label: t.nav.contact },
   ];
 
@@ -60,7 +73,7 @@ export function Navbar() {
       >
         <Logo size="sm" className={cn("transition-transform duration-500", scrolled && "scale-95")} />
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) =>
             link.mega ? (
               <div
@@ -72,10 +85,8 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
-                    pathname.startsWith(link.href)
-                      ? "text-primary"
-                      : "text-muted-foreground"
+                    "relative px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                    pathname.startsWith(link.href) ? "text-primary" : "text-muted-foreground"
                   )}
                 >
                   {link.label}
@@ -93,7 +104,7 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-1/2 z-50 w-[420px] -translate-x-1/2 pt-3 rtl:left-auto rtl:right-1/2 rtl:translate-x-1/2"
+                      className="absolute top-full left-1/2 z-50 w-[540px] -translate-x-1/2 pt-3 rtl:left-auto rtl:right-1/2 rtl:translate-x-1/2"
                     >
                       <div className="glass-strong rounded-2xl border border-border p-3 shadow-xl shadow-black/10">
                         <div className="grid grid-cols-2 gap-2">
@@ -110,9 +121,7 @@ export function Navbar() {
                                   <Icon className="h-4 w-4" />
                                 </div>
                                 <div className="min-w-0 rtl:text-right">
-                                  <p className="text-sm font-medium text-foreground">
-                                    {service.title}
-                                  </p>
+                                  <p className="text-sm font-medium text-foreground">{service.title}</p>
                                   <p className="mt-0.5 truncate text-xs text-muted-foreground">
                                     {service.outcome}
                                   </p>
@@ -131,10 +140,8 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
-                  pathname === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                  "relative px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                  pathname === link.href ? "text-primary" : "text-muted-foreground"
                 )}
               >
                 {link.label}
@@ -149,27 +156,25 @@ export function Navbar() {
           )}
         </div>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <div
-            className={cn(
-              "flex items-center gap-2 transition-all duration-300",
-              scrolled ? "opacity-70 scale-95" : "opacity-100"
-            )}
-          >
-            <LocaleToggle />
-            <ThemeToggle />
-          </div>
+        <div className="hidden items-center gap-2 lg:flex">
+          <LocaleToggle />
+          <ThemeToggle />
           <Button asChild size={scrolled ? "sm" : "default"}>
-            <Link href="/contact">{t.nav.startProject}</Link>
+            <Link href="/contact" className="rtl:flex-row-reverse">
+              {t.nav.startProject}
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+            </Link>
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <LocaleToggle />
           <ThemeToggle />
           <button
+            type="button"
             className="flex h-10 w-10 items-center justify-center rounded-lg border border-border"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-expanded={mobileOpen}
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -183,9 +188,9 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="glass-strong border-t border-border md:hidden"
+            className="glass-strong border-t border-border lg:hidden"
           >
-            <div className="flex flex-col gap-1 px-4 py-4">
+            <div className="flex max-h-[80vh] flex-col gap-1 overflow-y-auto px-4 py-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

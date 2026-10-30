@@ -2,80 +2,77 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GradientText } from "@/components/shared/gradient-text";
-import { CursorSpotlight } from "@/components/shared/cursor-spotlight";
 import { Magnetic } from "@/components/shared/magnetic";
 import { useApp } from "@/providers/app-provider";
 
 export function HeroSection() {
   const { t } = useApp();
+  const reduceMotion = useReducedMotion();
+  const initial = reduceMotion ? false : { opacity: 0, y: 16 };
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-16">
-      <Image
-        src="/scenes/hero-astronaut-moon.jpg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-[center_35%]"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/25 to-background" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/55 via-transparent to-background/30" />
-      <div className="neon-project-glow absolute inset-0 opacity-50" />
-      <div className="hero-glow absolute inset-0" />
-      <CursorSpotlight />
+    <section className="relative overflow-hidden pt-20 sm:pt-24">
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/scenes/section-rocky-glow.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_30%] opacity-70 dark:opacity-55"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/35 to-background/80 dark:from-background/35 dark:via-background/45 dark:to-background" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_70%_20%,rgba(182,255,53,0.12),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_35%_at_10%_80%,rgba(142,219,32,0.06),transparent_55%)]" />
+        <div className="grid-pattern absolute inset-0 opacity-20" />
+      </div>
 
-      <div className="relative z-[2] mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col justify-end px-4 pb-20 pt-24 sm:px-6 sm:pb-28 lg:px-8">
-        <div className="max-w-3xl rtl:text-right">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
+      <div className="relative z-[2] mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-8 sm:px-6 sm:pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-8 lg:pb-24 lg:pt-12">
+        <div className="relative rtl:text-right">
+          <div className="pointer-events-none absolute -inset-x-4 -inset-y-6 rounded-3xl bg-background/35 blur-2xl dark:bg-background/25 lg:-inset-x-6" />
+          <div className="relative">
+          <motion.span
+            initial={initial}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.2 }}
-            className="hero-brand font-bold"
+            transition={{ duration: 0.45 }}
+            className="inline-flex rounded-full border border-primary/35 bg-primary/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary"
           >
-            <span className="ltr:hidden">
-              <span className="text-white">برق </span>
-              <GradientText as="span">ستوديو</GradientText>
-            </span>
-            <span className="rtl:hidden">
-              <span className="text-white">BARQ </span>
-              <GradientText as="span">STUDIO</GradientText>
-            </span>
-          </motion.p>
+            {t.hero.label}
+          </motion.span>
 
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            initial={initial}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.35 }}
-            className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl"
+            transition={{ duration: 0.55, delay: 0.08 }}
+            className="mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]"
           >
             <span className="block">{t.hero.line1}</span>
-            <span className="block">
-              <GradientText as="span">{t.hero.line2}</GradientText>
-            </span>
+            <GradientText as="span" className="block">
+              {t.hero.line2}
+            </GradientText>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={initial}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.5 }}
-            className="mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg"
+            transition={{ duration: 0.5, delay: 0.16 }}
+            className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
             {t.hero.description}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={initial}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.6 }}
+            transition={{ duration: 0.5, delay: 0.24 }}
             className="mt-8 flex flex-col gap-3 sm:flex-row rtl:sm:flex-row-reverse"
           >
             <Magnetic>
-              <Button asChild size="lg" className="shadow-[0_0_32px_rgba(184,243,75,0.35)]">
+              <Button asChild size="lg" className="shadow-[0_0_28px_rgba(182,255,53,0.28)]">
                 <Link href="/contact" className="rtl:flex-row-reverse">
                   {t.hero.cta1}
                   <ArrowRight className="h-4 w-4 rtl:rotate-180" />
@@ -83,30 +80,74 @@ export function HeroSection() {
               </Button>
             </Magnetic>
             <Magnetic strength={0.2}>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white/25 bg-black/30 text-white backdrop-blur-md hover:bg-black/45 hover:text-white"
-              >
+              <Button asChild variant="outline" size="lg">
                 <Link href="/portfolio">{t.hero.cta2}</Link>
               </Button>
             </Magnetic>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.8 }}
-            className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-white/65 rtl:flex-row-reverse"
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground rtl:flex-row-reverse"
           >
             <span>{t.hero.trust1}</span>
-            <span className="hidden h-4 w-px bg-white/20 sm:block" />
+            <span className="hidden h-4 w-px bg-border sm:block" />
             <span>{t.hero.trust2}</span>
-            <span className="hidden h-4 w-px bg-white/20 sm:block" />
+            <span className="hidden h-4 w-px bg-border sm:block" />
             <span>{t.hero.trust3}</span>
           </motion.div>
+          </div>
         </div>
+
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.96, y: 18 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.18 }}
+          className="relative mx-auto w-full max-w-lg lg:max-w-none"
+        >
+          <div className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_50%_40%,rgba(182,255,53,0.2),transparent_65%)] blur-2xl" />
+          <div className="relative">
+            <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-card shadow-[0_0_0_1px_rgba(182,255,53,0.08),0_30px_80px_rgba(0,0,0,0.45)]">
+              <div className="flex items-center gap-1.5 border-b border-border bg-secondary/60 px-4 py-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+                <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
+                <span className="ms-3 text-xs text-muted-foreground">dashboard.barq</span>
+              </div>
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src="/projects/crm-system.jpg"
+                  alt="BARQ STUDIO digital product dashboard preview"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 520px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-background/30 via-transparent to-primary/10" />
+              </div>
+            </div>
+
+            <div className="absolute -bottom-6 end-2 w-[38%] overflow-hidden rounded-[1.35rem] border border-primary/25 bg-card shadow-[0_20px_50px_rgba(0,0,0,0.5)] sm:-bottom-8 sm:end-4 sm:w-[34%]">
+              <div className="relative aspect-[9/16]">
+                <Image
+                  src="/projects/healthcare-management.jpg"
+                  alt="BARQ STUDIO mobile application preview"
+                  fill
+                  sizes="180px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-x-0 top-0 h-6 bg-black/40" />
+                <div className="absolute inset-x-8 top-1.5 h-1 rounded-full bg-white/20" />
+              </div>
+            </div>
+
+            <div className="absolute -start-2 top-10 hidden rounded-xl border border-primary/20 bg-card/90 px-3 py-2 text-xs text-primary backdrop-blur-md sm:block">
+              {t.intro.tagline}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

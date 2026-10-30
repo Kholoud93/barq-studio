@@ -2,9 +2,9 @@ import { AboutContent } from "@/components/pages/about-content";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "عن برق ستوديو | About Barq Studio",
+  title: "About BARQ STUDIO | Digital Solutions Studio in Egypt",
   description:
-    "تعرف على برق ستوديو (Barq Studio): وكالة برمجيات من الإسكندرية، مصر تقدم حلول ويب وجوال وتصميم بمستوى مؤسسي للشركات الطموحة.",
+    "BARQ STUDIO is a digital solutions studio in Egypt focused on websites, mobile apps, CRM systems, UI/UX design, and practical AI automation — without inflated claims.",
   path: "/about",
   keywords: ["عن برق ستوديو", "عن برق", "about Barq Studio", "شركة برق ستوديو"],
 });

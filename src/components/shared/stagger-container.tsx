@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const containerVariants = {
@@ -9,6 +9,11 @@ const containerVariants = {
     opacity: 1,
     transition: { staggerChildren: 0.1, delayChildren: 0.1 },
   },
+};
+
+const reducedContainerVariants = {
+  hidden: { opacity: 1 },
+  visible: { opacity: 1 },
 };
 
 const itemVariants = {
@@ -21,18 +26,25 @@ const itemVariants = {
   },
 };
 
+const reducedItemVariants = {
+  hidden: { opacity: 1, y: 0, scale: 1 },
+  visible: { opacity: 1, y: 0, scale: 1 },
+};
+
 interface StaggerContainerProps {
   children: React.ReactNode;
   className?: string;
 }
 
 export function StaggerContainer({ children, className }: StaggerContainerProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
-      variants={containerVariants}
+      variants={reduceMotion ? reducedContainerVariants : containerVariants}
       className={cn(className)}
     >
       {children}
@@ -46,8 +58,13 @@ interface StaggerItemProps {
 }
 
 export function StaggerItem({ children, className }: StaggerItemProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <motion.div variants={itemVariants} className={cn(className)}>
+    <motion.div
+      variants={reduceMotion ? reducedItemVariants : itemVariants}
+      className={cn(className)}
+    >
       {children}
     </motion.div>
   );

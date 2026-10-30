@@ -3,9 +3,11 @@ import { services } from "@/data/services";
 import { faqs } from "@/data/faq";
 
 export function OrganizationJsonLd() {
+  const sameAs = Object.values(siteConfig.social).filter(Boolean);
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
+    "@type": ["Organization", "ProfessionalService"],
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     legalName: siteConfig.name,
@@ -14,11 +16,9 @@ export function OrganizationJsonLd() {
       "Barq Studio Digital Solutions",
       "برق ستوديو",
       "برق",
-      "شركة برق ستوديو",
-      "وكالة برق ستوديو",
       siteConfig.nameAr,
     ],
-    description: siteConfig.description,
+    description: siteConfig.descriptionEn,
     url: siteConfig.url,
     logo: {
       "@type": "ImageObject",
@@ -30,66 +30,43 @@ export function OrganizationJsonLd() {
     telephone: siteConfig.phone,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Alexandria",
-      addressRegion: "Alexandria",
       addressCountry: "EG",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 31.2001,
-      longitude: 29.9187,
     },
     areaServed: [
       { "@type": "Country", name: "Egypt" },
-      { "@type": "Country", name: "Saudi Arabia" },
-      { "@type": "AdministrativeArea", name: "Alexandria" },
       { "@type": "Place", name: "Middle East" },
       { "@type": "Place", name: "Worldwide" },
     ],
-    sameAs: [
-      siteConfig.social.linkedin,
-      siteConfig.social.twitter,
-      siteConfig.social.github,
-    ],
+    sameAs,
     slogan: siteConfig.tagline,
-    priceRange: "$$",
-    foundingLocation: {
-      "@type": "Place",
-      name: "Alexandria, Egypt",
-    },
     knowsAbout: [
       "Web Development",
-      "Frontend Development",
-      "Backend Development",
       "Mobile App Development",
       "UI/UX Design",
-      "Enterprise Software",
-      "SaaS Development",
       "CRM Systems",
+      "E-commerce Development",
+      "AI Automation",
       "تطوير مواقع",
       "تطوير تطبيقات الجوال",
       "تصميم UI UX",
-      "تطوير واجهات أمامية",
-      "تطوير خلفية",
       "برمجة مواقع مصر",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: `خدمات ${siteConfig.nameAr}`,
-      alternateName: "Barq Studio Services",
+      name: `${siteConfig.name} Services`,
       itemListElement: services.map((service) => ({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: service.titleAr,
-          alternateName: service.title,
-          description: service.descriptionAr,
+          name: service.title,
+          alternateName: service.titleAr,
+          description: service.description,
           url: `${siteConfig.url}/services/${service.slug}`,
           provider: {
             "@id": `${siteConfig.url}/#organization`,
           },
           areaServed: "EG",
-          serviceType: service.titleAr,
+          serviceType: service.title,
         },
       })),
     },
@@ -109,9 +86,9 @@ export function WebSiteJsonLd() {
     "@type": "WebSite",
     "@id": `${siteConfig.url}/#website`,
     name: siteConfig.name,
-    alternateName: ["Barq", "برق ستوديو", "برق", siteConfig.nameAr],
+    alternateName: ["Barq", "برق ستوديو", siteConfig.nameAr],
     url: siteConfig.url,
-    description: siteConfig.description,
+    description: siteConfig.descriptionEn,
     inLanguage: ["ar-EG", "en-US"],
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
@@ -133,13 +110,14 @@ export function FaqJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    inLanguage: "ar-EG",
+    inLanguage: ["ar-EG", "en-US"],
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      name: faq.question,
+      name: faq.questionEn,
+      alternateName: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.answer,
+        text: faq.answerEn,
       },
     })),
   };
@@ -170,9 +148,9 @@ export function ServiceJsonLd({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: nameAr,
-    alternateName: name,
-    description: `${descriptionAr} ${description}`,
+    name,
+    alternateName: nameAr,
+    description: `${description} ${descriptionAr}`,
     url,
     serviceType,
     provider: {
@@ -182,10 +160,6 @@ export function ServiceJsonLd({
       {
         "@type": "Country",
         name: "Egypt",
-      },
-      {
-        "@type": "Country",
-        name: "Saudi Arabia",
       },
       {
         "@type": "Place",
@@ -221,6 +195,53 @@ export function BreadcrumbJsonLd({
       name: item.name,
       item: item.url,
     })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+export function ArticleJsonLd({
+  title,
+  titleAr,
+  description,
+  descriptionAr,
+  url,
+  image,
+  publishedAt,
+}: {
+  title: string;
+  titleAr: string;
+  description: string;
+  descriptionAr: string;
+  url: string;
+  image: string;
+  publishedAt: string;
+}) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    alternateName: titleAr,
+    description,
+    inLanguage: ["en-US", "ar-EG"],
+    image: image.startsWith("http") ? image : `${siteConfig.url}${image}`,
+    datePublished: publishedAt,
+    dateModified: publishedAt,
+    author: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    publisher: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    mainEntityOfPage: url,
+    about: descriptionAr,
   };
 
   return (

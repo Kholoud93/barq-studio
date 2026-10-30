@@ -17,10 +17,10 @@ export function CompanyIntro() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-center opacity-35"
+          className="object-cover object-center opacity-55 dark:opacity-45"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background" />
-        <div className="neon-project-glow absolute inset-0 opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background/90 dark:from-background/50 dark:via-background/65 dark:to-background" />
+        <div className="neon-project-glow absolute inset-0 opacity-30" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
