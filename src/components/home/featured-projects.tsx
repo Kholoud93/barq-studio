@@ -17,22 +17,21 @@ export function FeaturedProjects() {
   const featured = getFeaturedProjects().slice(0, 3);
 
   return (
-    <AnimatedSection variant="blur" className="relative overflow-x-clip py-20 sm:py-28 lg:py-32">
-      <div className="pointer-events-none absolute inset-0">
-        <Parallax offset={50} scale={1.06} className="absolute inset-[-6%]">
+    <AnimatedSection variant="blur" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
+      <div className="pointer-events-none absolute inset-0 bg-background dark:bg-transparent">
+        <Parallax offset={40} scale={1.04} className="absolute inset-0 hidden dark:block">
           <div className="relative h-full w-full">
             <Image
               src="/scenes/section-rocky-glow.jpg"
               alt=""
               fill
               sizes="100vw"
-              className="object-cover opacity-75 dark:opacity-40"
+              className="object-cover opacity-40"
             />
           </div>
         </Parallax>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/18 to-background/55 dark:from-background/45 dark:via-background/65 dark:to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,rgba(182,255,53,0.08),transparent_70%)] dark:hidden" />
-        <div className="neon-project-glow absolute inset-0 opacity-20 dark:opacity-45" />
+        <div className="absolute inset-0 hidden bg-gradient-to-b from-background/45 via-background/65 to-background dark:block" />
+        <div className="neon-project-glow absolute inset-0 hidden opacity-35 dark:block" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

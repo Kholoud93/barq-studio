@@ -12,7 +12,7 @@ export function Testimonials() {
 
   return (
     <AnimatedSection className="relative overflow-hidden py-20 sm:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_40%_50%_at_50%_100%,rgba(184,243,75,0.06),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 hidden bg-[radial-gradient(ellipse_40%_50%_at_50%_100%,rgba(184,243,75,0.06),transparent_70%)] dark:block" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={t.commitment.badge}

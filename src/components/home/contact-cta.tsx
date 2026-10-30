@@ -46,17 +46,17 @@ export function ContactCTA() {
 
   return (
     <AnimatedSection variant="blur">
-      <div className="relative min-h-[70vh] overflow-hidden border-y border-primary/10">
+      <div className="relative min-h-[70vh] overflow-hidden border-y border-border dark:border-primary/10">
         <Image
           src="/scenes/cta-astronaut-portal.jpg"
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-center scale-105"
+          className="hidden object-cover object-center scale-105 dark:block"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/55 to-background/25 dark:from-background/90 dark:via-background/60 dark:to-background/30" />
-        <div className="neon-project-glow absolute inset-0 opacity-40" />
-        <EnergyParticles />
+        <div className="absolute inset-0 bg-secondary dark:bg-gradient-to-r dark:from-background/90 dark:via-background/60 dark:to-background/30" />
+        <div className="neon-project-glow absolute inset-0 hidden opacity-40 dark:block" />
+        <EnergyParticles className="hidden dark:block" />
 
         <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
           <div className="flex flex-col justify-center rtl:text-right">

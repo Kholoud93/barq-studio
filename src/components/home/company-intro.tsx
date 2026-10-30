@@ -11,16 +11,16 @@ export function CompanyIntro() {
 
   return (
     <AnimatedSection className="relative overflow-hidden py-24 sm:py-32">
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 bg-background dark:bg-transparent">
         <Image
           src="/scenes/about-lightning-rock.jpg"
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-center opacity-80 dark:opacity-45"
+          className="hidden object-cover object-center opacity-45 dark:block"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/18 to-background/55 dark:from-background/50 dark:via-background/65 dark:to-background" />
-        <div className="neon-project-glow absolute inset-0 opacity-20 dark:opacity-30" />
+        <div className="absolute inset-0 hidden bg-gradient-to-b from-background/50 via-background/65 to-background dark:block" />
+        <div className="neon-project-glow absolute inset-0 hidden opacity-30 dark:block" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -39,12 +39,12 @@ export function CompanyIntro() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="neon-project-glow absolute inset-0" />
+              <div className="neon-project-glow absolute inset-0 opacity-50 dark:opacity-100" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-transparent to-transparent dark:from-background/70" />
             </div>
           </div>
 
-          <div className="rounded-2xl border border-primary/15 bg-card/55 p-5 backdrop-blur-md sm:p-8 lg:p-12">
+          <div className="rounded-2xl border border-primary/15 bg-card/80 p-5 backdrop-blur-md sm:p-8 lg:p-12">
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
               {t.intro.p1}
             </p>

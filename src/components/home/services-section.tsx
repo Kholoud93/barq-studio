@@ -34,7 +34,7 @@ export function ServicesSection() {
 
   return (
     <AnimatedSection variant="blur" className="relative overflow-hidden py-20 sm:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,rgba(184,243,75,0.08),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 hidden bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,rgba(184,243,75,0.08),transparent_70%)] dark:block" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={t.services.badge}
@@ -51,7 +51,7 @@ export function ServicesSection() {
                 <TiltCard maxTilt={10} scale={1.02} className="h-full">
                   <Link
                     href={`/services/${service?.slug ?? key}`}
-                    className="group flex h-full flex-col rounded-2xl border border-primary/15 bg-card/70 p-6 transition-all duration-500 hover:border-primary/40 hover:bg-card/90 hover:shadow-[0_0_40px_rgba(184,243,75,0.12)]"
+                    className="group flex h-full flex-col rounded-2xl border border-primary/15 bg-card/70 p-6 transition-all duration-500 hover:border-primary/40 hover:bg-card/90 hover:shadow-[0_0_40px_rgba(184,243,75,0.12)] active:border-primary/40 active:bg-card/90 active:shadow-[0_0_40px_rgba(184,243,75,0.12)]"
                   >
                     <div className="flex items-start justify-between gap-3 rtl:flex-row-reverse">
                       <motion.div

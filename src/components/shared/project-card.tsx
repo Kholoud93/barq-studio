@@ -25,7 +25,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
       <TiltCard className="h-full rounded-2xl">
         <Link
           href={`/portfolio/${project.slug}`}
-          className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-[0_8px_30px_rgba(5,8,6,0.06)] transition-all duration-500 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_16px_40px_rgba(142,219,32,0.14)] dark:border-primary/15 dark:bg-card/80 dark:shadow-[0_0_0_1px_rgba(182,255,53,0.06)] dark:hover:shadow-[0_0_48px_rgba(182,255,53,0.18)]"
+          className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-[0_8px_30px_rgba(5,8,6,0.06)] transition-all duration-500 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_16px_40px_rgba(142,219,32,0.14)] active:-translate-y-1 active:border-primary/35 active:shadow-[0_16px_40px_rgba(142,219,32,0.14)] dark:border-primary/15 dark:bg-card/80 dark:shadow-[0_0_0_1px_rgba(184,243,75,0.06)] dark:hover:shadow-[0_0_48px_rgba(184,243,75,0.18)] dark:active:shadow-[0_0_48px_rgba(184,243,75,0.18)]"
         >
           <div className="relative h-48 overflow-hidden sm:h-56 lg:h-60">
             <div className="neon-project-glow absolute inset-0 z-[1] opacity-35 dark:opacity-100" />
@@ -34,7 +34,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
               alt={localized.localizedTitle}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover transition-transform duration-700 group-hover:scale-105 group-active:scale-105"
               priority={project.featured}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent dark:from-black/70 dark:via-black/20 dark:to-transparent" />

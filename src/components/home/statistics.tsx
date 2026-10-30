@@ -14,7 +14,7 @@ export function Statistics() {
 
   return (
     <AnimatedSection variant="fadeScale" className="relative py-20 sm:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(184,243,75,0.05),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 hidden bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(184,243,75,0.05),transparent_70%)] dark:block" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={t.trust.badge}
@@ -27,14 +27,13 @@ export function Statistics() {
             return (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 24, rotateX: 12 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.08, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                style={{ perspective: 800 }}
               >
                 <TiltCard maxTilt={10} scale={1.02}>
-                  <div className="h-full rounded-2xl border border-primary/15 bg-card/55 p-6 backdrop-blur-md transition-all duration-500 hover:border-primary/35 hover:shadow-[0_0_28px_rgba(184,243,75,0.1)]">
+                  <div className="h-full rounded-2xl border border-primary/15 bg-card/55 p-6 backdrop-blur-md transition-all duration-500 hover:border-primary/35 hover:shadow-[0_0_28px_rgba(184,243,75,0.1)] active:border-primary/35 active:shadow-[0_0_28px_rgba(184,243,75,0.1)]">
                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
                       <Icon className="h-5 w-5" />
                     </div>

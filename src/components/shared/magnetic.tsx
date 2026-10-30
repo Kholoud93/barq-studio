@@ -38,6 +38,8 @@ export function Magnetic({ children, className, strength = 0.3 }: MagneticProps)
       style={{ x: springX, y: springY }}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
+      whileTap={{ scale: 0.97 }}
+      transition={{ type: "spring", stiffness: 400, damping: 22 }}
       className={cn("inline-flex", className)}
     >
       {children}

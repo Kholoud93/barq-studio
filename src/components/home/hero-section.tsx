@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GradientText } from "@/components/shared/gradient-text";
@@ -12,12 +12,12 @@ import { EnergyParticles } from "@/components/shared/energy-particles";
 import { Floating3D, Parallax } from "@/components/shared/parallax";
 import { TiltCard } from "@/components/shared/tilt-card";
 import { useApp } from "@/providers/app-provider";
+import { easeOutExpo } from "@/lib/motion";
 
 export function HeroSection() {
   const { t } = useApp();
-  const reduceMotion = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
-  const initial = reduceMotion ? false : { opacity: 0, y: 20 };
+  const initial = { opacity: 0, y: 20 };
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -28,10 +28,10 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[100svh] overflow-x-clip pt-20 sm:pt-24"
+      className="relative min-h-[100svh] overflow-hidden pt-20 sm:pt-24"
     >
       <motion.div
-        style={reduceMotion ? undefined : { y: bgY }}
+        style={{ y: bgY }}
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         <Image
@@ -48,8 +48,8 @@ export function HeroSection() {
       </motion.div>
 
       <motion.div
-        style={reduceMotion ? undefined : { y: contentY }}
-        className="relative z-[2] mx-auto grid min-h-[calc(100svh-5rem)] max-w-7xl items-center gap-10 px-4 pb-16 pt-8 sm:px-6 sm:pb-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:px-8 lg:pb-24"
+        style={{ y: contentY }}
+        className="relative z-[2] mx-auto grid max-w-7xl items-center gap-8 px-4 pb-16 pt-8 sm:gap-10 sm:px-6 sm:pb-20 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:px-8 lg:pb-24"
       >
         <div className="rtl:text-right">
           <motion.span
@@ -66,7 +66,7 @@ export function HeroSection() {
             initial={initial}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
-            className="mt-6 text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-[4.25rem] lg:leading-[0.98]"
+            className="mt-5 text-[2.35rem] font-bold leading-[1.05] tracking-tight text-foreground sm:mt-6 sm:text-6xl lg:text-[4.25rem] lg:leading-[0.98]"
           >
             <span className="block">{t.hero.line1}</span>
             <GradientText as="span" className="block">
@@ -78,7 +78,7 @@ export function HeroSection() {
             initial={initial}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+            className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg"
           >
             {t.hero.description}
           </motion.p>
@@ -87,7 +87,7 @@ export function HeroSection() {
             initial={initial}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.24 }}
-            className="mt-9 flex flex-col gap-3 sm:flex-row rtl:sm:flex-row-reverse"
+            className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row rtl:sm:flex-row-reverse"
           >
             <Magnetic className="w-full sm:w-auto">
               <Button
@@ -117,10 +117,10 @@ export function HeroSection() {
           </motion.div>
 
           <motion.div
-            initial={reduceMotion ? false : { opacity: 0 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-            className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground rtl:flex-row-reverse"
+            transition={{ duration: 0.5, delay: 0.35, ease: easeOutExpo }}
+            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground sm:mt-10 rtl:flex-row-reverse"
           >
             <span>{t.hero.trust1}</span>
             <span className="hidden h-4 w-px bg-border sm:block" />
@@ -131,17 +131,17 @@ export function HeroSection() {
         </div>
 
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.94, y: 28 }}
+          initial={{ opacity: 0, scale: 0.94, y: 28 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto hidden w-full max-w-lg pb-8 lg:block lg:max-w-none"
+          transition={{ duration: 0.8, delay: 0.2, ease: easeOutExpo }}
+          className="relative mx-auto w-full max-w-md pb-10 sm:max-w-lg lg:max-w-none lg:pb-8"
           style={{ perspective: 1400 }}
         >
-          <div className="absolute -inset-8 rounded-[2rem] bg-[radial-gradient(circle_at_50%_40%,rgba(184,243,75,0.22),transparent_65%)] blur-2xl" />
-          <Floating3D intensity={12} duration={6.5}>
-            <TiltCard maxTilt={9} scale={1.02}>
+          <div className="absolute -inset-4 rounded-[2rem] bg-[radial-gradient(circle_at_50%_40%,rgba(184,243,75,0.22),transparent_65%)] blur-2xl sm:-inset-8" />
+          <Floating3D intensity={8} duration={6.5}>
+            <TiltCard maxTilt={7} scale={1.01}>
               <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-card/80 shadow-[0_30px_80px_rgba(0,0,0,0.45)] backdrop-blur-sm">
-                <div className="flex items-center gap-1.5 border-b border-border bg-secondary/70 px-4 py-3">
+                <div className="flex items-center gap-1.5 border-b border-border bg-secondary/70 px-3 py-2.5 sm:px-4 sm:py-3">
                   <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                   <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                   <span className="h-2.5 w-2.5 rounded-full bg-primary/80" />
@@ -152,20 +152,21 @@ export function HeroSection() {
                     src="/projects/crm-system.jpg"
                     alt="BARQ STUDIO product dashboard preview"
                     fill
-                    sizes="520px"
+                    sizes="(max-width: 1024px) 90vw, 520px"
                     className="object-cover"
+                    priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-background/35 via-transparent to-primary/10" />
                 </div>
               </div>
-              <Parallax offset={16} className="absolute -bottom-6 end-4 w-[34%]">
-                <div className="overflow-hidden rounded-[1.35rem] border border-primary/30 bg-card shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <Parallax offset={10} className="absolute -bottom-5 end-3 w-[30%] sm:-bottom-6 sm:end-4 sm:w-[34%]">
+                <div className="overflow-hidden rounded-[1.1rem] border border-primary/30 bg-card shadow-[0_20px_50px_rgba(0,0,0,0.5)] sm:rounded-[1.35rem]">
                   <div className="relative aspect-[9/16]">
                     <Image
                       src="/projects/healthcare-management.jpg"
                       alt="BARQ STUDIO mobile app preview"
                       fill
-                      sizes="180px"
+                      sizes="(max-width: 1024px) 28vw, 180px"
                       className="object-cover"
                     />
                   </div>

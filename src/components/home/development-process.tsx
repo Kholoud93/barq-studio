@@ -16,21 +16,21 @@ export function DevelopmentProcess() {
   const { t } = useApp();
 
   return (
-    <AnimatedSection variant="blur" className="relative overflow-x-clip py-20 sm:py-28 lg:py-32">
-      <div className="pointer-events-none absolute inset-0">
-        <Parallax offset={60} scale={1.08} className="absolute inset-[-8%]">
+    <AnimatedSection variant="blur" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
+      <div className="pointer-events-none absolute inset-0 bg-background dark:bg-transparent">
+        <Parallax offset={40} scale={1.04} className="absolute inset-0 hidden dark:block">
           <div className="relative h-full w-full">
             <Image
               src="/scenes/cta-astronaut-portal.jpg"
               alt=""
               fill
               sizes="100vw"
-              className="object-cover object-[center_70%] opacity-80 dark:opacity-40"
+              className="object-cover object-[center_70%] opacity-40"
             />
           </div>
         </Parallax>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/35 to-background/75 dark:from-background/55 dark:via-background/70 dark:to-background" />
-        <EnergyParticles className="opacity-70" />
+        <div className="absolute inset-0 hidden bg-gradient-to-b from-background/55 via-background/70 to-background dark:block" />
+        <EnergyParticles className="hidden opacity-70 dark:block" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

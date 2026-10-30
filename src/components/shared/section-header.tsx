@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { earlyViewport, easeOutExpo } from "@/lib/motion";
 
 interface SectionHeaderProps {
   badge?: string;
@@ -18,14 +19,12 @@ export function SectionHeader({
   align = "center",
   className,
 }: SectionHeaderProps) {
-  const reduceMotion = useReducedMotion();
-
   return (
     <motion.div
-      initial={reduceMotion ? false : { opacity: 0, y: 28, filter: "blur(8px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={earlyViewport}
+      transition={{ duration: 0.65, ease: easeOutExpo }}
       className={cn(
         "mb-12 max-w-3xl rtl:text-right",
         align === "center" && "mx-auto text-center rtl:text-center",
@@ -34,10 +33,10 @@ export function SectionHeader({
     >
       {badge && (
         <motion.span
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.4 }}
+          viewport={earlyViewport}
+          transition={{ delay: 0.08, duration: 0.4, ease: easeOutExpo }}
           className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary"
         >
           {badge}
@@ -48,10 +47,10 @@ export function SectionHeader({
       </h2>
       {description && (
         <motion.p
-          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.15, duration: 0.5 }}
+          viewport={earlyViewport}
+          transition={{ delay: 0.12, duration: 0.5, ease: easeOutExpo }}
           className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
           {description}

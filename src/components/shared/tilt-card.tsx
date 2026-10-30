@@ -5,7 +5,6 @@ import {
   motion,
   useMotionTemplate,
   useMotionValue,
-  useReducedMotion,
   useSpring,
   useTransform,
 } from "framer-motion";
@@ -27,8 +26,7 @@ export function TiltCard({
   scale = 1.03,
 }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [hovering, setHovering] = useState(false);
-  const reduceMotion = useReducedMotion();
+  const [active, setActive] = useState(false);
 
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
@@ -40,45 +38,54 @@ export function TiltCard({
   const glareY = useSpring(useTransform(rawY, [-0.5, 0.5], [0, 100]), springConfig);
   const glareBg = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(184,243,75,0.28), transparent 55%)`;
 
-  function onMove(e: React.MouseEvent) {
-    if (reduceMotion) return;
+  function updateFromPoint(clientX: number, clientY: number) {
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    const px = (clientX - rect.left) / rect.width - 0.5;
+    const py = (clientY - rect.top) / rect.height - 0.5;
     rawX.set(px);
     rawY.set(py);
   }
 
-  function onEnter() {
-    setHovering(true);
-  }
-
-  function onLeave() {
-    setHovering(false);
+  function reset() {
+    setActive(false);
     rawX.set(0);
     rawY.set(0);
-  }
-
-  if (reduceMotion) {
-    return <div className={cn("relative h-full", className)}>{children}</div>;
   }
 
   return (
     <motion.div
       ref={ref}
-      onMouseMove={onMove}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
+      onMouseMove={(e) => {
+        setActive(true);
+        updateFromPoint(e.clientX, e.clientY);
+      }}
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={reset}
+      onTouchStart={() => setActive(true)}
+      onTouchEnd={reset}
+      onTouchCancel={reset}
       style={{
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
         transformPerspective: 1100,
       }}
-      animate={{ scale: hovering ? scale : 1 }}
-      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      whileTap={{ scale: scale }}
+      animate={
+        active
+          ? { scale, y: 0 }
+          : { scale: 1, y: [0, -6, 0] }
+      }
+      transition={
+        active
+          ? { duration: 0.28, ease: [0.22, 1, 0.36, 1] }
+          : {
+              y: { duration: 4.2, repeat: Infinity, ease: "easeInOut" },
+              scale: { duration: 0.28 },
+            }
+      }
       className={cn("relative h-full will-change-transform", className)}
     >
       <div
@@ -90,7 +97,7 @@ export function TiltCard({
       {glare && (
         <motion.div
           aria-hidden
-          style={{ background: glareBg, opacity: hovering ? 1 : 0 }}
+          style={{ background: glareBg, opacity: active ? 1 : 0.35 }}
           className="pointer-events-none absolute inset-0 rounded-[inherit] transition-opacity duration-300"
         />
       )}
