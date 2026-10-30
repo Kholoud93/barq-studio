@@ -14,15 +14,16 @@ import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
   description:
-    "Barq Studio (Barq / برق ستوديو) — premium software agency in Alexandria, Egypt. Web development, mobile apps, backend systems, and UI/UX design for enterprises.",
+    "برق ستوديو (Barq Studio) — وكالة برمجيات في الإسكندرية. تطوير مواقع ويب، تطبيقات جوال، أنظمة خلفية، وتصميم UI/UX للشركات في مصر والشرق الأوسط.",
   path: "/",
   keywords: [
+    "برق",
+    "برق ستوديو",
     "Barq Studio",
     "Barq",
-    "برق ستوديو",
-    "software agency Egypt",
-    "web development Alexandria",
-    "mobile app development Egypt",
+    "شركة برمجيات مصر",
+    "تطوير مواقع الإسكندرية",
+    "تطوير تطبيقات الجوال مصر",
   ],
 });
 

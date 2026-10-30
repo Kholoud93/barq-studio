@@ -54,6 +54,9 @@ export const services: Service[] = [
       "Next.js agency",
       "تطوير واجهات أمامية",
       "تطوير React",
+      "تطوير مواقع Next.js مصر",
+      "برمجة واجهات ويب",
+      "برق ستوديو تطوير ويب",
     ],
   },
   {
@@ -93,6 +96,9 @@ export const services: Service[] = [
       "Node.js backend",
       "تطوير خلفية",
       "تطوير API",
+      "برمجة سيرفرات",
+      "أنظمة CRM مصر",
+      "برق ستوديو Backend",
     ],
   },
   {
@@ -132,6 +138,9 @@ export const services: Service[] = [
       "iOS Android development Egypt",
       "تطوير تطبيقات الجوال",
       "تطوير تطبيقات موبايل",
+      "شركة تطوير تطبيقات مصر",
+      "برمجة تطبيقات Android iOS",
+      "برق ستوديو تطبيقات",
     ],
   },
   {
@@ -171,6 +180,9 @@ export const services: Service[] = [
       "design system",
       "تصميم واجهات",
       "تصميم تجربة مستخدم",
+      "تصميم UI UX مصر",
+      "شركة تصميم واجهات",
+      "برق ستوديو تصميم",
     ],
   },
 ];

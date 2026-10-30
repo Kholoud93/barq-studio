@@ -1,7 +1,7 @@
 {
-  "name": "Barq Studio | برق ستوديو",
-  "short_name": "Barq",
-  "description": "Barq Studio (برق ستوديو) — software agency for web, mobile, backend, and UI/UX design.",
+  "name": "برق ستوديو | Barq Studio",
+  "short_name": "برق | Barq",
+  "description": "برق ستوديو (Barq Studio) — وكالة برمجيات لتطوير المواقع وتطبيقات الجوال والخلفية وتصميم UI/UX في مصر.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0B0A08",

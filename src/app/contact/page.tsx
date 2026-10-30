@@ -2,13 +2,14 @@ import { ContactContent } from "@/components/pages/contact-content";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Contact Barq Studio",
+  title: "تواصل مع برق ستوديو | Contact Barq Studio",
   description:
-    "Contact Barq Studio to start your web, mobile, or UI/UX project. Reach us by email, phone, or WhatsApp in Alexandria, Egypt.",
+    "تواصل مع برق ستوديو لبدء مشروع ويب أو جوال أو تصميم UI/UX. راسلنا عبر البريد أو الهاتف أو واتساب من الإسكندرية، مصر.",
   path: "/contact",
   keywords: [
+    "تواصل برق ستوديو",
+    "رقم برق ستوديو",
     "contact Barq Studio",
-    "تواصل Barq Studio",
     "hire software agency Egypt",
   ],
 });

@@ -41,8 +41,14 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 1.3 }}
             className="hero-brand font-bold"
           >
-            <span className="text-foreground">BARQ </span>
-            <GradientText as="span">STUDIO</GradientText>
+            <span className="ltr:hidden">
+              <span className="text-foreground">برق </span>
+              <GradientText as="span">ستوديو</GradientText>
+            </span>
+            <span className="rtl:hidden">
+              <span className="text-foreground">BARQ </span>
+              <GradientText as="span">STUDIO</GradientText>
+            </span>
           </motion.p>
 
           <motion.h1

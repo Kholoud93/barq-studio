@@ -2,11 +2,11 @@ import { AboutContent } from "@/components/pages/about-content";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "About Barq Studio | برق ستوديو",
+  title: "عن برق ستوديو | About Barq Studio",
   description:
-    "About Barq Studio (Barq / برق ستوديو): a premium software agency from Alexandria, Egypt delivering enterprise-grade web, mobile, and design solutions.",
+    "تعرف على برق ستوديو (Barq Studio): وكالة برمجيات من الإسكندرية، مصر تقدم حلول ويب وجوال وتصميم بمستوى مؤسسي للشركات الطموحة.",
   path: "/about",
-  keywords: ["about Barq Studio", "عن برق ستوديو", "Barq company"],
+  keywords: ["عن برق ستوديو", "عن برق", "about Barq Studio", "شركة برق ستوديو"],
 });
 
 export default function AboutPage() {

@@ -12,11 +12,12 @@ const siteUrl =
 export const siteConfig = {
   name: "Barq Studio",
   shortName: "Barq",
+  nameAr: "برق ستوديو",
   tagline: "سرعة التنفيذ .. قوة الأثر",
   description:
-    "Barq Studio (برق ستوديو) is a premium software agency in Egypt delivering enterprise web development, mobile apps, backend systems, and UI/UX design for ambitious businesses.",
-  descriptionAr:
-    "برق ستوديو Barq Studio وكالة برمجيات متميزة في مصر تقدم تطوير مواقع ويب وتطبيقات جوال وأنظمة خلفية وتصميم UI/UX للشركات الطموحة.",
+    "برق ستوديو (Barq Studio) وكالة برمجيات في الإسكندرية، مصر — تطوير مواقع ويب، تطبيقات جوال، أنظمة خلفية، وتصميم UI/UX للشركات والمؤسسات.",
+  descriptionEn:
+    "Barq Studio (برق ستوديو) is a premium software agency in Alexandria, Egypt delivering enterprise web development, mobile apps, backend systems, and UI/UX design.",
   url: siteUrl,
   email: "kholouudaiman93@gmail.com",
   phone: "+20 12 00715693",
@@ -45,10 +46,10 @@ export function createMetadata({
   noIndex?: boolean;
 } = {}): Metadata {
   const pageTitle = title
-    ? title.includes(siteConfig.name)
+    ? title.includes(siteConfig.name) || title.includes(siteConfig.nameAr)
       ? title
-      : `${title} | ${siteConfig.name}`
-    : `${siteConfig.name} | Barq — Web, Mobile & UI/UX Agency`;
+      : `${title} | ${siteConfig.nameAr} | ${siteConfig.name}`
+    : `${siteConfig.nameAr} | ${siteConfig.name} — تطوير ويب وتطبيقات وتصميم UI/UX`;
   const pageDescription = description || siteConfig.description;
   const canonical = `${siteConfig.url}${path}`;
   const ogImage = image || "/og-image.svg";
@@ -57,10 +58,10 @@ export function createMetadata({
   return {
     title: {
       default: pageTitle,
-      template: `%s | ${siteConfig.name}`,
+      template: `%s | ${siteConfig.nameAr} | ${siteConfig.name}`,
     },
     description: pageDescription,
-    applicationName: siteConfig.name,
+    applicationName: `${siteConfig.name} | ${siteConfig.nameAr}`,
     authors: [{ name: siteConfig.name, url: siteConfig.url }],
     creator: siteConfig.name,
     publisher: siteConfig.name,
@@ -78,7 +79,7 @@ export function createMetadata({
       title: pageTitle,
       description: pageDescription,
       url: canonical,
-      siteName: `${siteConfig.name} | Barq`,
+      siteName: `${siteConfig.nameAr} | ${siteConfig.name}`,
       type: "website",
       locale: "ar_EG",
       alternateLocale: ["en_US"],
@@ -87,7 +88,7 @@ export function createMetadata({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${siteConfig.name} — Digital Solutions Agency`,
+          alt: `${siteConfig.nameAr} | ${siteConfig.name} — وكالة حلول رقمية`,
         },
       ],
     },
@@ -114,6 +115,8 @@ export function createMetadata({
     other: {
       "geo.region": "EG-ALX",
       "geo.placename": "Alexandria",
+      "geo.position": "31.2001;29.9187",
+      ICBM: "31.2001, 29.9187",
     },
   };
 }

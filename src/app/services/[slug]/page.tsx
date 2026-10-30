@@ -18,10 +18,16 @@ export async function generateMetadata({ params }: ServicePageProps) {
   if (!service) return {};
 
   return createMetadata({
-    title: service.seoTitle,
-    description: `${service.seoDescription} ${service.seoDescriptionAr}`,
+    title: `${service.seoTitleAr} | ${service.seoTitle}`,
+    description: `${service.seoDescriptionAr} ${service.seoDescription}`,
     path: `/services/${service.slug}`,
-    keywords: service.keywords,
+    keywords: [
+      ...service.keywords,
+      "برق ستوديو",
+      "Barq Studio",
+      service.titleAr,
+      service.title,
+    ],
   });
 }
 
@@ -39,15 +45,17 @@ export default async function ServicePage({ params }: ServicePageProps) {
     <>
       <ServiceJsonLd
         name={service.title}
+        nameAr={service.titleAr}
         description={service.description}
+        descriptionAr={service.descriptionAr}
         url={url}
-        serviceType={service.title}
+        serviceType={service.titleAr}
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: siteConfig.url },
-          { name: "Services", url: `${siteConfig.url}/services` },
-          { name: service.title, url },
+          { name: "الرئيسية", url: siteConfig.url },
+          { name: "الخدمات", url: `${siteConfig.url}/services` },
+          { name: service.titleAr, url },
         ]}
       />
       <ServiceDetailContent service={service} />

@@ -8,17 +8,22 @@ export function OrganizationJsonLd() {
     "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
+    legalName: siteConfig.name,
     alternateName: [
       "Barq",
       "Barq Studio Digital Solutions",
       "برق ستوديو",
       "برق",
+      "شركة برق ستوديو",
+      "وكالة برق ستوديو",
+      siteConfig.nameAr,
     ],
     description: siteConfig.description,
     url: siteConfig.url,
     logo: {
       "@type": "ImageObject",
       url: `${siteConfig.url}/logo.svg`,
+      caption: `${siteConfig.nameAr} | ${siteConfig.name}`,
     },
     image: `${siteConfig.url}/og-image.svg`,
     email: siteConfig.email,
@@ -29,9 +34,15 @@ export function OrganizationJsonLd() {
       addressRegion: "Alexandria",
       addressCountry: "EG",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 31.2001,
+      longitude: 29.9187,
+    },
     areaServed: [
       { "@type": "Country", name: "Egypt" },
       { "@type": "Country", name: "Saudi Arabia" },
+      { "@type": "AdministrativeArea", name: "Alexandria" },
       { "@type": "Place", name: "Middle East" },
       { "@type": "Place", name: "Worldwide" },
     ],
@@ -42,6 +53,10 @@ export function OrganizationJsonLd() {
     ],
     slogan: siteConfig.tagline,
     priceRange: "$$",
+    foundingLocation: {
+      "@type": "Place",
+      name: "Alexandria, Egypt",
+    },
     knowsAbout: [
       "Web Development",
       "Frontend Development",
@@ -51,23 +66,30 @@ export function OrganizationJsonLd() {
       "Enterprise Software",
       "SaaS Development",
       "CRM Systems",
+      "تطوير مواقع",
+      "تطوير تطبيقات الجوال",
+      "تصميم UI UX",
+      "تطوير واجهات أمامية",
+      "تطوير خلفية",
+      "برمجة مواقع مصر",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Barq Studio Services",
+      name: `خدمات ${siteConfig.nameAr}`,
+      alternateName: "Barq Studio Services",
       itemListElement: services.map((service) => ({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: service.title,
-          alternateName: service.titleAr,
-          description: service.description,
+          name: service.titleAr,
+          alternateName: service.title,
+          description: service.descriptionAr,
           url: `${siteConfig.url}/services/${service.slug}`,
           provider: {
             "@id": `${siteConfig.url}/#organization`,
           },
           areaServed: "EG",
-          serviceType: service.title,
+          serviceType: service.titleAr,
         },
       })),
     },
@@ -87,17 +109,15 @@ export function WebSiteJsonLd() {
     "@type": "WebSite",
     "@id": `${siteConfig.url}/#website`,
     name: siteConfig.name,
-    alternateName: ["Barq", "برق ستوديو"],
+    alternateName: ["Barq", "برق ستوديو", "برق", siteConfig.nameAr],
     url: siteConfig.url,
     description: siteConfig.description,
-    inLanguage: ["ar", "en"],
+    inLanguage: ["ar-EG", "en-US"],
     publisher: {
       "@id": `${siteConfig.url}/#organization`,
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${siteConfig.url}/services?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
+    about: {
+      "@id": `${siteConfig.url}/#organization`,
     },
   };
 
@@ -113,6 +133,7 @@ export function FaqJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    inLanguage: "ar-EG",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -133,28 +154,48 @@ export function FaqJsonLd() {
 
 export function ServiceJsonLd({
   name,
+  nameAr,
   description,
+  descriptionAr,
   url,
   serviceType,
 }: {
   name: string;
+  nameAr: string;
   description: string;
+  descriptionAr: string;
   url: string;
   serviceType: string;
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name,
-    description,
+    name: nameAr,
+    alternateName: name,
+    description: `${descriptionAr} ${description}`,
     url,
     serviceType,
     provider: {
       "@id": `${siteConfig.url}/#organization`,
     },
-    areaServed: {
-      "@type": "Country",
-      name: "Egypt",
+    areaServed: [
+      {
+        "@type": "Country",
+        name: "Egypt",
+      },
+      {
+        "@type": "Country",
+        name: "Saudi Arabia",
+      },
+      {
+        "@type": "Place",
+        name: "Middle East",
+      },
+    ],
+    brand: {
+      "@type": "Brand",
+      name: siteConfig.name,
+      alternateName: siteConfig.nameAr,
     },
   };
 

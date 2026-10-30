@@ -2,15 +2,17 @@ import { ServicesContent } from "@/components/pages/services-content";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Services — Web, Mobile, Backend & UI/UX",
+  title: "خدمات برق ستوديو — ويب، جوال، خلفية و UI/UX",
   description:
-    "Barq Studio services: frontend development, backend APIs, mobile apps with React Native, and UI/UX design. Enterprise digital solutions in Egypt and the Middle East.",
+    "خدمات برق ستوديو: تطوير واجهات أمامية، أنظمة خلفية وواجهات برمجة، تطبيقات جوال بـ React Native، وتصميم UI/UX للشركات في مصر والشرق الأوسط.",
   path: "/services",
   keywords: [
-    "software development services",
-    "frontend backend mobile UI UX",
+    "خدمات برق ستوديو",
     "خدمات تطوير برمجيات",
     "تطوير مواقع وتطبيقات",
+    "تطوير واجهات أمامية",
+    "تطوير تطبيقات الجوال",
+    "تصميم UI UX مصر",
   ],
 });
 
