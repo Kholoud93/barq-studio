@@ -39,10 +39,10 @@ export function PortfolioContent({ projects }: PortfolioContentProps) {
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-75 dark:opacity-100"
+          className="object-cover opacity-90 dark:opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/30 to-background/85 dark:from-background/25 dark:via-background/40 dark:to-background" />
-        <div className="neon-project-glow absolute inset-0 opacity-30 dark:opacity-45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/8 via-background/15 to-background/50 dark:from-background/25 dark:via-background/40 dark:to-background" />
+        <div className="neon-project-glow absolute inset-0 opacity-20 dark:opacity-45" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/15 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
@@ -65,9 +65,9 @@ export function PortfolioContent({ projects }: PortfolioContentProps) {
             alt=""
             fill
             sizes="100vw"
-            className="object-cover opacity-35 dark:opacity-30"
+            className="object-cover opacity-70 dark:opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background/90 dark:from-background/50 dark:via-background/70 dark:to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/18 to-background/55 dark:from-background/50 dark:via-background/70 dark:to-background" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader

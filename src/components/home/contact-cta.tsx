@@ -52,8 +52,8 @@ export function ContactCTA() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/55 via-background/40 to-background/25 dark:from-background/70 dark:via-background/50 dark:to-background/35" />
-        <div className="neon-project-glow absolute inset-0 opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/25 via-background/15 to-background/10 dark:from-background/70 dark:via-background/50 dark:to-background/35" />
+        <div className="neon-project-glow absolute inset-0 opacity-25 dark:opacity-40" />
 
         <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
           <div className="rtl:text-right">

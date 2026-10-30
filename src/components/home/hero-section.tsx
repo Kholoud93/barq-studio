@@ -23,17 +23,17 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_30%] opacity-70 dark:opacity-55"
+          className="object-cover object-[center_30%] opacity-85 dark:opacity-55"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/35 to-background/80 dark:from-background/35 dark:via-background/45 dark:to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_70%_20%,rgba(182,255,53,0.12),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_35%_at_10%_80%,rgba(142,219,32,0.06),transparent_55%)]" />
-        <div className="grid-pattern absolute inset-0 opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/8 via-background/15 to-background/50 dark:from-background/35 dark:via-background/45 dark:to-background" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_70%_20%,rgba(182,255,53,0.1),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_35%_at_10%_80%,rgba(142,219,32,0.05),transparent_55%)]" />
+        <div className="grid-pattern absolute inset-0 opacity-15 dark:opacity-20" />
       </div>
 
       <div className="relative z-[2] mx-auto grid max-w-7xl items-center gap-10 px-4 pb-20 pt-8 sm:px-6 sm:pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-8 lg:pb-28 lg:pt-12">
         <div className="relative rtl:text-right">
-          <div className="pointer-events-none absolute -inset-x-4 -inset-y-6 rounded-3xl bg-background/35 blur-2xl dark:bg-background/25 lg:-inset-x-6" />
+          <div className="pointer-events-none absolute -inset-x-4 -inset-y-6 rounded-3xl bg-background/20 blur-2xl dark:bg-background/25 lg:-inset-x-6" />
           <div className="relative">
           <motion.span
             initial={initial}

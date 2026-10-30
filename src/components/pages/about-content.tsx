@@ -44,8 +44,8 @@ export function AboutContent() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/30 to-background/85 dark:from-background/25 dark:via-background/35 dark:to-background" />
-        <div className="neon-project-glow absolute inset-0 opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/8 via-background/15 to-background/50 dark:from-background/25 dark:via-background/35 dark:to-background" />
+        <div className="neon-project-glow absolute inset-0 opacity-25 dark:opacity-40" />
         <div className="relative mx-auto flex min-h-[40vh] max-w-7xl items-end px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl rtl:text-right">
             <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/15 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
@@ -80,7 +80,7 @@ export function AboutContent() {
                   className="object-cover"
                 />
                 <div className="neon-project-glow absolute inset-0" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent dark:from-background/80" />
               </div>
               <div className="absolute inset-x-0 bottom-0 space-y-3 p-6 sm:p-8">
                 <div className="rounded-2xl border border-primary/20 bg-black/50 p-5 backdrop-blur-md">

@@ -58,7 +58,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
             />
           </motion.div>
           <div className="neon-project-glow absolute inset-0 z-[1] opacity-90" />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-t from-background via-background/55 to-black/30" />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-t from-background/70 via-background/35 to-black/20 dark:from-background dark:via-background/55 dark:to-black/30" />
           <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_70%_30%,rgba(182,255,53,0.2),transparent_50%)]" />
           <div className="case-study-orb absolute -right-20 top-24 h-72 w-72" />
           <div className="case-study-orb absolute -left-16 bottom-32 h-56 w-56 opacity-60" />

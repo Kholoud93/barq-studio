@@ -17,10 +17,10 @@ export function CompanyIntro() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-center opacity-55 dark:opacity-45"
+          className="object-cover object-center opacity-80 dark:opacity-45"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background/90 dark:from-background/50 dark:via-background/65 dark:to-background" />
-        <div className="neon-project-glow absolute inset-0 opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/18 to-background/55 dark:from-background/50 dark:via-background/65 dark:to-background" />
+        <div className="neon-project-glow absolute inset-0 opacity-20 dark:opacity-30" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -40,7 +40,7 @@ export function CompanyIntro() {
                 className="object-cover"
               />
               <div className="neon-project-glow absolute inset-0" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/45 via-transparent to-transparent dark:from-background/70" />
             </div>
           </div>
 

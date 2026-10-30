@@ -28,8 +28,8 @@ export function ServicesContent() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/30 to-background/85 dark:from-background/25 dark:via-background/40 dark:to-background" />
-        <div className="neon-project-glow absolute inset-0 opacity-35" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/8 via-background/15 to-background/50 dark:from-background/25 dark:via-background/40 dark:to-background" />
+        <div className="neon-project-glow absolute inset-0 opacity-20 dark:opacity-35" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/15 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">

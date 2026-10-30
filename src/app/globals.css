@@ -140,8 +140,8 @@ h6 {
 }
 
 .light .glass {
-  background: rgba(243, 246, 239, 0.82);
-  backdrop-filter: blur(16px);
+  background: rgba(243, 246, 239, 0.55);
+  backdrop-filter: blur(14px);
   border: 1px solid rgba(142, 219, 32, 0.22);
 }
 
@@ -152,8 +152,8 @@ h6 {
 }
 
 .light .glass-strong {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(142, 219, 32, 0.28);
 }
 
