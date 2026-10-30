@@ -8,6 +8,9 @@
   --destructive: #ef4444;
   --ring: #b6ff35;
   --radius: 0.75rem;
+  --neon-bright: #b6ff35;
+  --neon-soft: #c8f070;
+  --neon-dim: #9bc85a;
 }
 
 html.light {
@@ -22,34 +25,40 @@ html.light {
   --color-accent-foreground: #050806;
   --color-ring: #8edb20;
   --background: #f3f6ef;
-  --foreground: #050806;
+  --foreground: #3a6b08;
   --card: #ffffff;
-  --card-foreground: #050806;
+  --card-foreground: #3a6b08;
   --popover: #ffffff;
-  --popover-foreground: #050806;
+  --popover-foreground: #3a6b08;
   --secondary: #e7eedc;
-  --secondary-foreground: #1a2218;
+  --secondary-foreground: #2f5806;
   --muted: #e7eedc;
-  --muted-foreground: #5c675e;
+  --muted-foreground: #5a8a18;
   --border: rgba(142, 219, 32, 0.28);
   --input: rgba(142, 219, 32, 0.22);
   --color-border: rgba(142, 219, 32, 0.28);
   --color-input: rgba(142, 219, 32, 0.22);
+  --neon-bright: #78c800;
+  --neon-soft: #5a8a18;
+  --neon-dim: #4a7514;
 }
 
 .dark {
   --background: #050806;
-  --foreground: #ffffff;
+  --foreground: #e8ffb8;
   --card: #101813;
-  --card-foreground: #ffffff;
+  --card-foreground: #e8ffb8;
   --popover: #101813;
-  --popover-foreground: #ffffff;
+  --popover-foreground: #e8ffb8;
   --secondary: #0a100d;
-  --secondary-foreground: #e8ece4;
+  --secondary-foreground: #d4ff8a;
   --muted: #0a100d;
-  --muted-foreground: #a5ada6;
+  --muted-foreground: #9bc85a;
   --border: rgba(182, 255, 53, 0.12);
   --input: rgba(182, 255, 53, 0.16);
+  --neon-bright: #b6ff35;
+  --neon-soft: #c8f070;
+  --neon-dim: #9bc85a;
 }
 
 @theme inline {
@@ -86,23 +95,48 @@ html.light {
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), var(--font-noto-arabic), system-ui, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 html[dir="rtl"] body {
   font-family: var(--font-noto-arabic), var(--font-geist-sans), system-ui, sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--neon-bright);
+}
+
 ::selection {
   background: rgba(182, 255, 53, 0.35);
   color: #050806;
+}
+
+.text-white {
+  color: var(--neon-soft) !important;
+}
+
+.text-white\/75,
+.text-white\/70,
+.text-white\/80,
+.text-white\/85 {
+  color: color-mix(in srgb, var(--neon-dim) 85%, transparent) !important;
+}
+
+.text-white\/55,
+.text-white\/45 {
+  color: color-mix(in srgb, var(--neon-dim) 65%, transparent) !important;
 }
 
 .light .glass {
@@ -137,14 +171,18 @@ html[dir="rtl"] body {
 }
 
 html.light .gradient-text {
-  background: linear-gradient(135deg, #5fa80e 0%, #78c800 50%, #8edb20 100%);
+  background: linear-gradient(135deg, #5fa80e 0%, #78c800 50%, #b6ff35 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 html.light .text-primary {
-  color: #4f8f0a;
+  color: #5fa80e;
+}
+
+.dark .text-primary {
+  color: #b6ff35;
 }
 
 .gradient-border {

@@ -13,7 +13,7 @@ export function DevelopmentProcess() {
   const { t } = useApp();
 
   return (
-    <AnimatedSection className="relative overflow-hidden py-24 sm:py-32">
+    <AnimatedSection className="relative overflow-x-clip py-20 sm:py-28 lg:py-32">
       <div className="pointer-events-none absolute inset-0">
         <Image
           src="/scenes/cta-astronaut-portal.jpg"
@@ -32,19 +32,19 @@ export function DevelopmentProcess() {
           description={t.process.description}
         />
 
-        <div className="relative overflow-x-auto overscroll-x-contain pb-2 lg:overflow-visible lg:pb-0">
-          <div className="process-track pointer-events-none absolute left-0 right-0 top-8 hidden h-px lg:block" />
-          <StaggerContainer className="flex w-max gap-4 lg:grid lg:w-auto lg:grid-cols-6">
+        <div className="relative -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
+          <div className="process-track pointer-events-none absolute left-0 right-0 top-8 hidden h-px xl:block" />
+          <StaggerContainer className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
             {t.process.steps.map((step, index) => {
               const Icon = icons[index] || Search;
               return (
-                <StaggerItem key={step.title} className="min-w-[240px] shrink-0 lg:min-w-0">
+                <StaggerItem key={step.title} className="min-w-0">
                   <div className="relative h-full rounded-2xl border border-primary/15 bg-card/60 p-5 backdrop-blur-sm transition-all duration-500 hover:border-primary/35 hover:shadow-[0_0_32px_rgba(182,255,53,0.12)]">
                     <div className="mb-5 flex items-center gap-3 rtl:flex-row-reverse">
-                      <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-background text-sm font-bold text-primary shadow-[0_0_18px_rgba(182,255,53,0.25)]">
+                      <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-background text-sm font-bold text-primary shadow-[0_0_18px_rgba(182,255,53,0.25)]">
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                         <Icon className="h-5 w-5" />
                       </div>
                     </div>

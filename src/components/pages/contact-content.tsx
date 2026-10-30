@@ -55,12 +55,12 @@ export function ContactContent() {
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{item.label}</p>
                       {"href" in item && item.href ? (
-                        <a href={item.href} className="mt-1 text-sm font-medium text-foreground hover:text-primary transition-colors">{item.value}</a>
+                        <a href={item.href} className="mt-1 break-words text-sm font-medium text-foreground transition-colors hover:text-primary">{item.value}</a>
                       ) : (
-                        <p className="mt-1 text-sm font-medium text-foreground">{item.value}</p>
+                        <p className="mt-1 break-words text-sm font-medium text-foreground">{item.value}</p>
                       )}
                     </div>
                   </div>
@@ -72,7 +72,7 @@ export function ContactContent() {
             </div>
 
             <div className="lg:col-span-3">
-              <div className="rounded-2xl border border-border bg-card/50 p-8 sm:p-10">
+              <div className="rounded-2xl border border-border bg-card/50 p-5 sm:p-8 lg:p-10">
                 <h2 className="mb-6 text-xl font-semibold">{t.contact.sendMessage}</h2>
                 <ContactForm />
               </div>

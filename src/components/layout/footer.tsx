@@ -104,21 +104,21 @@ export function Footer() {
               {t.footer.contactTitle}
             </h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2 rtl:flex-row-reverse">
-                <Mail className="h-4 w-4 text-primary" />
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-primary">
+              <li className="flex items-start gap-2 rtl:flex-row-reverse">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <a href={`mailto:${siteConfig.email}`} className="min-w-0 break-all hover:text-primary">
                   {siteConfig.email}
                 </a>
               </li>
-              <li className="flex items-center gap-2 rtl:flex-row-reverse">
-                <Phone className="h-4 w-4 text-primary" />
-                <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="hover:text-primary">
+              <li className="flex items-start gap-2 rtl:flex-row-reverse">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="min-w-0 break-words hover:text-primary">
                   {siteConfig.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-2 rtl:flex-row-reverse">
-                <MapPin className="h-4 w-4 text-primary" />
-                <span>{siteConfig.address}</span>
+              <li className="flex items-start gap-2 rtl:flex-row-reverse">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span className="min-w-0 break-words">{siteConfig.address}</span>
               </li>
             </ul>
             <ul className="mt-6 space-y-3">

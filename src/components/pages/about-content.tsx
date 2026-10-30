@@ -99,7 +99,7 @@ export function AboutContent() {
 
       <AnimatedSection className="bg-secondary/40 py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
               return (

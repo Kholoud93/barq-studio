@@ -16,7 +16,7 @@ export function FeaturedProjects() {
   const featured = getFeaturedProjects().slice(0, 3);
 
   return (
-    <AnimatedSection className="relative overflow-hidden py-24 sm:py-32">
+    <AnimatedSection className="relative overflow-x-clip py-20 sm:py-28 lg:py-32">
       <div className="pointer-events-none absolute inset-0">
         <Image
           src="/scenes/section-rocky-glow.jpg"

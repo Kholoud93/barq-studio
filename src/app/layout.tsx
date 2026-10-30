@@ -67,7 +67,7 @@ export default function RootLayout({
           <ScrollProgress />
           <LoadingScreen />
           <Navbar />
-          <main className="flex-1">
+          <main className="flex-1 pb-16 sm:pb-0">
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />

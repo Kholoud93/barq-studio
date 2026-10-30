@@ -44,19 +44,19 @@ export function CompanyIntro() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-primary/15 bg-card/55 p-8 backdrop-blur-md sm:p-12">
+          <div className="rounded-2xl border border-primary/15 bg-card/55 p-5 backdrop-blur-md sm:p-8 lg:p-12">
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
               {t.intro.p1}
             </p>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
               {t.intro.p2}
             </p>
-            <div className="mt-8 flex items-center gap-4 rtl:flex-row-reverse">
-              <div className="h-px flex-1 bg-gradient-to-r from-primary/50 to-transparent rtl:bg-gradient-to-l" />
-              <GradientText className="text-sm font-medium uppercase tracking-wider">
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-4 rtl:sm:flex-row-reverse">
+              <div className="hidden h-px flex-1 bg-gradient-to-r from-primary/50 to-transparent sm:block rtl:bg-gradient-to-l" />
+              <GradientText className="max-w-full text-center text-sm font-medium uppercase tracking-wider text-balance">
                 {t.intro.tagline}
               </GradientText>
-              <div className="h-px flex-1 bg-gradient-to-l from-primary/50 to-transparent rtl:bg-gradient-to-r" />
+              <div className="hidden h-px flex-1 bg-gradient-to-l from-primary/50 to-transparent sm:block rtl:bg-gradient-to-r" />
             </div>
           </div>
         </div>

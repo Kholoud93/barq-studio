@@ -63,7 +63,7 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center rounded-xl border border-primary/20 bg-primary/5 p-12 text-center">
+      <div className="flex flex-col items-center justify-center rounded-xl border border-primary/20 bg-primary/5 p-6 text-center sm:p-12">
         <CheckCircle className="mb-4 h-12 w-12 text-primary" />
         <h3 className="text-xl font-semibold text-foreground">{f.success}</h3>
         <p className="mt-2 max-w-sm text-muted-foreground">{f.successDesc}</p>

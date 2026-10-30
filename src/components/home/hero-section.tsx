@@ -15,8 +15,8 @@ export function HeroSection() {
   const initial = reduceMotion ? false : { opacity: 0, y: 16 };
 
   return (
-    <section className="relative overflow-hidden pt-20 sm:pt-24">
-      <div className="pointer-events-none absolute inset-0">
+    <section className="relative overflow-x-clip pt-20 sm:pt-24">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <Image
           src="/scenes/section-rocky-glow.jpg"
           alt=""
@@ -31,7 +31,7 @@ export function HeroSection() {
         <div className="grid-pattern absolute inset-0 opacity-20" />
       </div>
 
-      <div className="relative z-[2] mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-8 sm:px-6 sm:pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-8 lg:pb-24 lg:pt-12">
+      <div className="relative z-[2] mx-auto grid max-w-7xl items-center gap-10 px-4 pb-20 pt-8 sm:px-6 sm:pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-8 lg:pb-28 lg:pt-12">
         <div className="relative rtl:text-right">
           <div className="pointer-events-none absolute -inset-x-4 -inset-y-6 rounded-3xl bg-background/35 blur-2xl dark:bg-background/25 lg:-inset-x-6" />
           <div className="relative">
@@ -39,7 +39,7 @@ export function HeroSection() {
             initial={initial}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="inline-flex rounded-full border border-primary/35 bg-primary/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary"
+            className="inline-flex max-w-full rounded-full border border-primary/35 bg-primary/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-primary sm:text-[11px] sm:tracking-[0.18em]"
           >
             {t.hero.label}
           </motion.span>
@@ -71,16 +71,16 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.24 }}
             className="mt-8 flex flex-col gap-3 sm:flex-row rtl:sm:flex-row-reverse"
           >
-            <Magnetic>
-              <Button asChild size="lg" className="shadow-[0_0_28px_rgba(182,255,53,0.28)]">
+            <Magnetic className="w-full sm:w-auto">
+              <Button asChild size="lg" className="w-full shadow-[0_0_28px_rgba(182,255,53,0.28)] sm:w-auto">
                 <Link href="/contact" className="rtl:flex-row-reverse">
                   {t.hero.cta1}
                   <ArrowRight className="h-4 w-4 rtl:rotate-180" />
                 </Link>
               </Button>
             </Magnetic>
-            <Magnetic strength={0.2}>
-              <Button asChild variant="outline" size="lg">
+            <Magnetic strength={0.2} className="w-full sm:w-auto">
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
                 <Link href="/portfolio">{t.hero.cta2}</Link>
               </Button>
             </Magnetic>
@@ -105,9 +105,9 @@ export function HeroSection() {
           initial={reduceMotion ? false : { opacity: 0, scale: 0.96, y: 18 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.18 }}
-          className="relative mx-auto w-full max-w-lg lg:max-w-none"
+          className="relative mx-auto w-full max-w-lg pb-10 sm:pb-12 lg:max-w-none lg:pb-8"
         >
-          <div className="absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_50%_40%,rgba(182,255,53,0.2),transparent_65%)] blur-2xl" />
+          <div className="absolute -inset-4 rounded-[2rem] bg-[radial-gradient(circle_at_50%_40%,rgba(182,255,53,0.2),transparent_65%)] blur-2xl sm:-inset-6" />
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-card shadow-[0_0_0_1px_rgba(182,255,53,0.08),0_30px_80px_rgba(0,0,0,0.45)]">
               <div className="flex items-center gap-1.5 border-b border-border bg-secondary/60 px-4 py-3">
@@ -129,7 +129,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="absolute -bottom-6 end-2 w-[38%] overflow-hidden rounded-[1.35rem] border border-primary/25 bg-card shadow-[0_20px_50px_rgba(0,0,0,0.5)] sm:-bottom-8 sm:end-4 sm:w-[34%]">
+            <div className="absolute -bottom-4 end-1 w-[42%] max-w-[140px] overflow-hidden rounded-[1.35rem] border border-primary/25 bg-card shadow-[0_20px_50px_rgba(0,0,0,0.5)] sm:-bottom-8 sm:end-4 sm:w-[34%] sm:max-w-none">
               <div className="relative aspect-[9/16]">
                 <Image
                   src="/projects/healthcare-management.jpg"

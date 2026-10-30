@@ -102,7 +102,7 @@ export function Logo({ className, showText = true, size = "md" }: LogoProps) {
     >
       <LogoMark size={image} />
       {showText && (
-        <div className="flex flex-col">
+        <div className="hidden min-[400px]:flex flex-col">
           <span className={cn("font-bold tracking-tight leading-none", text)}>
             <span className="text-foreground">BARQ </span>
             <span className="gradient-text">STUDIO</span>

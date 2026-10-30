@@ -289,7 +289,7 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
               <GradientText as="span">{t.projects.title}</GradientText>
             </h2>
           </div>
-          <StaggerContainer className="grid gap-6 sm:grid-cols-3">
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((item) => (
               <StaggerItem key={item.slug}>
                 <ProjectCard project={item} variant="card" />

@@ -104,7 +104,7 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-1/2 z-50 w-[540px] -translate-x-1/2 pt-3 rtl:left-auto rtl:right-1/2 rtl:translate-x-1/2"
+                      className="absolute top-full left-1/2 z-50 w-[min(540px,calc(100vw-2rem))] -translate-x-1/2 pt-3 rtl:left-auto rtl:right-1/2 rtl:translate-x-1/2"
                     >
                       <div className="glass-strong rounded-2xl border border-border p-3 shadow-xl shadow-black/10">
                         <div className="grid grid-cols-2 gap-2">
