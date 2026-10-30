@@ -9,10 +9,10 @@ export function OrganizationJsonLd() {
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     alternateName: [
-      "VisionHub",
-      "Vision Hub Digital Solutions",
-      "فيجن هب",
-      "فيجن هاب",
+      "Barq",
+      "Barq Studio Digital Solutions",
+      "برق ستوديو",
+      "برق",
     ],
     description: siteConfig.description,
     url: siteConfig.url,
@@ -54,7 +54,7 @@ export function OrganizationJsonLd() {
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Vision Hub Services",
+      name: "Barq Studio Services",
       itemListElement: services.map((service) => ({
         "@type": "Offer",
         itemOffered: {
@@ -87,7 +87,7 @@ export function WebSiteJsonLd() {
     "@type": "WebSite",
     "@id": `${siteConfig.url}/#website`,
     name: siteConfig.name,
-    alternateName: ["VisionHub", "فيجن هب"],
+    alternateName: ["Barq", "برق ستوديو"],
     url: siteConfig.url,
     description: siteConfig.description,
     inLanguage: ["ar", "en"],

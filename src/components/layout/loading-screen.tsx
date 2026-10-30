@@ -29,7 +29,7 @@ export function LoadingScreen() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col items-center"
           >
-            <Image src="/logo.svg" alt="Vision Hub" width={80} height={80} className="rounded-full glow-blue" priority />
+            <Image src="/logo.svg" alt="Barq Studio" width={80} height={80} className="rounded-full glow-blue" priority />
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -37,8 +37,8 @@ export function LoadingScreen() {
               className="mt-6 text-center"
             >
               <h2 className="text-xl font-bold tracking-tight">
-                <span className="text-foreground">VISION </span>
-                <span className="gradient-text">HUB</span>
+                <span className="text-foreground">BARQ </span>
+                <span className="gradient-text">STUDIO</span>
               </h2>
               <p className="mt-1 text-xs uppercase tracking-[0.3em] text-muted-foreground">
                 {t.common.loading}

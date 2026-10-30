@@ -1,14 +1,14 @@
 export const brandKeywords = [
-  "Vision Hub",
-  "VisionHub",
-  "vision hub",
-  "visionhub",
-  "فيجن هب",
-  "فيجن هاب",
-  "Vision Hub Egypt",
-  "Vision Hub Alexandria",
-  "Vision Hub software agency",
-  "Vision Hub digital agency",
+  "Barq Studio",
+  "Barq",
+  "barq studio",
+  "barqstudio",
+  "برق ستوديو",
+  "برق",
+  "Barq Studio Egypt",
+  "Barq Studio Alexandria",
+  "Barq Studio software agency",
+  "Barq Studio digital agency",
 ];
 
 export const serviceKeywords = [

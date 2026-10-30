@@ -14,12 +14,12 @@ import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
   description:
-    "Vision Hub (VisionHub / فيجن هب) — premium software agency in Alexandria, Egypt. Web development, mobile apps, backend systems, and UI/UX design for enterprises.",
+    "Barq Studio (Barq / برق ستوديو) — premium software agency in Alexandria, Egypt. Web development, mobile apps, backend systems, and UI/UX design for enterprises.",
   path: "/",
   keywords: [
-    "Vision Hub",
-    "VisionHub",
-    "فيجن هب",
+    "Barq Studio",
+    "Barq",
+    "برق ستوديو",
     "software agency Egypt",
     "web development Alexandria",
     "mobile app development Egypt",

@@ -8,11 +8,11 @@ const en = {
     startProject: "Start a Project",
   },
   hero: {
-    brand: "Vision Hub",
-    line1: "Digital products",
-    line2: "that drive growth",
+    brand: "Barq Studio",
+    line1: "Ship faster.",
+    line2: "Hit harder.",
     description:
-      "We design, build, and scale enterprise web and mobile applications for ambitious companies.",
+      "Barq Studio builds sharp web, mobile, and backend products for teams that move with urgency.",
     cta1: "Start Your Project",
     cta2: "View Our Work",
     trust1: "Trusted by 50+ enterprises",
@@ -21,12 +21,12 @@ const en = {
   },
   intro: {
     badge: "Who We Are",
-    title: "Engineering Excellence for the Digital Age",
+    title: "Engineering that moves at lightning speed",
     description:
-      "Vision Hub is a premium software agency that transforms complex business challenges into elegant, scalable digital solutions.",
-    p1: "Founded with a mission to bridge the gap between ambitious vision and technical execution, Vision Hub has grown into a trusted partner for enterprises across the Middle East and beyond. Our team of senior engineers, designers, and strategists brings decades of combined experience delivering products that matter.",
-    p2: "We don't just write code — we architect digital ecosystems that scale with your business. From initial concept through launch and beyond, every decision is guided by your goals, your users, and the standards your brand demands.",
-    tagline: "Towards a digital vision",
+      "Barq Studio is a software agency that turns complex business challenges into fast, polished digital products.",
+    p1: "Founded to close the gap between bold ideas and technical execution, Barq Studio partners with ambitious companies across the Middle East and beyond. Our engineers, designers, and product leads ship systems that perform under real pressure.",
+    p2: "We don't just write code — we build digital products ready to scale. From first concept to launch and beyond, every decision is guided by speed, clarity, and the standards your brand demands.",
+    tagline: "Speed with impact",
   },
   services: {
     badge: "What We Do",
@@ -96,7 +96,7 @@ const en = {
     },
   },
   why: {
-    badge: "Why Vision Hub",
+    badge: "Why Barq Studio",
     title: "The Partner Enterprises Trust",
     description:
       "We combine technical mastery with business acumen to deliver solutions that create lasting competitive advantage.",
@@ -179,7 +179,7 @@ const en = {
     badge: "Testimonials",
     title: "What Our Clients Say",
     description:
-      "Don't take our word for it. Hear from the leaders who trusted Vision Hub with their most critical projects.",
+      "Don't take our word for it. Hear from the leaders who trusted Barq Studio with their most critical projects.",
     items: [
       {
         id: "1",
@@ -187,7 +187,7 @@ const en = {
         role: "CEO",
         company: "Al Noor Trading Group",
         content:
-          "Vision Hub transformed our entire sales operation. The CRM they built didn't just replace our legacy systems — it gave our teams superpowers. Lead conversion is up 47% and our sales cycle has never been faster.",
+          "Barq Studio transformed our entire sales operation. The CRM they built didn't just replace our legacy systems — it gave our teams superpowers. Lead conversion is up 47% and our sales cycle has never been faster.",
         rating: 5,
       },
       {
@@ -196,7 +196,7 @@ const en = {
         role: "CTO",
         company: "MetricFlow Inc.",
         content:
-          "We needed a platform that could process millions of events in real-time without breaking a sweat. Vision Hub delivered exactly that, plus a UI that our customers actually enjoy using. Exceptional engineering quality.",
+          "We needed a platform that could process millions of events in real-time without breaking a sweat. Barq Studio delivered exactly that, plus a UI that our customers actually enjoy using. Exceptional engineering quality.",
         rating: 5,
       },
       {
@@ -205,7 +205,7 @@ const en = {
         role: "Product Director",
         company: "Nova Digital Bank",
         content:
-          "Launching a banking app is incredibly complex. Vision Hub navigated regulatory requirements, security standards, and tight deadlines with remarkable professionalism. Our app hit 250K downloads in 90 days.",
+          "Launching a banking app is incredibly complex. Barq Studio navigated regulatory requirements, security standards, and tight deadlines with remarkable professionalism. Our app hit 250K downloads in 90 days.",
         rating: 5,
       },
       {
@@ -214,7 +214,7 @@ const en = {
         role: "Operations Manager",
         company: "Gulf Shield Insurance",
         content:
-          "The analytics dashboard Vision Hub built changed how our underwriters work. Reports that took hours now generate in seconds. The ROI was visible within the first month of deployment.",
+          "The analytics dashboard Barq Studio built changed how our underwriters work. Reports that took hours now generate in seconds. The ROI was visible within the first month of deployment.",
         rating: 5,
       },
       {
@@ -223,7 +223,7 @@ const en = {
         role: "Founder",
         company: "Horizon Properties",
         content:
-          "Our old website was embarrassing. Vision Hub gave us a platform that competes with international PropTech leaders. Mobile traffic tripled and our agents finally have proper lead management tools.",
+          "Our old website was embarrassing. Barq Studio gave us a platform that competes with international PropTech leaders. Mobile traffic tripled and our agents finally have proper lead management tools.",
         rating: 5,
       },
       {
@@ -232,7 +232,7 @@ const en = {
         role: "Medical Director",
         company: "MedCare Clinics",
         content:
-          "Migrating 18 clinics from paper records to a digital system seemed impossible. Vision Hub made it seamless. Our doctors now spend their time with patients, not paperwork. Truly life-changing for our practice.",
+          "Migrating 18 clinics from paper records to a digital system seemed impossible. Barq Studio made it seamless. Our doctors now spend their time with patients, not paperwork. Truly life-changing for our practice.",
         rating: 5,
       },
     ],
@@ -241,9 +241,9 @@ const en = {
     badge: "FAQ",
     title: "Frequently Asked Questions",
     description:
-      "Everything you need to know about working with Vision Hub. Can't find your answer? Reach out directly.",
+      "Everything you need to know about working with Barq Studio. Can't find your answer? Reach out directly.",
     items: [
-      { question: "What types of projects does Vision Hub specialize in?", answer: "We specialize in enterprise web applications, mobile apps, SaaS platforms, dashboards, CRM systems, and e-commerce solutions. Our team has delivered 80+ projects across fintech, healthcare, real estate, insurance, and non-profit sectors." },
+      { question: "What types of projects does Barq Studio specialize in?", answer: "We specialize in enterprise web applications, mobile apps, SaaS platforms, dashboards, CRM systems, and e-commerce solutions. Our team has delivered 80+ projects across fintech, healthcare, real estate, insurance, and non-profit sectors." },
       { question: "How long does a typical project take?", answer: "Project timelines vary based on scope and complexity. A focused MVP typically takes 8–12 weeks, while enterprise platforms range from 4–8 months. We provide detailed timelines during our discovery phase and maintain transparent milestone tracking throughout." },
       { question: "What is your development process?", answer: "We follow a structured six-phase process: Discovery, Strategy, Design, Development, Testing, and Launch. Each phase includes client checkpoints, deliverable reviews, and iterative feedback loops to ensure alignment at every stage." },
       { question: "Do you provide ongoing support after launch?", answer: "Yes. We offer flexible maintenance and support packages including bug fixes, security updates, performance monitoring, feature enhancements, and dedicated technical support. Most clients continue with us long-term for continuous improvement." },
@@ -268,12 +268,12 @@ const en = {
     success: "WhatsApp opened — send the message to complete your request.",
   },
   about: {
-    badge: "About Vision Hub",
-    title: "We Are Vision Hub",
+    badge: "About Barq Studio",
+    title: "We Are Barq Studio",
     description:
       "A premium software agency on a mission to transform how businesses build, launch, and scale digital products.",
     story: "Our Story",
-    storyP1: "Vision Hub was founded in 2019 with a simple belief: every business deserves access to world-class software engineering, regardless of size or industry. What started as a small team of passionate developers has evolved into a full-service digital agency trusted by enterprises across fintech, healthcare, real estate, and beyond.",
+    storyP1: "Barq Studio was founded in 2019 with a simple belief: every business deserves access to world-class software engineering, regardless of size or industry. What started as a small team of passionate developers has evolved into a full-service digital agency trusted by enterprises across fintech, healthcare, real estate, and beyond.",
     storyP2: "Today, we operate from Alexandria, Egypt with a distributed team of senior talent spanning engineering, design, and product strategy. We've delivered 80+ projects, maintained a 98% client satisfaction rate, and built lasting partnerships with companies that return to us project after project.",
     mission: "Our Mission",
     missionText: "To empower businesses with enterprise-grade digital solutions that drive measurable growth, operational efficiency, and competitive advantage in an increasingly digital world.",
@@ -292,7 +292,7 @@ const en = {
     teamTitle: "Meet Our Team",
     teamDescription: "Senior professionals with decades of combined experience building products for global enterprises.",
     ready: "Ready to Work Together?",
-    readyDesc: "Let's discuss how Vision Hub can help transform your business with world-class digital solutions.",
+    readyDesc: "Let's discuss how Barq Studio can help transform your business with world-class digital solutions.",
   },
   contact: {
     badge: "Contact Us",
@@ -325,13 +325,13 @@ const en = {
       send: "Send on WhatsApp",
       sending: "Opening WhatsApp...",
       success: "WhatsApp Opened",
-      successDesc: "Your message is ready in WhatsApp. Tap send to deliver it to Vision Hub.",
+      successDesc: "Your message is ready in WhatsApp. Tap send to deliver it to Barq Studio.",
       sendAnother: "Send Another Message",
     },
   },
   footer: {
     description:
-      "Vision Hub is a premium software agency delivering enterprise-grade web, mobile, and digital solutions for ambitious businesses worldwide.",
+      "Barq Studio is a premium software agency delivering enterprise-grade web, mobile, and digital solutions for ambitious businesses worldwide.",
     company: "Company",
     aboutUs: "About Us",
     servicesTitle: "Services",

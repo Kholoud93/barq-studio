@@ -29,9 +29,9 @@ export const services: Service[] = [
     seoTitle: "Frontend Development Services | React Next.js Vue",
     seoTitleAr: "خدمات تطوير الواجهات الأمامية | React Next.js Vue",
     seoDescription:
-      "Vision Hub frontend development services with React, Next.js, Vue, and TypeScript. Fast, accessible, SEO-friendly enterprise interfaces.",
+      "Barq Studio frontend development services with React, Next.js, Vue, and TypeScript. Fast, accessible, SEO-friendly enterprise interfaces.",
     seoDescriptionAr:
-      "خدمات تطوير الواجهات الأمامية من Vision Hub باستخدام React و Next.js و Vue و TypeScript. واجهات مؤسسية سريعة ومتوافقة مع السيو.",
+      "خدمات تطوير الواجهات الأمامية من Barq Studio باستخدام React و Next.js و Vue و TypeScript. واجهات مؤسسية سريعة ومتوافقة مع السيو.",
     icon: "Monitor",
     technologies: ["React", "Next.js", "Vue", "Nuxt", "TypeScript"],
     features: [
@@ -68,9 +68,9 @@ export const services: Service[] = [
     seoTitle: "Backend Development & API Engineering",
     seoTitleAr: "تطوير الخلفية وهندسة واجهات البرمجة",
     seoDescription:
-      "Secure backend development by Vision Hub: REST/GraphQL APIs, authentication, databases, admin systems, and CRM automation.",
+      "Secure backend development by Barq Studio: REST/GraphQL APIs, authentication, databases, admin systems, and CRM automation.",
     seoDescriptionAr:
-      "تطوير خلفية آمن من Vision Hub: واجهات REST/GraphQL والمصادقة وقواعد البيانات ولوحات الإدارة وأتمتة CRM.",
+      "تطوير خلفية آمن من Barq Studio: واجهات REST/GraphQL والمصادقة وقواعد البيانات ولوحات الإدارة وأتمتة CRM.",
     icon: "Server",
     technologies: ["APIs", "Authentication", "Databases", "Admin Systems", "CRM Systems"],
     features: [
@@ -107,9 +107,9 @@ export const services: Service[] = [
     seoTitle: "Mobile App Development | React Native Expo",
     seoTitleAr: "تطوير تطبيقات الجوال | React Native Expo",
     seoDescription:
-      "Build iOS and Android apps with Vision Hub using React Native and Expo. Store-ready mobile products with strong performance.",
+      "Build iOS and Android apps with Barq Studio using React Native and Expo. Store-ready mobile products with strong performance.",
     seoDescriptionAr:
-      "ابنِ تطبيقات iOS و Android مع Vision Hub باستخدام React Native و Expo. منتجات جوال جاهزة للمتاجر بأداء قوي.",
+      "ابنِ تطبيقات iOS و Android مع Barq Studio باستخدام React Native و Expo. منتجات جوال جاهزة للمتاجر بأداء قوي.",
     icon: "Smartphone",
     technologies: ["React Native", "Expo", "Android", "iOS"],
     features: [
@@ -146,9 +146,9 @@ export const services: Service[] = [
     seoTitle: "UI UX Design Services & Design Systems",
     seoTitleAr: "خدمات تصميم UI UX وأنظمة التصميم",
     seoDescription:
-      "UI/UX design by Vision Hub: research, wireframes, prototypes, and scalable design systems for web and mobile products.",
+      "UI/UX design by Barq Studio: research, wireframes, prototypes, and scalable design systems for web and mobile products.",
     seoDescriptionAr:
-      "تصميم UI/UX من Vision Hub: بحث مستخدمين ومخططات ونماذج أولية وأنظمة تصميم قابلة للتوسع لمنتجات الويب والجوال.",
+      "تصميم UI/UX من Barq Studio: بحث مستخدمين ومخططات ونماذج أولية وأنظمة تصميم قابلة للتوسع لمنتجات الويب والجوال.",
     icon: "Palette",
     technologies: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
     features: [

@@ -18,7 +18,7 @@ export function buildQuickLeadMessage({
 }) {
   if (locale === "ar") {
     return [
-      "مرحباً Vision Hub 👋",
+      "مرحباً Barq Studio 👋",
       "أريد طلب مكالمة بخصوص مشروع.",
       "",
       `الاسم: ${name}`,
@@ -28,7 +28,7 @@ export function buildQuickLeadMessage({
   }
 
   return [
-    "Hello Vision Hub 👋",
+    "Hello Barq Studio 👋",
     "I would like to request a call about a project.",
     "",
     `Name: ${name}`,
@@ -56,7 +56,7 @@ export function buildContactMessage({
 }) {
   if (locale === "ar") {
     return [
-      "مرحباً Vision Hub 👋",
+      "مرحباً Barq Studio 👋",
       "رسالة جديدة من نموذج التواصل:",
       "",
       `الاسم: ${name}`,
@@ -71,7 +71,7 @@ export function buildContactMessage({
   }
 
   return [
-    "Hello Vision Hub 👋",
+    "Hello Barq Studio 👋",
     "New message from the contact form:",
     "",
     `Name: ${name}`,

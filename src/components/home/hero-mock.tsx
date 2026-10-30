@@ -56,8 +56,8 @@ export function HeroMock() {
               >
                 <defs>
                   <linearGradient id="heroChart" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="rgba(0,112,243,0.35)" />
-                    <stop offset="100%" stopColor="rgba(0,112,243,0)" />
+                    <stop offset="0%" stopColor="rgba(229,160,13,0.4)" />
+                    <stop offset="100%" stopColor="rgba(229,160,13,0)" />
                   </linearGradient>
                 </defs>
                 <path
@@ -67,7 +67,7 @@ export function HeroMock() {
                 <path
                   d="M0 90 C40 80, 70 40, 110 55 C150 70, 180 20, 220 35 C260 50, 300 15, 340 30 C370 40, 390 25, 400 20"
                   fill="none"
-                  stroke="#0070f3"
+                  stroke="#E5A00D"
                   strokeWidth="2.5"
                 />
               </svg>

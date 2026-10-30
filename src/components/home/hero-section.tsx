@@ -25,8 +25,9 @@ export function HeroSection() {
         sizes="100vw"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-background/25 dark:bg-background/40" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+      <div className="absolute inset-0 bg-background/20 dark:bg-background/45" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-transparent to-background" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10" />
       <div className="hero-glow absolute inset-0" />
       <div className="absolute inset-0 grid-pattern opacity-20" />
       <FloatingOrbs />
@@ -40,8 +41,8 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 1.3 }}
             className="hero-brand font-bold"
           >
-            <span className="text-foreground">VISION </span>
-            <GradientText as="span">HUB</GradientText>
+            <span className="text-foreground">BARQ </span>
+            <GradientText as="span">STUDIO</GradientText>
           </motion.p>
 
           <motion.h1

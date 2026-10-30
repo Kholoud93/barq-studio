@@ -34,8 +34,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedLocale = localStorage.getItem("vh-locale") as Locale | null;
-    const savedTheme = localStorage.getItem("vh-theme") as Theme | null;
+    const savedLocale = localStorage.getItem("barq-locale") as Locale | null;
+    const savedTheme = localStorage.getItem("barq-theme") as Theme | null;
     if (savedLocale === "en" || savedLocale === "ar") setLocaleState(savedLocale);
     if (savedTheme === "light" || savedTheme === "dark") setThemeState(savedTheme);
     setMounted(true);
@@ -47,8 +47,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(theme);
-    localStorage.setItem("vh-locale", locale);
-    localStorage.setItem("vh-theme", theme);
+    localStorage.setItem("barq-locale", locale);
+    localStorage.setItem("barq-theme", theme);
   }, [locale, theme, mounted]);
 
   const setLocale = useCallback((l: Locale) => setLocaleState(l), []);

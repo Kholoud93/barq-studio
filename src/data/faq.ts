@@ -7,7 +7,7 @@ export interface FAQ {
 export const faqs: FAQ[] = [
   {
     id: "1",
-    question: "What types of projects does Vision Hub specialize in?",
+    question: "What types of projects does Barq Studio specialize in?",
     answer:
       "We specialize in enterprise web applications, mobile apps, SaaS platforms, dashboards, CRM systems, and e-commerce solutions. Our team has delivered 80+ projects across fintech, healthcare, real estate, insurance, and non-profit sectors.",
   },

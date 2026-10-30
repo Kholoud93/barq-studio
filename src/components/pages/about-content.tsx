@@ -31,8 +31,8 @@ export function AboutContent() {
           <div className="mx-auto max-w-3xl text-center">
             <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">{t.about.badge}</span>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              {t.about.title.split("Vision Hub")[0]}
-              <GradientText as="span">Vision Hub</GradientText>
+              {t.about.title.split("Barq Studio")[0]}
+              <GradientText as="span">Barq Studio</GradientText>
             </h1>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">{t.about.description}</p>
             <p className="mt-3 text-sm text-primary">{siteConfig.tagline}</p>

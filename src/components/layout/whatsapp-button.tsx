@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/metadata";
 export function WhatsAppButton() {
   return (
     <motion.a
-      href={`https://wa.me/${siteConfig.whatsapp}?text=Hello%20Vision%20Hub,%20I%20would%20like%20to%20discuss%20a%20project.`}
+      href={`https://wa.me/${siteConfig.whatsapp}?text=Hello%20Barq%20Studio,%20I%20would%20like%20to%20discuss%20a%20project.`}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}

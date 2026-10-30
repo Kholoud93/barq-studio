@@ -2,13 +2,13 @@ import { ContactContent } from "@/components/pages/contact-content";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Contact Vision Hub",
+  title: "Contact Barq Studio",
   description:
-    "Contact Vision Hub to start your web, mobile, or UI/UX project. Reach us by email, phone, or WhatsApp in Alexandria, Egypt.",
+    "Contact Barq Studio to start your web, mobile, or UI/UX project. Reach us by email, phone, or WhatsApp in Alexandria, Egypt.",
   path: "/contact",
   keywords: [
-    "contact Vision Hub",
-    "تواصل Vision Hub",
+    "contact Barq Studio",
+    "تواصل Barq Studio",
     "hire software agency Egypt",
   ],
 });

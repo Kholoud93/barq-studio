@@ -10,21 +10,21 @@ const siteUrl =
       : "http://localhost:3000");
 
 export const siteConfig = {
-  name: "Vision Hub",
-  shortName: "VisionHub",
-  tagline: "نحو رؤية رقمية .. نصنع الفرق",
+  name: "Barq Studio",
+  shortName: "Barq",
+  tagline: "سرعة التنفيذ .. قوة الأثر",
   description:
-    "Vision Hub (فيجن هب) is a premium software agency in Egypt delivering enterprise web development, mobile apps, backend systems, and UI/UX design for ambitious businesses.",
+    "Barq Studio (برق ستوديو) is a premium software agency in Egypt delivering enterprise web development, mobile apps, backend systems, and UI/UX design for ambitious businesses.",
   descriptionAr:
-    "فيجن هب Vision Hub وكالة برمجيات متميزة في مصر تقدم تطوير مواقع ويب وتطبيقات جوال وأنظمة خلفية وتصميم UI/UX للشركات الطموحة.",
+    "برق ستوديو Barq Studio وكالة برمجيات متميزة في مصر تقدم تطوير مواقع ويب وتطبيقات جوال وأنظمة خلفية وتصميم UI/UX للشركات الطموحة.",
   url: siteUrl,
   email: "kholouudaiman93@gmail.com",
   phone: "+20 12 00715693",
   whatsapp: "201200715693",
   address: "Alexandria, Egypt",
   social: {
-    linkedin: "https://linkedin.com/company/visionhub",
-    twitter: "https://twitter.com/visionhub",
+    linkedin: "https://linkedin.com/company/barqstudio",
+    twitter: "https://twitter.com/barqstudio",
     github: "https://github.com/Kholoud93",
   },
 };
@@ -48,7 +48,7 @@ export function createMetadata({
     ? title.includes(siteConfig.name)
       ? title
       : `${title} | ${siteConfig.name}`
-    : `${siteConfig.name} | VisionHub — Web, Mobile & UI/UX Agency`;
+    : `${siteConfig.name} | Barq — Web, Mobile & UI/UX Agency`;
   const pageDescription = description || siteConfig.description;
   const canonical = `${siteConfig.url}${path}`;
   const ogImage = image || "/og-image.svg";
@@ -78,7 +78,7 @@ export function createMetadata({
       title: pageTitle,
       description: pageDescription,
       url: canonical,
-      siteName: `${siteConfig.name} | VisionHub`,
+      siteName: `${siteConfig.name} | Barq`,
       type: "website",
       locale: "ar_EG",
       alternateLocale: ["en_US"],

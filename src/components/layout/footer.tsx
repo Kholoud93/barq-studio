@@ -115,7 +115,7 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row rtl:sm:flex-row-reverse">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Vision Hub. {t.footer.rights}
+            &copy; {new Date().getFullYear()} Barq Studio. {t.footer.rights}
           </p>
           <p className="text-xs text-muted-foreground">{t.footer.crafted}</p>
         </div>
