@@ -13,6 +13,8 @@ import {
   defaultLocale,
   defaultTheme,
   getTranslation,
+  localeStorageKey,
+  themeStorageKey,
 } from "@/i18n";
 import type { TranslationKeys } from "@/i18n/locales/en";
 
@@ -34,10 +36,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedLocale = localStorage.getItem("barq-locale") as Locale | null;
-    const savedTheme = localStorage.getItem("barq-theme") as Theme | null;
+    const savedLocale = localStorage.getItem(localeStorageKey) as Locale | null;
+    const savedTheme = localStorage.getItem(themeStorageKey) as Theme | null;
     if (savedLocale === "en" || savedLocale === "ar") setLocaleState(savedLocale);
-    if (savedTheme === "light" || savedTheme === "dark") setThemeState(savedTheme);
+    if (savedTheme === "light" || savedTheme === "dark") {
+      setThemeState(savedTheme);
+    } else {
+      setThemeState(defaultTheme);
+    }
     setMounted(true);
   }, []);
 
@@ -47,8 +53,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(theme);
-    localStorage.setItem("barq-locale", locale);
-    localStorage.setItem("barq-theme", theme);
+    localStorage.setItem(localeStorageKey, locale);
+    localStorage.setItem(themeStorageKey, theme);
   }, [locale, theme, mounted]);
 
   const setLocale = useCallback((l: Locale) => setLocaleState(l), []);
