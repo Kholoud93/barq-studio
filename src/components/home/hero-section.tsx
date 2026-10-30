@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -16,8 +17,18 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen overflow-hidden pt-16">
+      <Image
+        src="/hero-bg.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-background/25 dark:bg-background/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
       <div className="hero-glow absolute inset-0" />
-      <div className="absolute inset-0 grid-pattern opacity-40" />
+      <div className="absolute inset-0 grid-pattern opacity-20" />
       <FloatingOrbs />
       <CursorSpotlight />
 

@@ -1,0 +1,43 @@
+export const brandKeywords = [
+  "Vision Hub",
+  "VisionHub",
+  "vision hub",
+  "visionhub",
+  "فيجن هب",
+  "فيجن هاب",
+  "Vision Hub Egypt",
+  "Vision Hub Alexandria",
+  "Vision Hub software agency",
+  "Vision Hub digital agency",
+];
+
+export const serviceKeywords = [
+  "web development",
+  "frontend development",
+  "backend development",
+  "mobile app development",
+  "UI UX design",
+  "React development",
+  "Next.js development",
+  "Vue Nuxt development",
+  "React Native apps",
+  "enterprise software development",
+  "SaaS development",
+  "CRM development",
+  "dashboard development",
+  "API development",
+  "تطوير مواقع",
+  "تطوير ويب",
+  "تطوير تطبيقات",
+  "تطوير تطبيقات الجوال",
+  "تصميم واجهات",
+  "تصميم UI UX",
+  "شركة برمجيات",
+  "وكالة برمجيات",
+  "شركة تطوير مواقع مصر",
+  "تطوير برمجيات الإسكندرية",
+  "تطوير واجهات أمامية",
+  "تطوير خلفية",
+];
+
+export const siteKeywords = [...brandKeywords, ...serviceKeywords];

@@ -13,10 +13,10 @@ import { useApp } from "@/providers/app-provider";
 import { cn } from "@/lib/utils";
 
 const servicePreview = [
-  { key: "frontend" as const, icon: Monitor, href: "/services#frontend" },
-  { key: "backend" as const, icon: Server, href: "/services#backend" },
-  { key: "mobile" as const, icon: Smartphone, href: "/services#mobile" },
-  { key: "design" as const, icon: Palette, href: "/services#design" },
+  { key: "frontend" as const, icon: Monitor, href: "/services/frontend-development" },
+  { key: "backend" as const, icon: Server, href: "/services/backend-development" },
+  { key: "mobile" as const, icon: Smartphone, href: "/services/mobile-app-development" },
+  { key: "design" as const, icon: Palette, href: "/services/ui-ux-design" },
 ];
 
 export function Navbar() {

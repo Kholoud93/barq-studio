@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
     apple: "/logo.svg",
   },
+  verification: {
+    google: "-icZ7O-6xbgU22W9_PdWb1fhMb2_F8c1JCm1vrHB-6g",
+  },
 };
 
 export default function RootLayout({

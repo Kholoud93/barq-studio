@@ -42,10 +42,10 @@ export function Footer() {
       { href: "/contact", label: t.nav.contact },
     ],
     services: [
-      { href: "/services#frontend", label: t.footer.frontend },
-      { href: "/services#backend", label: t.footer.backend },
-      { href: "/services#mobile", label: t.footer.mobile },
-      { href: "/services#design", label: t.footer.design },
+      { href: "/services/frontend-development", label: t.footer.frontend },
+      { href: "/services/backend-development", label: t.footer.backend },
+      { href: "/services/mobile-app-development", label: t.footer.mobile },
+      { href: "/services/ui-ux-design", label: t.footer.design },
     ],
   };
 

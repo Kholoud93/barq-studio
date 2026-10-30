@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { DevelopmentProcess } from "@/components/home/development-process";
 import { ContactCTA } from "@/components/home/contact-cta";
 import { useApp } from "@/providers/app-provider";
+import { getServiceById } from "@/data/services";
 
 const serviceKeys = ["frontend", "backend", "mobile", "design"] as const;
 const iconMap = { frontend: Monitor, backend: Server, mobile: Smartphone, design: Palette };
@@ -59,12 +60,22 @@ export function ServicesContent() {
                       <Badge key={tech} variant="secondary">{tech}</Badge>
                     ))}
                   </div>
-                  <Button asChild className="mt-8">
-                    <Link href="/contact" className="rtl:flex-row-reverse">
-                      {t.services.discuss}
-                      <ArrowRight className="h-4 w-4 rtl:rotate-180" />
-                    </Link>
-                  </Button>
+                  <div className="mt-8 flex flex-wrap gap-3 rtl:flex-row-reverse">
+                    <Button asChild>
+                      <Link
+                        href={`/services/${getServiceById(key)?.slug ?? key}`}
+                        className="rtl:flex-row-reverse"
+                      >
+                        {t.services.explore}
+                        <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline">
+                      <Link href="/contact" className="rtl:flex-row-reverse">
+                        {t.services.discuss}
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
                 <div className={isEven ? "" : "lg:[direction:ltr]"}>
                   <div className="rounded-2xl border border-border bg-card/50 p-8">

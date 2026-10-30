@@ -7,6 +7,7 @@ import { StaggerContainer, StaggerItem } from "@/components/shared/stagger-conta
 import { SectionHeader } from "@/components/shared/section-header";
 import { Button } from "@/components/ui/button";
 import { useApp } from "@/providers/app-provider";
+import { getServiceById } from "@/data/services";
 
 const serviceKeys = ["frontend", "backend", "mobile", "design"] as const;
 const iconMap = { frontend: Monitor, backend: Server, mobile: Smartphone, design: Palette };
@@ -35,7 +36,7 @@ export function ServicesSection() {
         <StaggerContainer className="grid gap-6 lg:grid-cols-5">
           <StaggerItem className="lg:col-span-3">
             <Link
-              href="/services#frontend"
+              href={`/services/${getServiceById(featuredKey)?.slug ?? "frontend-development"}`}
               className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card/80 p-8 transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 sm:p-10"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -80,7 +81,7 @@ export function ServicesSection() {
               return (
                 <StaggerItem key={key}>
                   <Link
-                    href={`/services#${key}`}
+                    href={`/services/${getServiceById(key)?.slug ?? key}`}
                     className="group flex h-full items-start gap-4 rounded-2xl border border-border bg-card/80 p-5 transition-all duration-500 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 rtl:flex-row-reverse"
                   >
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
