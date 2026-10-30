@@ -8,12 +8,11 @@ const en = {
     startProject: "Start a Project",
   },
   hero: {
-    badge: "Enterprise Software Agency",
-    line1: "We Build",
-    line2: "Digital Products",
-    line3: "That Drive Growth",
+    brand: "Vision Hub",
+    line1: "Digital products",
+    line2: "that drive growth",
     description:
-      "Vision Hub partners with ambitious companies to design, build, and scale enterprise-grade web and mobile applications that transform businesses and delight users.",
+      "We design, build, and scale enterprise web and mobile applications for ambitious companies.",
     cta1: "Start Your Project",
     cta2: "View Our Work",
     trust1: "Trusted by 50+ enterprises",
@@ -40,11 +39,13 @@ const en = {
       "From concept to deployment, we provide comprehensive software development services tailored to enterprise needs.",
     included: "What's Included",
     discuss: "Discuss This Service",
+    featuredLabel: "Flagship capability",
     items: {
       frontend: {
         title: "Frontend Development",
         description:
           "We craft blazing-fast, pixel-perfect interfaces that convert visitors into customers. Our frontend engineers build scalable component architectures with modern frameworks and rigorous performance standards.",
+        outcome: "Ship polished interfaces in 6–8 weeks",
         features: [
           "Component-driven architecture",
           "Server-side rendering & static generation",
@@ -57,6 +58,7 @@ const en = {
         title: "Backend Development",
         description:
           "Robust, secure, and scalable server infrastructure that powers mission-critical applications. We design APIs and backend systems built to handle enterprise workloads with confidence.",
+        outcome: "APIs built for enterprise load",
         features: [
           "RESTful & GraphQL API design",
           "OAuth 2.0 & JWT authentication",
@@ -69,6 +71,7 @@ const en = {
         title: "Mobile App Development",
         description:
           "Native-quality mobile experiences for iOS and Android. From concept to App Store launch, we deliver polished applications that users love and businesses rely on.",
+        outcome: "Store-ready apps, native feel",
         features: [
           "Cross-platform development",
           "Native module integration",
@@ -81,6 +84,7 @@ const en = {
         title: "UI/UX Design",
         description:
           "Human-centered design that bridges business goals and user needs. We transform complex requirements into intuitive, beautiful interfaces that drive engagement and retention.",
+        outcome: "Design systems that scale",
         features: [
           "User interviews & persona development",
           "Information architecture",
@@ -144,12 +148,17 @@ const en = {
     caseStudies: "Enterprise Projects",
     caseDescription:
       "Eight enterprise projects spanning fintech, healthcare, real estate, e-commerce, and more.",
+    filterAll: "All",
+    filterWeb: "Web",
+    filterMobile: "Mobile",
+    filterDesign: "Design",
     back: "Back to Portfolio",
     challenge: "The Challenge",
     solution: "Our Solution",
     results: "Results",
     technologies: "Technologies",
     servicesProvided: "Services Provided",
+    overview: "Overview",
     interested: "Interested?",
     interestedDesc: "Let's build something similar for your business.",
     startProject: "Start a Project",
@@ -171,6 +180,62 @@ const en = {
     title: "What Our Clients Say",
     description:
       "Don't take our word for it. Hear from the leaders who trusted Vision Hub with their most critical projects.",
+    items: [
+      {
+        id: "1",
+        name: "Khalid Al-Rashid",
+        role: "CEO",
+        company: "Al Noor Trading Group",
+        content:
+          "Vision Hub transformed our entire sales operation. The CRM they built didn't just replace our legacy systems — it gave our teams superpowers. Lead conversion is up 47% and our sales cycle has never been faster.",
+        rating: 5,
+      },
+      {
+        id: "2",
+        name: "Sarah Mitchell",
+        role: "CTO",
+        company: "MetricFlow Inc.",
+        content:
+          "We needed a platform that could process millions of events in real-time without breaking a sweat. Vision Hub delivered exactly that, plus a UI that our customers actually enjoy using. Exceptional engineering quality.",
+        rating: 5,
+      },
+      {
+        id: "3",
+        name: "Omar Hassan",
+        role: "Product Director",
+        company: "Nova Digital Bank",
+        content:
+          "Launching a banking app is incredibly complex. Vision Hub navigated regulatory requirements, security standards, and tight deadlines with remarkable professionalism. Our app hit 250K downloads in 90 days.",
+        rating: 5,
+      },
+      {
+        id: "4",
+        name: "Fatima Al-Zahra",
+        role: "Operations Manager",
+        company: "Gulf Shield Insurance",
+        content:
+          "The analytics dashboard Vision Hub built changed how our underwriters work. Reports that took hours now generate in seconds. The ROI was visible within the first month of deployment.",
+        rating: 5,
+      },
+      {
+        id: "5",
+        name: "James Chen",
+        role: "Founder",
+        company: "Horizon Properties",
+        content:
+          "Our old website was embarrassing. Vision Hub gave us a platform that competes with international PropTech leaders. Mobile traffic tripled and our agents finally have proper lead management tools.",
+        rating: 5,
+      },
+      {
+        id: "6",
+        name: "Dr. Layla Mansour",
+        role: "Medical Director",
+        company: "MedCare Clinics",
+        content:
+          "Migrating 18 clinics from paper records to a digital system seemed impossible. Vision Hub made it seamless. Our doctors now spend their time with patients, not paperwork. Truly life-changing for our practice.",
+        rating: 5,
+      },
+    ],
   },
   faq: {
     badge: "FAQ",
@@ -192,9 +257,15 @@ const en = {
     title: "Ready to Build Something",
     titleHighlight: "Extraordinary",
     description:
-      "Let's discuss your project and explore how Vision Hub can transform your vision into a world-class digital product.",
+      "Tell us briefly what you're building — we'll reply within 24 hours with next steps.",
     contact: "Get in Touch",
     portfolio: "See Our Work",
+    namePlaceholder: "Your name",
+    emailPlaceholder: "work@company.com",
+    messagePlaceholder: "What are you looking to build?",
+    quickSend: "Send on WhatsApp",
+    sending: "Opening WhatsApp...",
+    success: "WhatsApp opened — send the message to complete your request.",
   },
   about: {
     badge: "About Vision Hub",
@@ -234,6 +305,7 @@ const en = {
     sendMessage: "Send Us a Message",
     email: "Email",
     phone: "Phone",
+    whatsapp: "WhatsApp",
     location: "Location",
     hours: "Business Hours",
     hoursValue: "Sun - Thu, 9:00 AM - 6:00 PM",
@@ -250,10 +322,10 @@ const en = {
       servicePlaceholder: "e.g. Web Development, Mobile App, UI/UX Design",
       message: "Project Details",
       messagePlaceholder: "Tell us about your project, goals, timeline, and budget...",
-      send: "Send Message",
-      sending: "Sending...",
-      success: "Message Sent",
-      successDesc: "Thank you for reaching out. Our team will review your inquiry and respond within 24 hours.",
+      send: "Send on WhatsApp",
+      sending: "Opening WhatsApp...",
+      success: "WhatsApp Opened",
+      successDesc: "Your message is ready in WhatsApp. Tap send to deliver it to Vision Hub.",
       sendAnother: "Send Another Message",
     },
   },

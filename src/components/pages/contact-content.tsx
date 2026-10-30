@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { GradientText } from "@/components/shared/gradient-text";
 import { ContactForm } from "@/components/shared/contact-form";
@@ -13,6 +13,12 @@ export function ContactContent() {
   const contactInfo = [
     { icon: Mail, label: t.contact.email, value: siteConfig.email, href: `mailto:${siteConfig.email}` },
     { icon: Phone, label: t.contact.phone, value: siteConfig.phone, href: `tel:${siteConfig.phone}` },
+    {
+      icon: MessageCircle,
+      label: t.contact.whatsapp,
+      value: siteConfig.phone,
+      href: `https://wa.me/${siteConfig.whatsapp}`,
+    },
     { icon: MapPin, label: t.contact.location, value: siteConfig.address },
     { icon: Clock, label: t.contact.hours, value: t.contact.hoursValue },
   ];

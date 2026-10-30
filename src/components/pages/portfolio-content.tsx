@@ -1,12 +1,15 @@
 "use client";
 
+import { useState } from "react";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
 import { GradientText } from "@/components/shared/gradient-text";
 import { ProjectCard } from "@/components/shared/project-card";
-import { StaggerContainer, StaggerItem } from "@/components/shared/stagger-container";
 import { ContactCTA } from "@/components/home/contact-cta";
 import { useApp } from "@/providers/app-provider";
+import { matchesProjectFilter, type ProjectFilter } from "@/lib/project-filters";
+import { cn } from "@/lib/utils";
 import type { Project } from "@/data/projects";
 
 interface PortfolioContentProps {
@@ -15,33 +18,89 @@ interface PortfolioContentProps {
 
 export function PortfolioContent({ projects }: PortfolioContentProps) {
   const { t } = useApp();
+  const [filter, setFilter] = useState<ProjectFilter>("all");
+
+  const filters: { id: ProjectFilter; label: string }[] = [
+    { id: "all", label: t.projects.filterAll },
+    { id: "web", label: t.projects.filterWeb },
+    { id: "mobile", label: t.projects.filterMobile },
+    { id: "design", label: t.projects.filterDesign },
+  ];
+
+  const filtered = projects.filter((project) => matchesProjectFilter(project, filter));
 
   return (
     <>
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      <section className="relative overflow-hidden pb-16 pt-32">
         <div className="hero-glow absolute inset-0" />
         <div className="absolute inset-0 grid-pattern opacity-30" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">{t.projects.pageBadge}</span>
+            <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+              {t.projects.pageBadge}
+            </span>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
               <GradientText as="span">{t.projects.pageTitle}</GradientText>
             </h1>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">{t.projects.pageDescription}</p>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              {t.projects.pageDescription}
+            </p>
           </div>
         </div>
       </section>
 
       <AnimatedSection className="py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader badge={t.projects.badge} title={t.projects.caseStudies} description={t.projects.caseDescription} />
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <StaggerItem key={project.slug}>
-                <ProjectCard project={project} />
-              </StaggerItem>
+          <SectionHeader
+            badge={t.projects.badge}
+            title={t.projects.caseStudies}
+            description={t.projects.caseDescription}
+          />
+
+          <div className="mb-10 flex flex-wrap items-center justify-center gap-2">
+            {filters.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setFilter(item.id)}
+                className={cn(
+                  "relative rounded-lg px-4 py-2 text-sm font-medium transition-colors",
+                  filter === item.id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {filter === item.id && (
+                  <motion.span
+                    layoutId="portfolio-filter"
+                    className="absolute inset-0 rounded-lg border border-primary/30 bg-primary/10"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{item.label}</span>
+              </button>
             ))}
-          </StaggerContainer>
+          </div>
+
+          <LayoutGroup>
+            <motion.div layout className="grid gap-6 sm:grid-cols-2">
+              <AnimatePresence mode="popLayout">
+                {filtered.map((project, index) => (
+                  <motion.div
+                    key={project.slug}
+                    layout
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    transition={{ duration: 0.35, delay: index * 0.04 }}
+                    className={cn(index === 0 && filter === "all" && "sm:col-span-2")}
+                  >
+                    <ProjectCard project={project} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          </LayoutGroup>
         </div>
       </AnimatedSection>
 

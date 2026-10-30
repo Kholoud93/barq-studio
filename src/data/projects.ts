@@ -13,6 +13,7 @@ export interface Project {
   services: string[];
   featured: boolean;
   gradient: string;
+  image: string;
 }
 
 export const projects: Project[] = [
@@ -39,6 +40,7 @@ export const projects: Project[] = [
     services: ["Frontend Development", "Backend Development", "UI/UX Design"],
     featured: true,
     gradient: "from-blue-600 to-cyan-500",
+    image: "/projects/crm-system.jpg",
   },
   {
     slug: "insurance-dashboard",
@@ -63,6 +65,7 @@ export const projects: Project[] = [
     services: ["Frontend Development", "Backend Development"],
     featured: true,
     gradient: "from-indigo-600 to-blue-500",
+    image: "/projects/insurance-dashboard.jpg",
   },
   {
     slug: "real-estate-platform",
@@ -91,6 +94,7 @@ export const projects: Project[] = [
     ],
     featured: true,
     gradient: "from-emerald-600 to-teal-500",
+    image: "/projects/real-estate-platform.jpg",
   },
   {
     slug: "ecommerce-dashboard",
@@ -115,6 +119,7 @@ export const projects: Project[] = [
     services: ["Frontend Development", "Backend Development"],
     featured: true,
     gradient: "from-violet-600 to-purple-500",
+    image: "/projects/ecommerce-dashboard.jpg",
   },
   {
     slug: "donation-platform",
@@ -143,6 +148,7 @@ export const projects: Project[] = [
     ],
     featured: false,
     gradient: "from-rose-600 to-pink-500",
+    image: "/projects/donation-platform.jpg",
   },
   {
     slug: "healthcare-management",
@@ -171,6 +177,7 @@ export const projects: Project[] = [
     ],
     featured: false,
     gradient: "from-cyan-600 to-blue-500",
+    image: "/projects/healthcare-management.jpg",
   },
   {
     slug: "mobile-banking-app",
@@ -195,6 +202,7 @@ export const projects: Project[] = [
     services: ["Mobile App Development", "Backend Development", "UI/UX Design"],
     featured: true,
     gradient: "from-amber-600 to-orange-500",
+    image: "/projects/mobile-banking-app.jpg",
   },
   {
     slug: "saas-analytics-platform",
@@ -223,6 +231,7 @@ export const projects: Project[] = [
     ],
     featured: true,
     gradient: "from-sky-600 to-indigo-500",
+    image: "/projects/saas-analytics-platform.jpg",
   },
 ];
 

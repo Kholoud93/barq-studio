@@ -52,6 +52,7 @@ export function ServicesContent() {
                     <Icon className="h-7 w-7" />
                   </div>
                   <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{item.title}</h2>
+                  <p className="mt-3 text-sm font-medium text-primary">{item.outcome}</p>
                   <p className="mt-4 text-base leading-relaxed text-muted-foreground">{item.description}</p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {techMap[key].map((tech) => (

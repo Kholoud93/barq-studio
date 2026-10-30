@@ -5,21 +5,45 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Send, CheckCircle } from "lucide-react";
+import { MessageCircle, CheckCircle } from "lucide-react";
 import { useApp } from "@/providers/app-provider";
+import { buildContactMessage, openWhatsApp } from "@/lib/whatsapp";
 
 export function ContactForm() {
-  const { t } = useApp();
+  const { t, locale } = useApp();
   const f = t.contact.form;
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const company = String(data.get("company") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    const service = String(data.get("service") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    if (!name || !email || !message) return;
+
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setLoading(false);
+    openWhatsApp(
+      buildContactMessage({
+        name,
+        email,
+        company,
+        phone,
+        service,
+        message,
+        locale,
+      })
+    );
     setSubmitted(true);
+    setLoading(false);
+    form.reset();
   }
 
   if (submitted) {
@@ -65,8 +89,13 @@ export function ContactForm() {
         <Label htmlFor="message">{f.message}</Label>
         <Textarea id="message" name="message" placeholder={f.messagePlaceholder} required />
       </div>
-      <Button type="submit" size="lg" className="w-full sm:w-auto rtl:flex-row-reverse" disabled={loading}>
-        {loading ? f.sending : (<>{f.send}<Send className="h-4 w-4 rtl:rotate-180" /></>)}
+      <Button
+        type="submit"
+        size="lg"
+        className="w-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/25 hover:bg-[#1ebe57] hover:shadow-[#25D366]/40 sm:w-auto rtl:flex-row-reverse"
+        disabled={loading}
+      >
+        {loading ? f.sending : (<>{f.send}<MessageCircle className="h-4 w-4" /></>)}
       </Button>
     </form>
   );

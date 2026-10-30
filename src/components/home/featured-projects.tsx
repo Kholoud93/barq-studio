@@ -9,10 +9,11 @@ import { StaggerContainer, StaggerItem } from "@/components/shared/stagger-conta
 import { Button } from "@/components/ui/button";
 import { getFeaturedProjects } from "@/data/projects";
 import { useApp } from "@/providers/app-provider";
+import { cn } from "@/lib/utils";
 
 export function FeaturedProjects() {
   const { t } = useApp();
-  const featured = getFeaturedProjects();
+  const featured = getFeaturedProjects().slice(0, 5);
 
   return (
     <AnimatedSection className="py-24 sm:py-32">
@@ -22,9 +23,12 @@ export function FeaturedProjects() {
           title={t.projects.title}
           description={t.projects.description}
         />
-        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((project) => (
-            <StaggerItem key={project.slug}>
+        <StaggerContainer className="grid gap-6 sm:grid-cols-2">
+          {featured.map((project, index) => (
+            <StaggerItem
+              key={project.slug}
+              className={cn(index === 0 && "sm:col-span-2")}
+            >
               <ProjectCard project={project} />
             </StaggerItem>
           ))}
