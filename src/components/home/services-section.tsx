@@ -5,6 +5,7 @@ import { Monitor, Server, Smartphone, Palette, ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { StaggerContainer, StaggerItem } from "@/components/shared/stagger-container";
 import { SectionHeader } from "@/components/shared/section-header";
+import { TiltCard } from "@/components/shared/tilt-card";
 import { Button } from "@/components/ui/button";
 import { useApp } from "@/providers/app-provider";
 import { getServiceById } from "@/data/services";
@@ -34,44 +35,46 @@ export function ServicesSection() {
           description={t.services.description}
         />
         <StaggerContainer className="grid gap-6 lg:grid-cols-5">
-          <StaggerItem className="lg:col-span-3">
-            <Link
-              href={`/services/${getServiceById(featuredKey)?.slug ?? "frontend-development"}`}
-              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card/80 p-8 transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 sm:p-10"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="relative">
-                <div className="mb-6 flex items-center justify-between gap-4 rtl:flex-row-reverse">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                    <FeaturedIcon className="h-7 w-7" />
+          <StaggerItem className="lg:col-span-3 [perspective:1200px]">
+            <TiltCard className="h-full rounded-2xl" maxTilt={8}>
+              <Link
+                href={`/services/${getServiceById(featuredKey)?.slug ?? "frontend-development"}`}
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-primary/15 bg-card/80 p-8 shadow-[0_0_40px_rgba(184,243,75,0.06)] transition-shadow duration-500 hover:border-primary/35 hover:shadow-[0_0_48px_rgba(184,243,75,0.16)] sm:p-10"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="relative">
+                  <div className="mb-6 flex items-center justify-between gap-4 rtl:flex-row-reverse">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary shadow-[0_0_24px_rgba(184,243,75,0.2)] transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                      <FeaturedIcon className="h-7 w-7" />
+                    </div>
+                    <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
+                      {t.services.featuredLabel}
+                    </span>
                   </div>
-                  <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
-                    {t.services.featuredLabel}
+                  <h3 className="text-2xl font-semibold text-foreground sm:text-3xl">
+                    {featured.title}
+                  </h3>
+                  <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {featured.description}
+                  </p>
+                  <p className="mt-5 text-sm font-medium text-primary">{featured.outcome}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {techMap[featuredKey].map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-md bg-secondary px-2.5 py-1 text-xs text-muted-foreground"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors group-hover:text-primary rtl:flex-row-reverse">
+                    {t.services.explore}
+                    <ArrowRight className="h-4 w-4 rtl:rotate-180" />
                   </span>
                 </div>
-                <h3 className="text-2xl font-semibold text-foreground sm:text-3xl">
-                  {featured.title}
-                </h3>
-                <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  {featured.description}
-                </p>
-                <p className="mt-5 text-sm font-medium text-primary">{featured.outcome}</p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {techMap[featuredKey].map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-md bg-secondary px-2.5 py-1 text-xs text-muted-foreground"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors group-hover:text-primary rtl:flex-row-reverse">
-                  {t.services.explore}
-                  <ArrowRight className="h-4 w-4 rtl:rotate-180" />
-                </span>
-              </div>
-            </Link>
+              </Link>
+            </TiltCard>
           </StaggerItem>
 
           <div className="flex flex-col gap-4 lg:col-span-2">
@@ -79,22 +82,24 @@ export function ServicesSection() {
               const Icon = iconMap[key];
               const item = t.services.items[key];
               return (
-                <StaggerItem key={key}>
-                  <Link
-                    href={`/services/${getServiceById(key)?.slug ?? key}`}
-                    className="group flex h-full items-start gap-4 rounded-2xl border border-border bg-card/80 p-5 transition-all duration-500 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 rtl:flex-row-reverse"
-                  >
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <div className="min-w-0 flex-1 rtl:text-right">
-                      <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
-                      <p className="mt-1 text-sm font-medium text-primary">{item.outcome}</p>
-                      <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </div>
-                  </Link>
+                <StaggerItem key={key} className="[perspective:1000px]">
+                  <TiltCard className="h-full rounded-2xl" maxTilt={10} scale={1.015}>
+                    <Link
+                      href={`/services/${getServiceById(key)?.slug ?? key}`}
+                      className="group flex h-full items-start gap-4 rounded-2xl border border-primary/10 bg-card/80 p-5 transition-shadow duration-500 hover:border-primary/30 hover:shadow-[0_0_32px_rgba(184,243,75,0.12)] rtl:flex-row-reverse"
+                    >
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div className="min-w-0 flex-1 rtl:text-right">
+                        <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+                        <p className="mt-1 text-sm font-medium text-primary">{item.outcome}</p>
+                        <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  </TiltCard>
                 </StaggerItem>
               );
             })}

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import { Logo } from "@/components/shared/logo";
 import { useApp } from "@/providers/app-provider";
 
 export function LoadingScreen() {
@@ -29,7 +29,9 @@ export function LoadingScreen() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col items-center"
           >
-            <Image src="/logo.svg" alt="Barq Studio" width={80} height={80} className="rounded-full glow-blue" priority />
+            <div className="glow-blue rounded-full">
+              <Logo showText={false} size="lg" className="pointer-events-none" />
+            </div>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

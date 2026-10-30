@@ -2,13 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, Building2, CheckCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Building2,
+  Calendar,
+  CheckCircle,
+  Clock,
+  Sparkles,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { GradientText } from "@/components/shared/gradient-text";
+import { ProjectCard } from "@/components/shared/project-card";
+import { StaggerContainer, StaggerItem } from "@/components/shared/stagger-container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ContactCTA } from "@/components/home/contact-cta";
+import { getAdjacentProjects, getRelatedProjects } from "@/data/projects";
 import { useApp } from "@/providers/app-provider";
 import { localizeProject } from "@/lib/projects-i18n";
 import type { Project } from "@/data/projects";
@@ -17,135 +28,302 @@ interface ProjectDetailContentProps {
   project: Project;
 }
 
+function parseImpact(results: string[]) {
+  return results.slice(0, 4).map((result) => {
+    const match = result.match(/^([+\-]?\d[\d.,]*%?x?|[0-9.]+(?:\+|x)?)/i);
+    if (match) {
+      return {
+        value: match[1],
+        label: result.slice(match[0].length).replace(/^[\s\-–—:]+/, "").trim() || result,
+      };
+    }
+    return { value: "★", label: result };
+  });
+}
+
 export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
   const { t, locale } = useApp();
   const localized = localizeProject(project, locale);
+  const impact = parseImpact(localized.localizedResults);
+  const { prev, next } = getAdjacentProjects(project.slug);
+  const related = getRelatedProjects(project.slug, 3);
+  const prevLocalized = prev ? localizeProject(prev, locale) : null;
+  const nextLocalized = next ? localizeProject(next, locale) : null;
 
   return (
     <>
-      <section className="relative overflow-hidden pt-24">
-        <div className="relative flex min-h-[52vh] items-end sm:min-h-[60vh]">
-          <Image
-            src={project.image}
-            alt={localized.localizedTitle}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-black/25" />
-          <div className="relative mx-auto w-full max-w-7xl px-4 pb-12 pt-24 sm:px-6 lg:px-8">
-            <Button asChild variant="ghost" size="sm" className="mb-8 bg-black/20 text-white hover:bg-black/30 hover:text-white">
+      <section className="relative overflow-hidden">
+        <div className="relative flex min-h-[78vh] items-end sm:min-h-[88vh]">
+          <motion.div layoutId={`project-image-${project.slug}`} className="absolute inset-0">
+            <Image
+              src={project.image}
+              alt={localized.localizedTitle}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </motion.div>
+          <div className="neon-project-glow absolute inset-0 z-[1] opacity-90" />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-t from-background via-background/55 to-black/30" />
+          <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_70%_30%,rgba(184,243,75,0.2),transparent_50%)]" />
+          <div className="case-study-orb absolute -right-20 top-24 h-72 w-72" />
+          <div className="case-study-orb absolute -left-16 bottom-32 h-56 w-56 opacity-60" />
+
+          <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-16 pt-28 sm:px-6 lg:px-8">
+            <Button
+              asChild
+              variant="ghost"
+              size="sm"
+              className="mb-8 border border-white/10 bg-black/30 text-white backdrop-blur-md hover:bg-black/45 hover:text-white"
+            >
               <Link href="/portfolio" className="rtl:flex-row-reverse">
                 <ArrowLeft className="h-4 w-4 rtl:rotate-180" />
                 {t.projects.back}
               </Link>
             </Button>
+
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-4xl"
             >
-              <Badge variant="outline" className="mb-4 border-white/25 bg-white/10 text-white">
-                {localized.localizedCategory}
-              </Badge>
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <div className="mb-5 flex flex-wrap items-center gap-3 rtl:flex-row-reverse">
+                <Badge className="border-primary/40 bg-primary/15 text-primary">
+                  {t.projects.caseStudy}
+                </Badge>
+                <Badge variant="outline" className="border-white/20 bg-white/10 text-white">
+                  {localized.localizedCategory}
+                </Badge>
+              </div>
+              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-7xl">
                 {localized.localizedTitle}
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
                 {localized.localizedDescription}
               </p>
+              <div className="mt-8 flex flex-wrap gap-6 text-sm text-white/70 rtl:flex-row-reverse">
+                <span className="inline-flex items-center gap-2 rtl:flex-row-reverse">
+                  <Building2 className="h-4 w-4 text-primary" />
+                  {project.client}
+                </span>
+                <span className="inline-flex items-center gap-2 rtl:flex-row-reverse">
+                  <Calendar className="h-4 w-4 text-primary" />
+                  {project.year}
+                </span>
+                <span className="inline-flex items-center gap-2 rtl:flex-row-reverse">
+                  <Clock className="h-4 w-4 text-primary" />
+                  {localized.localizedDuration}
+                </span>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <AnimatedSection className="py-16">
+      <section className="relative border-y border-primary/10 bg-card/40">
+        <div className="absolute inset-x-0 top-0 h-px case-study-beam opacity-70" />
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+          {impact.map((item, index) => (
+            <motion.div
+              key={`${item.value}-${index}`}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08, duration: 0.45 }}
+              className="rounded-2xl border border-primary/15 bg-background/50 p-5 neon-rim"
+            >
+              <p className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+                {item.value}
+              </p>
+              <p className="mt-2 text-sm leading-snug text-muted-foreground">{item.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <AnimatedSection className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[1fr_280px]">
-            <div className="space-y-14">
-              <section>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/15 neon-rim">
+              <div className="relative aspect-[4/3] sm:aspect-[16/11]">
+                <Image
+                  src={project.image}
+                  alt={localized.localizedTitle}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover"
+                />
+                <div className="neon-project-glow absolute inset-0" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-transparent to-primary/10" />
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center space-y-10 rtl:text-right">
+              <div>
+                <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary rtl:flex-row-reverse">
+                  <Sparkles className="h-3.5 w-3.5" />
                   {t.projects.overview}
                 </p>
-                <h2 className="mt-3 text-2xl font-bold sm:text-3xl">{t.projects.challenge}</h2>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                  {t.projects.challenge}
+                </h2>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                   {localized.localizedChallenge}
                 </p>
-              </section>
-              <section>
-                <h2 className="text-2xl font-bold sm:text-3xl">{t.projects.solution}</h2>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                  {t.projects.solution}
+                </h2>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                   {localized.localizedSolution}
                 </p>
-              </section>
-              <section>
-                <h2 className="text-2xl font-bold sm:text-3xl">{t.projects.results}</h2>
-                <ul className="mt-6 space-y-4">
-                  {localized.localizedResults.map((result) => (
-                    <li key={result} className="flex items-start gap-3 rtl:flex-row-reverse">
-                      <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                      <span className="text-muted-foreground">{result}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            </div>
-
-            <aside className="lg:sticky lg:top-24 lg:self-start">
-              <div className="space-y-4 rounded-2xl border border-border bg-card/60 p-6">
-                <div className="space-y-3 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-2 rtl:flex-row-reverse">
-                    <Building2 className="h-4 w-4 text-primary" />
-                    {project.client}
-                  </span>
-                  <span className="flex items-center gap-2 rtl:flex-row-reverse">
-                    <Calendar className="h-4 w-4 text-primary" />
-                    {project.year}
-                  </span>
-                  <span className="flex items-center gap-2 rtl:flex-row-reverse">
-                    <Clock className="h-4 w-4 text-primary" />
-                    {localized.localizedDuration}
-                  </span>
-                </div>
-                <div className="border-t border-border pt-4">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {t.projects.technologies}
-                  </h3>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-                <div className="border-t border-border pt-4">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {t.projects.servicesProvided}
-                  </h3>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {localized.localizedServices.map((service) => (
-                      <Badge key={service} variant="outline">
-                        {service}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-                <div className="border-t border-border pt-4">
-                  <h3 className="text-lg font-semibold">
-                    <GradientText as="span">{t.projects.interested}</GradientText>
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {t.projects.interestedDesc}
-                  </p>
-                  <Button asChild className="mt-4 w-full">
-                    <Link href="/contact">{t.projects.startProject}</Link>
-                  </Button>
-                </div>
               </div>
-            </aside>
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      <AnimatedSection className="relative overflow-hidden py-20 sm:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(184,243,75,0.08),transparent_60%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 max-w-2xl rtl:text-right">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              {t.projects.impact}
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              <GradientText as="span">{t.projects.results}</GradientText>
+            </h2>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {localized.localizedResults.map((result, index) => (
+              <motion.div
+                key={result}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06, duration: 0.45 }}
+                className="flex items-start gap-4 rounded-2xl border border-primary/15 bg-card/60 p-5 backdrop-blur-sm rtl:flex-row-reverse"
+              >
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary shadow-[0_0_20px_rgba(184,243,75,0.25)]">
+                  <CheckCircle className="h-4 w-4" />
+                </span>
+                <p className="text-base leading-relaxed text-foreground/90">{result}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-12 grid gap-6 rounded-[1.75rem] border border-primary/15 bg-card/50 p-6 neon-rim sm:grid-cols-2 sm:p-8">
+            <div className="rtl:text-right">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                {t.projects.technologies}
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2 rtl:flex-row-reverse">
+                {project.technologies.map((tech) => (
+                  <Badge key={tech} className="border-primary/20 bg-primary/10 text-primary">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            <div className="rtl:text-right">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                {t.projects.servicesProvided}
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2 rtl:flex-row-reverse">
+                {localized.localizedServices.map((service) => (
+                  <Badge key={service} variant="outline">
+                    {service}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      <section className="border-y border-primary/10">
+        <div className="mx-auto grid max-w-7xl sm:grid-cols-2">
+          {prev && prevLocalized ? (
+            <Link
+              href={`/portfolio/${prev.slug}`}
+              className="group relative flex min-h-[220px] flex-col justify-end overflow-hidden border-b border-primary/10 p-8 sm:border-b-0 sm:border-e"
+            >
+              <Image
+                src={prev.image}
+                alt={prevLocalized.localizedTitle}
+                fill
+                sizes="50vw"
+                className="object-cover opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-55"
+              />
+              <div className="neon-project-glow absolute inset-0 opacity-50" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+              <div className="relative z-10 rtl:text-right">
+                <p className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-primary rtl:flex-row-reverse">
+                  <ArrowLeft className="h-3.5 w-3.5 rtl:rotate-180" />
+                  {t.projects.prevProject}
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold text-foreground transition-colors group-hover:text-primary">
+                  {prevLocalized.localizedTitle}
+                </h3>
+              </div>
+            </Link>
+          ) : (
+            <div className="hidden min-h-[220px] sm:block" />
+          )}
+          {next && nextLocalized ? (
+            <Link
+              href={`/portfolio/${next.slug}`}
+              className="group relative flex min-h-[220px] flex-col justify-end overflow-hidden p-8"
+            >
+              <Image
+                src={next.image}
+                alt={nextLocalized.localizedTitle}
+                fill
+                sizes="50vw"
+                className="object-cover opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-55"
+              />
+              <div className="neon-project-glow absolute inset-0 opacity-50" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+              <div className="relative z-10 text-end rtl:text-left">
+                <p className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-primary rtl:flex-row-reverse">
+                  {t.projects.nextProject}
+                  <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" />
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold text-foreground transition-colors group-hover:text-primary">
+                  {nextLocalized.localizedTitle}
+                </h3>
+              </div>
+            </Link>
+          ) : (
+            <div className="hidden min-h-[220px] sm:block" />
+          )}
+        </div>
+      </section>
+
+      <AnimatedSection className="py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              {t.projects.moreProjects}
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              <GradientText as="span">{t.projects.title}</GradientText>
+            </h2>
+          </div>
+          <StaggerContainer className="grid gap-6 sm:grid-cols-3">
+            {related.map((item) => (
+              <StaggerItem key={item.slug}>
+                <ProjectCard project={item} variant="card" />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          <div className="mt-12 text-center">
+            <Button asChild size="lg">
+              <Link href="/contact">{t.projects.startProject}</Link>
+            </Button>
           </div>
         </div>
       </AnimatedSection>

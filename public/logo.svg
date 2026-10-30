@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
   <defs>
     <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFB020"/>
-      <stop offset="45%" stop-color="#E5A00D"/>
-      <stop offset="100%" stop-color="#FF5A1F"/>
+      <stop offset="0%" stop-color="#D4FF7A"/>
+      <stop offset="45%" stop-color="#B8F34B"/>
+      <stop offset="100%" stop-color="#9ADF2F"/>
     </linearGradient>
     <radialGradient id="bgGrad" cx="50%" cy="42%" r="58%">
-      <stop offset="0%" stop-color="#1C1812"/>
-      <stop offset="100%" stop-color="#0B0A08"/>
+      <stop offset="0%" stop-color="#202621"/>
+      <stop offset="100%" stop-color="#101311"/>
     </radialGradient>
     <filter id="boltGlow" x="-40%" y="-40%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#E5A00D" flood-opacity="0.55"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#B8F34B" flood-opacity="0.28"/>
     </filter>
   </defs>
   <circle cx="200" cy="200" r="190" fill="url(#bgGrad)"/>
   <circle cx="200" cy="200" r="190" fill="none" stroke="url(#boltGrad)" stroke-width="2.5" opacity="0.85"/>
   <circle cx="200" cy="200" r="186" fill="none" stroke="url(#boltGrad)" stroke-width="0.5" opacity="0.35"/>
   <path d="M232 95 L155 205 H205 L168 305 L255 185 H200 Z" fill="url(#boltGrad)" filter="url(#boltGlow)"/>
-  <text x="200" y="338" text-anchor="middle" fill="white" font-family="system-ui,sans-serif" font-size="28" font-weight="800" letter-spacing="4">BARQ</text>
+  <text x="200" y="338" text-anchor="middle" fill="#F5F7F2" font-family="system-ui,sans-serif" font-size="28" font-weight="800" letter-spacing="4">BARQ</text>
   <text x="200" y="362" text-anchor="middle" fill="url(#boltGrad)" font-family="system-ui,sans-serif" font-size="12" font-weight="600" letter-spacing="6">STUDIO</text>
 </svg>

@@ -90,7 +90,7 @@ export function AboutContent() {
             {team.map((member, index) => (
               <AnimatedItem key={member.name} delay={index * 0.1}>
                 <div className="rounded-xl border border-border bg-card/80 p-6">
-                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-xl font-bold text-white">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-xl font-bold text-primary-foreground">
                     {member.name.split(" ").map((n) => n[0]).join("")}
                   </div>
                   <h3 className="text-lg font-semibold">{member.name}</h3>

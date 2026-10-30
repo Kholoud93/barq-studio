@@ -106,7 +106,7 @@ export function Navbar() {
                                 href={item.href}
                                 className="group flex gap-3 rounded-xl p-3 transition-colors hover:bg-secondary rtl:flex-row-reverse"
                               >
-                                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                                   <Icon className="h-4 w-4" />
                                 </div>
                                 <div className="min-w-0 rtl:text-right">
