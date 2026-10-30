@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { Monitor, Server, Smartphone, Palette, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { StaggerContainer, StaggerItem } from "@/components/shared/stagger-container";
 import { SectionHeader } from "@/components/shared/section-header";
@@ -11,7 +12,12 @@ import { useApp } from "@/providers/app-provider";
 import { getServiceById } from "@/data/services";
 
 const serviceKeys = ["frontend", "backend", "mobile", "design"] as const;
-const iconMap = { frontend: Monitor, backend: Server, mobile: Smartphone, design: Palette };
+const imageMap = {
+  frontend: "/services/web.jpg",
+  backend: "/services/backend.jpg",
+  mobile: "/services/mobile.jpg",
+  design: "/services/design.jpg",
+};
 const techMap = {
   frontend: ["React", "Next.js", "Vue", "Nuxt", "TypeScript"],
   backend: ["APIs", "Auth", "Databases", "Admin", "CRM"],
@@ -21,89 +27,77 @@ const techMap = {
 
 export function ServicesSection() {
   const { t } = useApp();
-  const featuredKey = "frontend";
-  const FeaturedIcon = iconMap[featuredKey];
-  const featured = t.services.items[featuredKey];
-  const compactKeys = serviceKeys.filter((key) => key !== featuredKey);
 
   return (
-    <AnimatedSection className="bg-card/30 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <AnimatedSection className="relative overflow-hidden py-24 sm:py-32">
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/scenes/section-rocky-glow.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={t.services.badge}
           title={t.services.title}
           description={t.services.description}
         />
-        <StaggerContainer className="grid gap-6 lg:grid-cols-5">
-          <StaggerItem className="lg:col-span-3 [perspective:1200px]">
-            <TiltCard className="h-full rounded-2xl" maxTilt={8}>
-              <Link
-                href={`/services/${getServiceById(featuredKey)?.slug ?? "frontend-development"}`}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-primary/15 bg-card/80 p-8 shadow-[0_0_40px_rgba(184,243,75,0.06)] transition-shadow duration-500 hover:border-primary/35 hover:shadow-[0_0_48px_rgba(184,243,75,0.16)] sm:p-10"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="relative">
-                  <div className="mb-6 flex items-center justify-between gap-4 rtl:flex-row-reverse">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary shadow-[0_0_24px_rgba(184,243,75,0.2)] transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                      <FeaturedIcon className="h-7 w-7" />
-                    </div>
-                    <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary">
-                      {t.services.featuredLabel}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-semibold text-foreground sm:text-3xl">
-                    {featured.title}
-                  </h3>
-                  <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                    {featured.description}
-                  </p>
-                  <p className="mt-5 text-sm font-medium text-primary">{featured.outcome}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {techMap[featuredKey].map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-md bg-secondary px-2.5 py-1 text-xs text-muted-foreground"
-                      >
-                        {tech}
+        <StaggerContainer className="grid gap-6 sm:grid-cols-2">
+          {serviceKeys.map((key, index) => {
+            const item = t.services.items[key];
+            return (
+              <StaggerItem key={key} className="[perspective:1200px]">
+                <TiltCard className="h-full rounded-2xl" maxTilt={9}>
+                  <Link
+                    href={`/services/${getServiceById(key)?.slug ?? key}`}
+                    className="group relative flex h-full min-h-[240px] overflow-hidden rounded-2xl border border-primary/15 bg-card/70 shadow-[0_0_40px_rgba(184,243,75,0.06)] transition-shadow duration-500 hover:border-primary/35 hover:shadow-[0_0_48px_rgba(184,243,75,0.18)]"
+                  >
+                    <div className="relative z-10 flex flex-1 flex-col p-6 sm:p-8 rtl:text-right">
+                      <span className="text-xs font-semibold tracking-[0.2em] text-primary">
+                        0{index + 1}
                       </span>
-                    ))}
-                  </div>
-                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors group-hover:text-primary rtl:flex-row-reverse">
-                    {t.services.explore}
-                    <ArrowRight className="h-4 w-4 rtl:rotate-180" />
-                  </span>
-                </div>
-              </Link>
-            </TiltCard>
-          </StaggerItem>
-
-          <div className="flex flex-col gap-4 lg:col-span-2">
-            {compactKeys.map((key) => {
-              const Icon = iconMap[key];
-              const item = t.services.items[key];
-              return (
-                <StaggerItem key={key} className="[perspective:1000px]">
-                  <TiltCard className="h-full rounded-2xl" maxTilt={10} scale={1.015}>
-                    <Link
-                      href={`/services/${getServiceById(key)?.slug ?? key}`}
-                      className="group flex h-full items-start gap-4 rounded-2xl border border-primary/10 bg-card/80 p-5 transition-shadow duration-500 hover:border-primary/30 hover:shadow-[0_0_32px_rgba(184,243,75,0.12)] rtl:flex-row-reverse"
-                    >
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                        <Icon className="h-5 w-5" />
+                      <h3 className="mt-3 text-xl font-semibold text-foreground sm:text-2xl">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                        {item.description}
+                      </p>
+                      <p className="mt-4 text-sm font-medium text-primary">{item.outcome}</p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {techMap[key].slice(0, 3).map((tech) => (
+                          <span
+                            key={tech}
+                            className="rounded-md border border-primary/15 bg-black/25 px-2.5 py-1 text-xs text-muted-foreground"
+                          >
+                            {tech}
+                          </span>
+                        ))}
                       </div>
-                      <div className="min-w-0 flex-1 rtl:text-right">
-                        <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
-                        <p className="mt-1 text-sm font-medium text-primary">{item.outcome}</p>
-                        <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-                          {item.description}
-                        </p>
-                      </div>
-                    </Link>
-                  </TiltCard>
-                </StaggerItem>
-              );
-            })}
-          </div>
+                      <span className="mt-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground rtl:mr-auto">
+                        <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+                      </span>
+                    </div>
+                    <div className="relative hidden w-[42%] shrink-0 sm:block">
+                      <Image
+                        src={imageMap[key]}
+                        alt=""
+                        fill
+                        sizes="240px"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="neon-project-glow absolute inset-0" />
+                      <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-card/80 rtl:bg-gradient-to-r" />
+                    </div>
+                  </Link>
+                </TiltCard>
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
         <div className="mt-12 text-center">
           <Button asChild variant="outline" size="lg">

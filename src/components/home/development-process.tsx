@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Search, Map, PenTool, Code2, ShieldCheck, Rocket } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { StaggerContainer, StaggerItem } from "@/components/shared/stagger-container";
@@ -12,8 +13,19 @@ export function DevelopmentProcess() {
   const { t } = useApp();
 
   return (
-    <AnimatedSection className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <AnimatedSection className="relative overflow-hidden py-24 sm:py-32">
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/scenes/cta-astronaut-portal.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-[center_70%] opacity-25"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={t.process.badge}
           title={t.process.title}
@@ -27,12 +39,12 @@ export function DevelopmentProcess() {
               const Icon = icons[index] || Search;
               return (
                 <StaggerItem key={step.title} className="min-w-[240px] shrink-0 lg:min-w-0">
-                  <div className="relative h-full rounded-2xl border border-border bg-card/50 p-5 transition-all duration-500 hover:border-primary/25 hover:bg-card">
+                  <div className="relative h-full rounded-2xl border border-primary/15 bg-card/60 p-5 backdrop-blur-sm transition-all duration-500 hover:border-primary/35 hover:shadow-[0_0_32px_rgba(184,243,75,0.12)]">
                     <div className="mb-5 flex items-center gap-3 rtl:flex-row-reverse">
-                      <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-background text-sm font-bold text-primary shadow-sm shadow-primary/10">
-                        {index + 1}
+                      <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-background text-sm font-bold text-primary shadow-[0_0_18px_rgba(184,243,75,0.25)]">
+                        {String(index + 1).padStart(2, "0")}
                       </span>
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-primary">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                         <Icon className="h-5 w-5" />
                       </div>
                     </div>

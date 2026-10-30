@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
@@ -32,25 +33,43 @@ export function PortfolioContent({ projects }: PortfolioContentProps) {
   return (
     <>
       <section className="relative overflow-hidden pb-16 pt-32">
-        <div className="hero-glow absolute inset-0" />
-        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <Image
+          src="/scenes/section-rocky-glow.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background" />
+        <div className="neon-project-glow absolute inset-0 opacity-50" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+            <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/15 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
               {t.projects.pageBadge}
             </span>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               <GradientText as="span">{t.projects.pageTitle}</GradientText>
             </h1>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-6 text-base leading-relaxed text-white/75 sm:text-lg">
               {t.projects.pageDescription}
             </p>
           </div>
         </div>
       </section>
 
-      <AnimatedSection className="py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <AnimatedSection className="relative overflow-hidden py-16 sm:py-24">
+        <div className="pointer-events-none absolute inset-0">
+          <Image
+            src="/scenes/section-rocky-glow.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-25"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge={t.projects.badge}
             title={t.projects.caseStudies}

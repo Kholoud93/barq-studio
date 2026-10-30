@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/animated-section";
@@ -17,7 +18,18 @@ export function FeaturedProjects() {
 
   return (
     <AnimatedSection className="relative overflow-hidden py-24 sm:py-32">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(184,243,75,0.08),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/scenes/section-rocky-glow.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
+        <div className="neon-project-glow absolute inset-0 opacity-50" />
+      </div>
+
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={t.projects.badge}
@@ -28,10 +40,7 @@ export function FeaturedProjects() {
           {featured.map((project, index) => (
             <StaggerItem
               key={project.slug}
-              className={cn(
-                index === 0 && "sm:col-span-2 lg:col-span-2",
-                index === 0 && "lg:row-span-1"
-              )}
+              className={cn(index === 0 && "sm:col-span-2 lg:col-span-2")}
             >
               <ProjectCard project={project} />
             </StaggerItem>

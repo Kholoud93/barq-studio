@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
 import { GradientText } from "@/components/shared/gradient-text";
@@ -9,15 +10,41 @@ export function CompanyIntro() {
   const { t } = useApp();
 
   return (
-    <AnimatedSection className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <AnimatedSection className="relative overflow-hidden py-24 sm:py-32">
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src="/scenes/about-lightning-rock.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center opacity-35"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background" />
+        <div className="neon-project-glow absolute inset-0 opacity-40" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={t.intro.badge}
           title={t.intro.title}
           description={t.intro.description}
         />
-        <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl border border-border bg-card/50 p-8 sm:p-12">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/20 neon-rim">
+            <div className="relative aspect-[4/5] sm:aspect-[5/4]">
+              <Image
+                src="/scenes/about-lightning-rock.jpg"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="neon-project-glow absolute inset-0" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-primary/15 bg-card/55 p-8 backdrop-blur-md sm:p-12">
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
               {t.intro.p1}
             </p>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Target, Lightbulb, Heart, Globe, ArrowRight } from "lucide-react";
 import { AnimatedSection, AnimatedItem } from "@/components/shared/animated-section";
@@ -24,17 +25,29 @@ export function AboutContent() {
 
   return (
     <>
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="hero-glow absolute inset-0" />
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">{t.about.badge}</span>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+      <section className="relative min-h-[56vh] overflow-hidden pb-16 pt-32">
+        <Image
+          src="/scenes/about-lightning-rock.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/55 to-background" />
+        <div className="neon-project-glow absolute inset-0 opacity-60" />
+        <div className="relative mx-auto flex min-h-[40vh] max-w-7xl items-end px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl rtl:text-right">
+            <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/15 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+              {t.about.badge}
+            </span>
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               {t.about.title.split("Barq Studio")[0]}
               <GradientText as="span">Barq Studio</GradientText>
             </h1>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">{t.about.description}</p>
+            <p className="mt-6 text-base leading-relaxed text-white/75 sm:text-lg">
+              {t.about.description}
+            </p>
             <p className="mt-3 text-sm text-primary">{siteConfig.tagline}</p>
           </div>
         </div>
@@ -42,18 +55,34 @@ export function AboutContent() {
 
       <AnimatedSection className="py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-            <div>
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="rtl:text-right">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{t.about.story}</h2>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground">{t.about.storyP1}</p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t.about.storyP2}</p>
             </div>
-            <div className="rounded-2xl border border-border bg-card/50 p-8 sm:p-10">
-              <h3 className="text-xl font-semibold text-foreground">{t.about.mission}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{t.about.missionText}</p>
-              <div className="my-6 h-px bg-border" />
-              <h3 className="text-xl font-semibold text-foreground">{t.about.vision}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{t.about.visionText}</p>
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/20 neon-rim">
+              <div className="relative aspect-[5/4]">
+                <Image
+                  src="/scenes/hero-astronaut-moon.jpg"
+                  alt=""
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+                <div className="neon-project-glow absolute inset-0" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              </div>
+              <div className="absolute inset-x-0 bottom-0 space-y-3 p-6 sm:p-8">
+                <div className="rounded-2xl border border-primary/20 bg-black/50 p-5 backdrop-blur-md">
+                  <h3 className="text-lg font-semibold text-white">{t.about.mission}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/70">{t.about.missionText}</p>
+                </div>
+                <div className="rounded-2xl border border-primary/15 bg-black/45 p-5 backdrop-blur-md">
+                  <h3 className="text-lg font-semibold text-white">{t.about.vision}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/70">{t.about.visionText}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

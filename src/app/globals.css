@@ -10,7 +10,17 @@
   --radius: 0.75rem;
 }
 
-.light {
+html.light {
+  --primary: #2f6b0a;
+  --primary-foreground: #ffffff;
+  --accent: #245508;
+  --accent-foreground: #ffffff;
+  --ring: #2f6b0a;
+  --color-primary: #2f6b0a;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #245508;
+  --color-accent-foreground: #ffffff;
+  --color-ring: #2f6b0a;
   --background: #f5f7f2;
   --foreground: #101311;
   --card: #ffffff;
@@ -21,8 +31,10 @@
   --secondary-foreground: #2a332c;
   --muted: #e8efe0;
   --muted-foreground: #5c6a60;
-  --border: rgba(184, 243, 75, 0.22);
-  --input: rgba(184, 243, 75, 0.18);
+  --border: rgba(47, 107, 10, 0.3);
+  --input: rgba(47, 107, 10, 0.24);
+  --color-border: rgba(47, 107, 10, 0.3);
+  --color-input: rgba(47, 107, 10, 0.24);
 }
 
 .dark {
@@ -119,6 +131,13 @@ html[dir="rtl"] body {
 
 .gradient-text {
   background: linear-gradient(135deg, #b8f34b 0%, #9adf2f 55%, #d4ff7a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html.light .gradient-text {
+  background: linear-gradient(135deg, #2f6b0a 0%, #245508 55%, #3d8010 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
