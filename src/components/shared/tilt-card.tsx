@@ -1,7 +1,14 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface TiltCardProps {
@@ -15,12 +22,13 @@ interface TiltCardProps {
 export function TiltCard({
   children,
   className,
-  maxTilt = 12,
+  maxTilt = 14,
   glare = true,
-  scale = 1.02,
+  scale = 1.03,
 }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [hovering, setHovering] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
@@ -33,6 +41,7 @@ export function TiltCard({
   const glareBg = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(184,243,75,0.28), transparent 55%)`;
 
   function onMove(e: React.MouseEvent) {
+    if (reduceMotion) return;
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -52,6 +61,10 @@ export function TiltCard({
     rawY.set(0);
   }
 
+  if (reduceMotion) {
+    return <div className={cn("relative h-full", className)}>{children}</div>;
+  }
+
   return (
     <motion.div
       ref={ref}
@@ -62,13 +75,16 @@ export function TiltCard({
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
-        transformPerspective: 1000,
+        transformPerspective: 1100,
       }}
       animate={{ scale: hovering ? scale : 1 }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       className={cn("relative h-full will-change-transform", className)}
     >
-      <div style={{ transform: "translateZ(24px)", transformStyle: "preserve-3d" }} className="h-full">
+      <div
+        style={{ transform: "translateZ(28px)", transformStyle: "preserve-3d" }}
+        className="h-full"
+      >
         {children}
       </div>
       {glare && (

@@ -4,6 +4,7 @@ import { Focus, HeartHandshake, MessagesSquare, ShieldCheck } from "lucide-react
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
+import { TiltCard } from "@/components/shared/tilt-card";
 import { useApp } from "@/providers/app-provider";
 
 const icons = [HeartHandshake, ShieldCheck, MessagesSquare, Focus];
@@ -12,8 +13,9 @@ export function Statistics() {
   const { t } = useApp();
 
   return (
-    <AnimatedSection className="bg-card/30 py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <AnimatedSection variant="fadeScale" className="relative py-20 sm:py-28">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(184,243,75,0.05),transparent_70%)]" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge={t.trust.badge}
           title={t.trust.title}
@@ -25,19 +27,23 @@ export function Statistics() {
             return (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 24, rotateX: 12 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.06, duration: 0.45 }}
-                className="rounded-2xl border border-border bg-card/70 p-6 transition-colors hover:border-primary/30"
+                transition={{ delay: index * 0.08, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                style={{ perspective: 800 }}
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 text-base font-semibold text-foreground">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
+                <TiltCard maxTilt={10} scale={1.02}>
+                  <div className="h-full rounded-2xl border border-primary/15 bg-card/55 p-6 backdrop-blur-md transition-all duration-500 hover:border-primary/35 hover:shadow-[0_0_28px_rgba(184,243,75,0.1)]">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="mt-4 text-base font-semibold text-foreground">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                </TiltCard>
               </motion.div>
             );
           })}

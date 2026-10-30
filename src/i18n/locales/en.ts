@@ -11,13 +11,13 @@ const en = {
   },
   hero: {
     brand: "BARQ STUDIO",
-    label: "DIGITAL SOLUTIONS STUDIO",
-    line1: "We Build Digital Experiences That",
-    line2: "Move Businesses Forward.",
+    label: "BUILT DIFFERENT",
+    line1: "Ship faster.",
+    line2: "Hit harder.",
     description:
-      "BARQ STUDIO designs and develops modern websites, mobile applications, and custom digital solutions that help businesses grow, operate smarter, and turn ideas into reality.",
+      "Barq Studio builds sharp web, mobile, and backend products for teams that move with urgency.",
     cta1: "Start Your Project",
-    cta2: "Explore Our Work",
+    cta2: "View Our Work",
     trust1: "Client-Focused Approach",
     trust2: "Quality-Driven Development",
     trust3: "Transparent Communication",
@@ -48,16 +48,16 @@ const en = {
   },
   intro: {
     badge: "About BARQ STUDIO",
-    title: "More Than Just Development. We Build Digital Experiences.",
+    title: "More than a studio. A team that cares.",
     description:
       "BARQ STUDIO is a digital solutions studio focused on helping businesses transform ideas into practical, scalable digital products.",
     p1: "We combine development, design, and modern technology to create solutions that solve real problems and support business growth.",
     p2: "Whether you need a website, mobile app, custom system, or thoughtful UI/UX, we work closely with you from idea to launch — and beyond when support is needed.",
-    tagline: "Turn Ideas Into Reality.",
+    tagline: "Built Different.",
   },
   services: {
     badge: "Services",
-    title: "Complete Digital Solutions for Your Business",
+    title: "From ideas to real impact.",
     description:
       "From idea to launch, we provide digital solutions tailored to your business goals.",
     explore: "Explore All Services",
@@ -166,45 +166,31 @@ const en = {
   },
   process: {
     badge: "Process",
-    title: "From Idea to Launch",
+    title: "From idea to impact.",
     description:
-      "A clear path from understanding your needs to shipping and supporting the product.",
+      "A focused path from understanding your needs to shipping and improving the product.",
     steps: [
       {
-        title: "Discovery",
-        description:
-          "We understand your business, goals, audience, and requirements.",
-      },
-      {
-        title: "Planning",
-        description:
-          "We define the scope, technical approach, timeline, and project roadmap.",
+        title: "Discover",
+        description: "Understand goals, users, and opportunities.",
       },
       {
         title: "Design",
-        description:
-          "We create user-friendly interfaces and experiences aligned with your brand.",
+        description: "Craft intuitive and engaging experiences.",
       },
       {
-        title: "Development",
-        description:
-          "We build the solution using suitable modern technologies.",
+        title: "Build",
+        description: "Develop with speed, precision, and scalability.",
       },
       {
-        title: "Testing & Launch",
-        description:
-          "We test the product, fix issues, and prepare it for launch.",
-      },
-      {
-        title: "Support & Improvement",
-        description:
-          "We provide technical support and help improve the product when needed.",
+        title: "Scale",
+        description: "Launch, optimize, and continuously improve.",
       },
     ],
   },
   commitment: {
     badge: "Our Commitment",
-    title: "Our Commitment to Every Project",
+    title: "Real people. Real results.",
     description:
       "Authentic reviews will appear here once available. Until then, this is how we work with every client.",
     items: [
@@ -232,15 +218,15 @@ const en = {
   },
   projects: {
     badge: "Selected Projects",
-    title: "Selected Projects",
+    title: "Real products. Real impact.",
     description:
       "A selection of digital experiences and solutions built with attention to performance, usability, and business needs.",
     viewAll: "View All Projects",
     viewProject: "View Project",
     pageBadge: "Projects",
-    pageTitle: "Selected Work",
+    pageTitle: "Real products. Real impact.",
     pageDescription:
-      "Concept and selected digital product work across web, mobile, CRM, and dashboards.",
+      "Concept and selected digital product work across web, mobile, CRM, and dashboards — clearly labeled.",
     caseStudies: "Selected Work",
     caseDescription:
       "These entries are clearly labeled. We do not present concept work as completed client case studies.",
@@ -344,12 +330,12 @@ const en = {
     ],
   },
   cta: {
-    title: "Let's Build Something",
-    titleHighlight: "Great Together",
+    title: "Ready to turn your idea",
+    titleHighlight: "into reality?",
     description:
-      "Have a project in mind? Tell us about your idea and let's explore how we can bring it to life.",
+      "Let's create something bold, impactful, and built for what's next.",
     contact: "Start Your Project",
-    portfolio: "Explore Our Work",
+    portfolio: "Talk to Our Team",
     whatsapp: "Chat on WhatsApp",
     namePlaceholder: "Your name",
     emailPlaceholder: "you@company.com",
@@ -360,7 +346,7 @@ const en = {
   },
   about: {
     badge: "About",
-    title: "More Than Just Development. We Build Digital Experiences.",
+    title: "More than a studio. A team that cares.",
     description:
       "BARQ STUDIO is a digital solutions studio focused on helping businesses transform ideas into practical, scalable digital products.",
     whoTitle: "Who We Are",

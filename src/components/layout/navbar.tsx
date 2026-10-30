@@ -61,8 +61,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled ? "glass-strong shadow-lg shadow-black/10 dark:shadow-black/20" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500",
+        scrolled
+          ? "glass-strong border-primary/15 shadow-lg shadow-black/20"
+          : "border-transparent bg-transparent"
       )}
     >
       <nav
