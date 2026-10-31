@@ -1,8 +1,7 @@
-import { siteConfig } from "@/lib/metadata";
+import { getWhatsAppUrl } from "@/lib/metadata";
 
 export function openWhatsApp(message: string) {
-  const url = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank", "noopener,noreferrer");
+  window.open(getWhatsAppUrl(message), "_blank", "noopener,noreferrer");
 }
 
 export function buildQuickLeadMessage({

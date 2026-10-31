@@ -90,6 +90,15 @@ export function OrganizationJsonLd() {
         availableLanguage: ["Arabic", "English"],
         areaServed: "EG",
       },
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        name: "WhatsApp",
+        telephone: siteConfig.phone,
+        url: siteConfig.whatsappUrl,
+        availableLanguage: ["Arabic", "English"],
+        areaServed: "EG",
+      },
     ],
   };
 

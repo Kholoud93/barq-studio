@@ -23,12 +23,19 @@ export const siteConfig = {
   email: "kholouudaiman93@gmail.com",
   phone: "+20 12 00715693",
   whatsapp: "201200715693",
+  whatsappUrl: "https://wa.me/201200715693",
   address: "Egypt",
   addressAr: "مصر",
   social: {
     github: "https://github.com/Kholoud93",
+    whatsapp: "https://wa.me/201200715693",
   },
 };
+
+export function getWhatsAppUrl(message?: string) {
+  if (!message) return siteConfig.whatsappUrl;
+  return `${siteConfig.whatsappUrl}?text=${encodeURIComponent(message)}`;
+}
 
 export function createMetadata({
   title,

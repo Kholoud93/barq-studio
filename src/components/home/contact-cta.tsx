@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useApp } from "@/providers/app-provider";
 import { buildQuickLeadMessage, openWhatsApp } from "@/lib/whatsapp";
-import { siteConfig } from "@/lib/metadata";
+import { getWhatsAppUrl } from "@/lib/metadata";
 
 export function ContactCTA() {
   const { t, locale } = useApp();
@@ -84,7 +84,7 @@ export function ContactCTA() {
                   className="border-primary/25 bg-secondary/40 backdrop-blur-md"
                 >
                   <a
-                    href={`https://wa.me/${siteConfig.whatsapp}`}
+                    href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rtl:flex-row-reverse"

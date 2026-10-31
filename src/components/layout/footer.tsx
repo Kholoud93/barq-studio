@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
 import { Separator } from "@/components/ui/separator";
 import { useApp } from "@/providers/app-provider";
-import { siteConfig } from "@/lib/metadata";
+import { getWhatsAppUrl, siteConfig } from "@/lib/metadata";
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -59,6 +59,15 @@ export function Footer() {
                 aria-label="GitHub"
               >
                 <GitHubIcon className="h-4 w-4" />
+              </a>
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-[#25D366]/50 hover:text-[#25D366]"
+                aria-label={t.contact.whatsapp}
+              >
+                <MessageCircle className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -114,6 +123,17 @@ export function Footer() {
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="min-w-0 break-words hover:text-primary">
                   {siteConfig.phone}
+                </a>
+              </li>
+              <li className="flex items-start gap-2 rtl:flex-row-reverse">
+                <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#25D366]" />
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-w-0 break-words hover:text-primary"
+                >
+                  {t.contact.whatsapp}: {siteConfig.phone}
                 </a>
               </li>
               <li className="flex items-start gap-2 rtl:flex-row-reverse">

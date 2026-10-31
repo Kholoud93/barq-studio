@@ -5,7 +5,7 @@ import { AnimatedSection } from "@/components/shared/animated-section";
 import { GradientText } from "@/components/shared/gradient-text";
 import { ContactForm } from "@/components/shared/contact-form";
 import { useApp } from "@/providers/app-provider";
-import { siteConfig } from "@/lib/metadata";
+import { getWhatsAppUrl, siteConfig } from "@/lib/metadata";
 
 export function ContactContent() {
   const { t } = useApp();
@@ -17,7 +17,7 @@ export function ContactContent() {
       icon: MessageCircle,
       label: t.contact.whatsapp,
       value: siteConfig.phone,
-      href: `https://wa.me/${siteConfig.whatsapp}`,
+      href: getWhatsAppUrl(),
     },
     { icon: MapPin, label: t.contact.location, value: siteConfig.address },
     { icon: Clock, label: t.contact.hours, value: t.contact.hoursValue },
