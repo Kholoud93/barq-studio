@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -17,12 +18,19 @@ import { ProjectCard } from "@/components/shared/project-card";
 import { StaggerContainer, StaggerItem } from "@/components/shared/stagger-container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ContactCTA } from "@/components/home/contact-cta";
 import { getAdjacentProjects, getRelatedProjects } from "@/data/projects";
 import { services } from "@/data/services";
 import { useApp } from "@/providers/app-provider";
 import { localizeProject } from "@/lib/projects-i18n";
 import type { Project } from "@/data/projects";
+
+const ContactCTA = dynamic(
+  () =>
+    import("@/components/home/contact-cta").then((mod) => ({
+      default: mod.ContactCTA,
+    })),
+  { ssr: true }
+);
 
 interface ProjectDetailContentProps {
   project: Project;
@@ -52,7 +60,8 @@ export function ProjectDetailContent({ project }: ProjectDetailContentProps) {
               src={project.image}
               alt={localized.localizedTitle}
               fill
-              priority
+              preload
+              fetchPriority="high"
               sizes="100vw"
               className="object-cover"
             />
