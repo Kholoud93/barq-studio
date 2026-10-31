@@ -11,16 +11,40 @@ const en = {
   },
   hero: {
     brand: "BARQ STUDIO",
-    label: "BUILT DIFFERENT",
+    label: "SOFTWARE DEVELOPMENT COMPANY IN EGYPT",
     line1: "Ship faster.",
     line2: "Hit harder.",
     description:
-      "Barq Studio builds sharp web, mobile, and backend products for teams that move with urgency.",
+      "BARQ STUDIO is a software development company in Egypt building web platforms, mobile apps, e-commerce stores, custom CRM systems, UI/UX, and AI automation for businesses and startups.",
     cta1: "Start Your Project",
     cta2: "View Our Work",
     trust1: "Client-Focused Approach",
     trust2: "Quality-Driven Development",
     trust3: "Transparent Communication",
+  },
+  seoBand: {
+    badge: "Egypt Digital Solutions",
+    title: "A software development company in Egypt for growing businesses",
+    description:
+      "Looking for a web development company in Egypt, mobile app development, e-commerce development, custom CRM development, or AI automation services? BARQ STUDIO helps startups and companies turn ideas into reliable digital products.",
+    items: [
+      {
+        title: "Web Development Company Egypt",
+        description: "Business websites, landing pages, and web apps built for speed and clarity.",
+      },
+      {
+        title: "Mobile App Development Egypt",
+        description: "iOS and Android apps with practical UX and maintainable architecture.",
+      },
+      {
+        title: "E-commerce & Custom CRM",
+        description: "Online stores and management systems tailored to real operations.",
+      },
+      {
+        title: "UI/UX & AI Automation",
+        description: "Interfaces people understand and workflows that reduce repetitive work.",
+      },
+    ],
   },
   trust: {
     badge: "How We Work",
@@ -47,19 +71,19 @@ const en = {
     ],
   },
   intro: {
-    badge: "About BARQ STUDIO",
-    title: "More than a studio. A team that cares.",
+    badge: "About BARQ STUDIO Egypt",
+    title: "More than a studio. A software team that cares.",
     description:
-      "BARQ STUDIO is a digital solutions studio focused on helping businesses transform ideas into practical, scalable digital products.",
-    p1: "We combine development, design, and modern technology to create solutions that solve real problems and support business growth.",
-    p2: "Whether you need a website, mobile app, custom system, or thoughtful UI/UX, we work closely with you from idea to launch — and beyond when support is needed.",
+      "BARQ STUDIO is a software and digital solutions company in Egypt helping businesses transform ideas into practical, scalable products.",
+    p1: "As a web development company in Egypt, we combine engineering, design, and modern technology to solve real business problems — from websites and mobile apps to CRM systems and AI automation.",
+    p2: "Whether you need a website, mobile application, e-commerce store, custom CRM, or thoughtful UI/UX, we work with you from idea to launch — and beyond when support is needed.",
     tagline: "Built Different.",
   },
   services: {
     badge: "Services",
     title: "From ideas to real impact.",
     description:
-      "From idea to launch, we provide digital solutions tailored to your business goals.",
+      "Web development, mobile apps, e-commerce, CRM systems, UI/UX design, and AI automation services in Egypt — tailored to your business goals.",
     explore: "Explore All Services",
     learnMore: "Learn More",
     pageTitle: "Digital Services Built for Growing Businesses",

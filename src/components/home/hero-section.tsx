@@ -77,8 +77,17 @@ export function HeroSection() {
           <motion.p
             initial={initial}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.14 }}
+            className="mt-3 text-sm font-medium text-primary sm:text-base"
+          >
+            {t.hero.brand}
+          </motion.p>
+
+          <motion.p
+            initial={initial}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
-            className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg"
+            className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg"
           >
             {t.hero.description}
           </motion.p>

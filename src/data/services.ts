@@ -107,12 +107,12 @@ export const services: Service[] = [
       "We create modern mobile applications that deliver seamless experiences across iOS and Android. Using cross-platform approaches when suitable, we focus on usability, performance, and maintainable architecture.",
     descriptionAr:
       "نطور تطبيقات جوال حديثة تقدم تجارب سلسة على iOS و Android. نستخدم الحلول متعددة المنصات عند الحاجة، مع التركيز على سهولة الاستخدام والأداء والبنية القابلة للصيانة.",
-    seoTitle: "Mobile App Development Services",
-    seoTitleAr: "خدمات تطوير تطبيقات الجوال",
+    seoTitle: "Mobile App Development Egypt",
+    seoTitleAr: "تطوير تطبيقات الجوال في مصر",
     seoDescription:
-      "Mobile app development by BARQ STUDIO for iOS and Android using React Native and Expo. Practical, user-focused applications for growing businesses.",
+      "Mobile app development in Egypt by BARQ STUDIO for iOS and Android using React Native and Expo. Practical apps for growing businesses.",
     seoDescriptionAr:
-      "تطوير تطبيقات جوال من برق ستوديو لنظامي iOS و Android باستخدام React Native و Expo. تطبيقات عملية تركز على المستخدم للشركات النامية.",
+      "تطوير تطبيقات الجوال في مصر من برق ستوديو لنظامي iOS و Android باستخدام React Native و Expo. تطبيقات عملية للشركات النامية.",
     icon: "Smartphone",
     image: "/services/mobile.jpg",
     technologies: ["React Native", "Expo", "TypeScript", "REST APIs"],
@@ -176,12 +176,12 @@ export const services: Service[] = [
       "We develop scalable online stores designed to simplify shopping experiences and support business growth. From product catalogs and carts to checkout flows, we focus on clarity, trust, and conversion.",
     descriptionAr:
       "نطور متاجر إلكترونية قابلة للتوسع تبسط تجربة التسوق وتدعم نمو الأعمال. من كتالوج المنتجات والسلة إلى مسار الدفع، نركز على الوضوح والثقة والتحويل.",
-    seoTitle: "E-commerce Website Development",
-    seoTitleAr: "تطوير متاجر إلكترونية",
+    seoTitle: "E-commerce Development Egypt",
+    seoTitleAr: "تطوير متاجر إلكترونية في مصر",
     seoDescription:
-      "E-commerce website development by BARQ STUDIO: online stores, product management, cart and checkout flows for businesses ready to sell online.",
+      "E-commerce development in Egypt by BARQ STUDIO: online stores, catalogs, carts, and checkout flows for businesses ready to sell online.",
     seoDescriptionAr:
-      "تطوير متاجر إلكترونية من برق ستوديو: متاجر أونلاين وإدارة منتجات ومسارات سلة ودفع للشركات الجاهزة للبيع عبر الإنترنت.",
+      "تطوير متاجر إلكترونية في مصر من برق ستوديو: متاجر أونلاين وكتالوج وسلة ومسار دفع للشركات الجاهزة للبيع عبر الإنترنت.",
     icon: "ShoppingBag",
     image: "/services/web.jpg",
     technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe"],
@@ -245,12 +245,12 @@ export const services: Service[] = [
       "We develop custom business systems that help companies manage operations, customers, teams, and workflows efficiently. From CRM platforms to admin dashboards and internal tools, we build software around real operational needs.",
     descriptionAr:
       "نطور أنظمة أعمال مخصصة تساعد الشركات على إدارة العمليات والعملاء والفرق وسير العمل بكفاءة. من منصات CRM إلى لوحات الإدارة والأدوات الداخلية، نبني برمجيات حول الاحتياجات التشغيلية الحقيقية.",
-    seoTitle: "Custom CRM Development",
-    seoTitleAr: "تطوير أنظمة CRM مخصصة",
+    seoTitle: "Custom CRM Development Egypt",
+    seoTitleAr: "تطوير أنظمة CRM مخصصة في مصر",
     seoDescription:
-      "Custom CRM and business system development by BARQ STUDIO. Admin dashboards, management tools, and internal software tailored to your workflows.",
+      "Custom CRM development in Egypt by BARQ STUDIO. Admin dashboards, management tools, and internal software tailored to your workflows.",
     seoDescriptionAr:
-      "تطوير أنظمة CRM وأنظمة أعمال مخصصة من برق ستوديو. لوحات إدارة وأدوات داخلية مصممة وفق سير عملك.",
+      "تطوير أنظمة CRM مخصصة في مصر من برق ستوديو. لوحات إدارة وأدوات داخلية مصممة وفق سير عملك.",
     icon: "LayoutDashboard",
     image: "/services/backend.jpg",
     technologies: ["Next.js", "Node.js", "PostgreSQL", "REST APIs", "TypeScript"],
@@ -314,8 +314,8 @@ export const services: Service[] = [
       "We design intuitive, user-centered interfaces that combine usability, aesthetics, and business goals. From research and wireframes to polished UI and design systems, we create experiences people can navigate with confidence.",
     descriptionAr:
       "نصمم واجهات بديهية تركز على المستخدم وتجمع بين سهولة الاستخدام والجمال وأهداف العمل. من البحث والمخططات إلى واجهات مصقولة وأنظمة تصميم، نصنع تجارب يتنقل فيها المستخدم بثقة.",
-    seoTitle: "UI/UX Design Services",
-    seoTitleAr: "خدمات تصميم واجهات المستخدم UI UX",
+    seoTitle: "UI UX Design Services Egypt",
+    seoTitleAr: "خدمات تصميم مواقع وواجهات UI UX في مصر",
     seoDescription:
       "UI/UX design services by BARQ STUDIO: research, wireframes, prototypes, and design systems for web and mobile products.",
     seoDescriptionAr:
@@ -383,12 +383,12 @@ export const services: Service[] = [
       "We help businesses automate repetitive tasks and improve workflows using modern AI-powered solutions. From workflow automation and chatbots to API integrations, we focus on practical outcomes rather than hype.",
     descriptionAr:
       "نساعد الشركات على أتمتة المهام المتكررة وتحسين سير العمل باستخدام حلول حديثة مدعومة بالذكاء الاصطناعي. من أتمتة العمليات وروبوتات المحادثة إلى تكاملات API، نركز على نتائج عملية لا على المبالغة.",
-    seoTitle: "AI Automation Services",
-    seoTitleAr: "خدمات أتمتة الأعمال بالذكاء الاصطناعي",
+    seoTitle: "AI Automation Services Egypt",
+    seoTitleAr: "خدمات أتمتة الذكاء الاصطناعي في مصر",
     seoDescription:
-      "AI automation services by BARQ STUDIO: workflow automation, chatbots, business process automation, and API integrations for real operational gains.",
+      "AI automation services in Egypt by BARQ STUDIO: workflow automation, chatbots, process automation, and API integrations for real operational gains.",
     seoDescriptionAr:
-      "خدمات أتمتة بالذكاء الاصطناعي من برق ستوديو: أتمتة سير العمل وروبوتات محادثة وأتمتة العمليات وتكاملات API لتحقيق مكاسب تشغيلية حقيقية.",
+      "خدمات أتمتة الذكاء الاصطناعي في مصر من برق ستوديو: أتمتة سير العمل وروبوتات محادثة وأتمتة العمليات وتكاملات API.",
     icon: "Bot",
     image: "/services/backend.jpg",
     technologies: ["OpenAI", "Node.js", "REST APIs", "Webhooks", "Automation"],

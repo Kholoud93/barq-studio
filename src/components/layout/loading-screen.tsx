@@ -10,7 +10,7 @@ export function LoadingScreen() {
   const { t } = useApp();
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1200);
+    const timer = setTimeout(() => setLoading(false), 600);
     return () => clearTimeout(timer);
   }, []);
 
@@ -38,10 +38,10 @@ export function LoadingScreen() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="mt-6 text-center"
             >
-              <h2 className="text-xl font-bold tracking-tight">
+              <p className="text-xl font-bold tracking-tight">
                 <span className="text-foreground">BARQ </span>
                 <span className="gradient-text">STUDIO</span>
-              </h2>
+              </p>
               <p className="mt-1 text-xs uppercase tracking-[0.3em] text-muted-foreground">
                 {t.common.loading}
               </p>

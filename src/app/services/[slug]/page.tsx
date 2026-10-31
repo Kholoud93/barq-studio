@@ -18,13 +18,14 @@ export async function generateMetadata({ params }: ServicePageProps) {
   if (!service) return {};
 
   return createMetadata({
-    title: `${service.seoTitleAr} | ${service.seoTitle}`,
-    description: `${service.seoDescriptionAr} ${service.seoDescription}`,
+    title: `${service.seoTitle} | BARQ STUDIO Egypt`,
+    description: service.seoDescription,
     path: `/services/${service.slug}`,
+    absoluteTitle: true,
     keywords: [
       ...service.keywords,
-      "برق ستوديو",
-      "Barq Studio",
+      "BARQ STUDIO Egypt",
+      "شركة برمجة في مصر",
       service.titleAr,
       service.title,
     ],

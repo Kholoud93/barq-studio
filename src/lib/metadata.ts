@@ -16,9 +16,9 @@ export const siteConfig = {
   tagline: "Turn Ideas Into Reality.",
   taglineAr: "نحوّل الأفكار إلى واقع.",
   description:
-    "برق ستوديو (BARQ STUDIO) استوديو حلول رقمية وبرمجيات في مصر — تطوير مواقع ويب وتطبيقات جوال وأنظمة CRM وتصميم UI/UX وأتمتة بالذكاء الاصطناعي للشركات.",
+    "برق ستوديو (BARQ STUDIO) شركة برمجة وحلول رقمية في مصر — تطوير مواقع، تطبيقات جوال، متاجر إلكترونية، أنظمة CRM، تصميم UI/UX، وأتمتة بالذكاء الاصطناعي للشركات والشركات الناشئة.",
   descriptionEn:
-    "BARQ STUDIO is a software and digital solutions studio in Egypt specializing in web development, mobile apps, CRM systems, UI/UX design, and AI automation for growing businesses.",
+    "BARQ STUDIO is a software development company in Egypt offering web development, mobile apps, e-commerce, custom CRM systems, UI/UX design, and AI automation for businesses and startups.",
   url: siteUrl.replace(/\/$/, ""),
   email: "kholouudaiman93@gmail.com",
   phone: "+20 12 00715693",
@@ -45,6 +45,7 @@ export function createMetadata({
   keywords = [],
   image,
   noIndex = false,
+  absoluteTitle = false,
 }: {
   title?: string;
   description?: string;
@@ -52,25 +53,38 @@ export function createMetadata({
   keywords?: string[];
   image?: string;
   noIndex?: boolean;
+  absoluteTitle?: boolean;
 } = {}): Metadata {
   const defaultTitle =
-    "BARQ STUDIO Egypt | Web Development, Apps & Digital Solutions";
-  const pageTitle = title
-    ? title.includes(siteConfig.name) || title.includes(siteConfig.nameAr)
-      ? title
-      : `${title} | ${siteConfig.name}`
-    : defaultTitle;
+    "BARQ STUDIO Egypt | Software Development Company in Egypt";
   const pageDescription = description || siteConfig.descriptionEn;
   const normalizedPath = path === "/" ? "" : path;
   const canonical = `${siteConfig.url}${normalizedPath}`;
-  const ogImage = image || "/og-image.svg";
+  const ogImage = image || "/og-image.jpg";
   const allKeywords = Array.from(new Set([...siteKeywords, ...keywords]));
 
+  const hasBrandInTitle = Boolean(
+    title &&
+      (title.includes(siteConfig.name) || title.includes(siteConfig.nameAr))
+  );
+
+  const finalTitle = !title
+    ? defaultTitle
+    : absoluteTitle || hasBrandInTitle
+      ? title
+      : `${title} | ${siteConfig.name}`;
+
+  const resolvedTitle: Metadata["title"] = title
+    ? { absolute: finalTitle }
+    : {
+        default: defaultTitle,
+        template: `%s | ${siteConfig.name}`,
+      };
+
+  const socialTitle = finalTitle;
+
   return {
-    title: {
-      default: pageTitle,
-      template: `%s | ${siteConfig.name} Egypt`,
-    },
+    title: resolvedTitle,
     description: pageDescription,
     applicationName: siteConfig.name,
     authors: [{ name: siteConfig.name, url: siteConfig.url }],
@@ -80,14 +94,9 @@ export function createMetadata({
     metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical,
-      languages: {
-        "ar-EG": canonical,
-        "en-US": canonical,
-        "x-default": canonical,
-      },
     },
     openGraph: {
-      title: pageTitle,
+      title: socialTitle,
       description: pageDescription,
       url: canonical,
       siteName: `${siteConfig.name} Egypt`,
@@ -99,13 +108,13 @@ export function createMetadata({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${siteConfig.name} Egypt — software & digital solutions studio`,
+          alt: `${siteConfig.name} Egypt — software development company`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: pageTitle,
+      title: socialTitle,
       description: pageDescription,
       images: [ogImage],
     },
@@ -126,7 +135,6 @@ export function createMetadata({
     other: {
       "geo.region": "EG",
       "geo.placename": "Egypt",
-      "og:locale:alternate": "ar_EG",
     },
   };
 }
