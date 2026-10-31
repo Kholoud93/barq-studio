@@ -1,17 +1,34 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle } from "lucide-react";
-import { AnimatedSection, AnimatedItem } from "@/components/shared/animated-section";
+import { AnimatedSection } from "@/components/shared/animated-section";
 import { GradientText } from "@/components/shared/gradient-text";
 import { TiltCard } from "@/components/shared/tilt-card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { DevelopmentProcess } from "@/components/home/development-process";
-import { ContactCTA } from "@/components/home/contact-cta";
 import { useApp } from "@/providers/app-provider";
 import { services } from "@/data/services";
+import { easeOutExpo, mobileViewport } from "@/lib/motion";
+
+const DevelopmentProcess = dynamic(
+  () =>
+    import("@/components/home/development-process").then((mod) => ({
+      default: mod.DevelopmentProcess,
+    })),
+  { ssr: true }
+);
+
+const ContactCTA = dynamic(
+  () =>
+    import("@/components/home/contact-cta").then((mod) => ({
+      default: mod.ContactCTA,
+    })),
+  { ssr: true }
+);
 
 export function ServicesContent() {
   const { t, locale } = useApp();
@@ -24,7 +41,8 @@ export function ServicesContent() {
           src="/scenes/section-rocky-glow.jpg"
           alt=""
           fill
-          priority
+          preload
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover"
         />
@@ -92,13 +110,22 @@ export function ServicesContent() {
                     ))}
                   </div>
                   <ul className="mt-8 space-y-3">
-                    {features.slice(0, 4).map((feature) => (
-                      <AnimatedItem key={feature}>
-                        <li className="flex items-start gap-3 rtl:flex-row-reverse">
-                          <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
-                        </li>
-                      </AnimatedItem>
+                    {features.slice(0, 4).map((feature, featureIndex) => (
+                      <motion.li
+                        key={feature}
+                        initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                        viewport={mobileViewport}
+                        transition={{
+                          duration: 0.55,
+                          delay: featureIndex * 0.05,
+                          ease: easeOutExpo,
+                        }}
+                        className="flex items-start gap-3 rtl:flex-row-reverse"
+                      >
+                        <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                        <span className="text-sm text-muted-foreground">{feature}</span>
+                      </motion.li>
                     ))}
                   </ul>
                   <div className="mt-8 flex flex-wrap gap-3 rtl:flex-row-reverse">
