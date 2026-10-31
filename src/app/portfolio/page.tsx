@@ -3,15 +3,15 @@ import { projects } from "@/data/projects";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "Selected Projects | BARQ STUDIO",
+  title: "Projects | BARQ STUDIO Egypt Software Portfolio",
   description:
-    "Explore selected BARQ STUDIO work across web apps, mobile concepts, CRM dashboards, e-commerce hubs, and corporate websites — clearly labeled concept and selected projects.",
+    "Explore BARQ STUDIO Egypt projects across web apps, mobile concepts, CRM dashboards, e-commerce hubs, and business websites.",
   path: "/portfolio",
   keywords: [
-    "أعمال برق ستوديو",
-    "مشاريع برق",
-    "Barq Studio portfolio",
-    "digital product portfolio Egypt",
+    "أعمال برق ستوديو مصر",
+    "مشاريع برق ستوديو",
+    "BARQ STUDIO portfolio Egypt",
+    "software portfolio Egypt",
   ],
 });
 

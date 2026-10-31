@@ -10,12 +10,14 @@ export function OrganizationJsonLd() {
     "@type": ["Organization", "ProfessionalService"],
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
-    legalName: siteConfig.name,
+    legalName: "BARQ STUDIO",
     alternateName: [
-      "Barq",
+      "BARQ STUDIO Egypt",
       "Barq Studio Digital Solutions",
+      "Barq Studio Software Agency",
       "برق ستوديو",
-      "برق",
+      "برق ستوديو مصر",
+      "استوديو برق للبرمجيات",
       siteConfig.nameAr,
     ],
     description: siteConfig.descriptionEn,
@@ -23,7 +25,7 @@ export function OrganizationJsonLd() {
     logo: {
       "@type": "ImageObject",
       url: `${siteConfig.url}/logo.svg`,
-      caption: `${siteConfig.nameAr} | ${siteConfig.name}`,
+      caption: `${siteConfig.nameAr} | ${siteConfig.name} Egypt`,
     },
     image: `${siteConfig.url}/og-image.svg`,
     email: siteConfig.email,
@@ -31,6 +33,7 @@ export function OrganizationJsonLd() {
     address: {
       "@type": "PostalAddress",
       addressCountry: "EG",
+      addressRegion: "Egypt",
     },
     areaServed: [
       { "@type": "Country", name: "Egypt" },
@@ -39,6 +42,10 @@ export function OrganizationJsonLd() {
     ],
     sameAs,
     slogan: siteConfig.tagline,
+    foundingLocation: {
+      "@type": "Place",
+      name: "Egypt",
+    },
     knowsAbout: [
       "Web Development",
       "Mobile App Development",
@@ -46,14 +53,18 @@ export function OrganizationJsonLd() {
       "CRM Systems",
       "E-commerce Development",
       "AI Automation",
+      "Custom Software",
       "تطوير مواقع",
       "تطوير تطبيقات الجوال",
       "تصميم UI UX",
       "برمجة مواقع مصر",
+      "حلول رقمية للشركات",
     ],
+    disambiguatingDescription:
+      "BARQ STUDIO is a software and digital product studio in Egypt focused on websites, mobile apps, CRM systems, UI/UX, and AI automation — not a gaming studio or photography studio.",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: `${siteConfig.name} Services`,
+      name: `${siteConfig.name} Digital Services`,
       itemListElement: services.map((service) => ({
         "@type": "Offer",
         itemOffered: {
@@ -70,6 +81,16 @@ export function OrganizationJsonLd() {
         },
       })),
     },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: siteConfig.email,
+        telephone: siteConfig.phone,
+        availableLanguage: ["Arabic", "English"],
+        areaServed: "EG",
+      },
+    ],
   };
 
   return (
@@ -85,8 +106,13 @@ export function WebSiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${siteConfig.url}/#website`,
-    name: siteConfig.name,
-    alternateName: ["Barq", "برق ستوديو", siteConfig.nameAr],
+    name: "BARQ STUDIO Egypt",
+    alternateName: [
+      "BARQ STUDIO",
+      "Barq Studio Digital Solutions",
+      "برق ستوديو مصر",
+      siteConfig.nameAr,
+    ],
     url: siteConfig.url,
     description: siteConfig.descriptionEn,
     inLanguage: ["ar-EG", "en-US"],
@@ -95,6 +121,11 @@ export function WebSiteJsonLd() {
     },
     about: {
       "@id": `${siteConfig.url}/#organization`,
+    },
+    potentialAction: {
+      "@type": "CommunicateAction",
+      target: `${siteConfig.url}/contact`,
+      name: "Start a Project",
     },
   };
 
@@ -169,7 +200,7 @@ export function ServiceJsonLd({
     brand: {
       "@type": "Brand",
       name: siteConfig.name,
-      alternateName: siteConfig.nameAr,
+      alternateName: ["BARQ STUDIO Egypt", siteConfig.nameAr],
     },
   };
 

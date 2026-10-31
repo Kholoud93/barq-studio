@@ -14,18 +14,18 @@ import { FaqJsonLd } from "@/components/shared/json-ld";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
-  title: "BARQ STUDIO | Web Development & Digital Solutions in Egypt",
+  title: "BARQ STUDIO Egypt | Web Development, Apps & Digital Solutions",
   description:
-    "BARQ STUDIO designs and develops modern websites, mobile apps, CRM systems, UI/UX, and AI automation for businesses in Egypt. Turn ideas into reality.",
+    "BARQ STUDIO is a software studio in Egypt for websites, mobile apps, CRM systems, UI/UX, and AI automation — built for businesses that need real digital products.",
   path: "/",
   keywords: [
-    "BARQ STUDIO",
-    "برق ستوديو",
+    "BARQ STUDIO Egypt",
+    "برق ستوديو مصر",
+    "software agency Egypt",
     "web development Egypt",
     "شركة برمجة في مصر",
-    "تصميم مواقع إلكترونية",
-    "تطوير تطبيقات",
-    "UI UX Design",
+    "تصميم مواقع إلكترونية مصر",
+    "تطوير تطبيقات مصر",
   ],
 });
 

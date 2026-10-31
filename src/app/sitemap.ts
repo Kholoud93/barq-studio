@@ -48,13 +48,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteConfig.url}/privacy`,
       lastModified: now,
       changeFrequency: "yearly",
-      priority: 0.3,
+      priority: 0.2,
     },
     {
       url: `${siteConfig.url}/terms`,
       lastModified: now,
       changeFrequency: "yearly",
-      priority: 0.3,
+      priority: 0.2,
     },
   ];
 
@@ -69,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteConfig.url}/portfolio/${project.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: 0.7,
+    priority: 0.75,
   }));
 
   const blogPages = blogPosts.map((post) => ({

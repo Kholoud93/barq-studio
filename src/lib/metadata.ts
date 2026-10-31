@@ -16,10 +16,10 @@ export const siteConfig = {
   tagline: "Turn Ideas Into Reality.",
   taglineAr: "نحوّل الأفكار إلى واقع.",
   description:
-    "برق ستوديو (BARQ STUDIO) استوديو حلول رقمية في مصر — تصميم وتطوير مواقع ويب وتطبيقات جوال وأنظمة مخصصة تساعد الشركات على النمو وتحويل الأفكار إلى منتجات عملية.",
+    "برق ستوديو (BARQ STUDIO) استوديو حلول رقمية وبرمجيات في مصر — تطوير مواقع ويب وتطبيقات جوال وأنظمة CRM وتصميم UI/UX وأتمتة بالذكاء الاصطناعي للشركات.",
   descriptionEn:
-    "BARQ STUDIO is a digital solutions studio in Egypt that designs and develops modern websites, mobile applications, and custom software that help businesses grow and turn ideas into reality.",
-  url: siteUrl,
+    "BARQ STUDIO is a software and digital solutions studio in Egypt specializing in web development, mobile apps, CRM systems, UI/UX design, and AI automation for growing businesses.",
+  url: siteUrl.replace(/\/$/, ""),
   email: "kholouudaiman93@gmail.com",
   phone: "+20 12 00715693",
   whatsapp: "201200715693",
@@ -45,20 +45,23 @@ export function createMetadata({
   image?: string;
   noIndex?: boolean;
 } = {}): Metadata {
+  const defaultTitle =
+    "BARQ STUDIO Egypt | Web Development, Apps & Digital Solutions";
   const pageTitle = title
     ? title.includes(siteConfig.name) || title.includes(siteConfig.nameAr)
       ? title
       : `${title} | ${siteConfig.name}`
-    : `${siteConfig.name} | Web Development & Digital Solutions in Egypt`;
+    : defaultTitle;
   const pageDescription = description || siteConfig.descriptionEn;
-  const canonical = `${siteConfig.url}${path}`;
+  const normalizedPath = path === "/" ? "" : path;
+  const canonical = `${siteConfig.url}${normalizedPath}`;
   const ogImage = image || "/og-image.svg";
   const allKeywords = Array.from(new Set([...siteKeywords, ...keywords]));
 
   return {
     title: {
       default: pageTitle,
-      template: `%s | ${siteConfig.name}`,
+      template: `%s | ${siteConfig.name} Egypt`,
     },
     description: pageDescription,
     applicationName: siteConfig.name,
@@ -79,7 +82,7 @@ export function createMetadata({
       title: pageTitle,
       description: pageDescription,
       url: canonical,
-      siteName: siteConfig.name,
+      siteName: `${siteConfig.name} Egypt`,
       type: "website",
       locale: "en_US",
       alternateLocale: ["ar_EG"],
@@ -88,7 +91,7 @@ export function createMetadata({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${siteConfig.name} — Turn Ideas Into Reality`,
+          alt: `${siteConfig.name} Egypt — software & digital solutions studio`,
         },
       ],
     },
@@ -115,6 +118,7 @@ export function createMetadata({
     other: {
       "geo.region": "EG",
       "geo.placename": "Egypt",
+      "og:locale:alternate": "ar_EG",
     },
   };
 }
