@@ -17,7 +17,7 @@ import { easeOutExpo } from "@/lib/motion";
 export function HeroSection() {
   const { t } = useApp();
   const sectionRef = useRef<HTMLElement>(null);
-  const initial = { opacity: 0, y: 20 };
+  const initial = { opacity: 1, y: 12 };
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -44,7 +44,9 @@ export function HeroSection() {
         />
         <div className="cinematic-scrim absolute inset-0" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_70%_35%,rgba(184,243,75,0.18),transparent_60%)]" />
-        <EnergyParticles />
+        <div className="hidden md:block">
+          <EnergyParticles />
+        </div>
       </motion.div>
 
       <motion.div
@@ -172,7 +174,7 @@ export function HeroSection() {
                     fill
                     sizes="(max-width: 1024px) 90vw, 520px"
                     className="object-cover"
-                    priority
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-background/35 via-transparent to-primary/10" />
                 </div>

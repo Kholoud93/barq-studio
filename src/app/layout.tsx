@@ -15,17 +15,23 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 const cairo = Cairo({
   variable: "--font-cairo",
   subsets: ["arabic", "latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -37,7 +43,6 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon-32.jpg", sizes: "32x32", type: "image/jpeg" },
       { url: "/logo-192.jpg", sizes: "192x192", type: "image/jpeg" },
-      { url: "/logo.jpg", sizes: "1024x1024", type: "image/jpeg" },
     ],
     shortcut: "/favicon-32.jpg",
     apple: "/logo-192.jpg",

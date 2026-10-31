@@ -56,7 +56,7 @@ export function ContactCTA() {
         />
         <div className="absolute inset-0 bg-secondary dark:bg-gradient-to-r dark:from-background/90 dark:via-background/60 dark:to-background/30" />
         <div className="neon-project-glow absolute inset-0 hidden opacity-40 dark:block" />
-        <EnergyParticles className="hidden dark:block" />
+        <EnergyParticles className="hidden dark:md:block" />
 
         <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
           <div className="flex flex-col justify-center rtl:text-right">

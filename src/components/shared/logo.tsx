@@ -6,6 +6,7 @@ interface LogoProps {
   className?: string;
   showText?: boolean;
   size?: "sm" | "md" | "lg";
+  priority?: boolean;
 }
 
 const sizes = {
@@ -14,7 +15,12 @@ const sizes = {
   lg: { image: 72, text: "text-2xl" },
 };
 
-export function Logo({ className, showText = true, size = "md" }: LogoProps) {
+export function Logo({
+  className,
+  showText = true,
+  size = "md",
+  priority = false,
+}: LogoProps) {
   const { image, text } = sizes[size];
 
   return (
@@ -28,7 +34,8 @@ export function Logo({ className, showText = true, size = "md" }: LogoProps) {
         alt="BARQ STUDIO"
         width={image}
         height={image}
-        priority
+        priority={priority}
+        sizes={`${image}px`}
         className="rounded-xl object-cover shadow-[0_0_18px_rgba(184,243,75,0.25)] transition-transform duration-300 group-hover:scale-105"
       />
       {showText && (

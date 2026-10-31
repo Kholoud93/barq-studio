@@ -30,7 +30,7 @@ export function DevelopmentProcess() {
           </div>
         </Parallax>
         <div className="absolute inset-0 hidden bg-gradient-to-b from-background/55 via-background/70 to-background dark:block" />
-        <EnergyParticles className="hidden opacity-70 dark:block" />
+        <EnergyParticles className="hidden opacity-70 dark:md:block" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

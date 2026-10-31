@@ -14,9 +14,14 @@ interface ProjectCardProps {
   project: Project;
   className?: string;
   variant?: "card" | "bleed";
+  priority?: boolean;
 }
 
-export function ProjectCard({ project, className }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  className,
+  priority = false,
+}: ProjectCardProps) {
   const { locale } = useApp();
   const localized = localizeProject(project, locale);
 
@@ -35,7 +40,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105 group-active:scale-105"
-              priority={project.featured}
+              priority={priority}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent dark:from-black/70 dark:via-black/20 dark:to-transparent" />
             <div className="absolute bottom-4 left-4 right-4 rtl:text-right">

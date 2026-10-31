@@ -15,11 +15,17 @@ function isProjectRoute(path: string) {
 export function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
   const prevPath = useRef(pathname);
+  const isFirstRender = useRef(true);
   const [wipeKey, setWipeKey] = useState(0);
   const [showWipe, setShowWipe] = useState(false);
   const cinematic = isProjectRoute(pathname);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      prevPath.current = pathname;
+      return;
+    }
     if (prevPath.current === pathname) return;
     const shouldWipe =
       isProjectRoute(pathname) || isProjectRoute(prevPath.current);
@@ -36,9 +42,11 @@ export function PageTransition({ children }: PageTransitionProps) {
       <motion.div
         key={pathname}
         initial={
-          cinematic
-            ? { opacity: 0, y: 24, scale: 0.985 }
-            : { opacity: 0, y: 10 }
+          isFirstRender.current
+            ? false
+            : cinematic
+              ? { opacity: 0, y: 24, scale: 0.985 }
+              : { opacity: 0, y: 10 }
         }
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{

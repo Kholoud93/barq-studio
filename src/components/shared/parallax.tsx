@@ -3,10 +3,12 @@
 import { useRef } from "react";
 import {
   motion,
+  useReducedMotion,
   useScroll,
   useSpring,
   useTransform,
 } from "framer-motion";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 
 interface ParallaxProps {
@@ -23,6 +25,7 @@ export function Parallax({
   scale = 1,
 }: ParallaxProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -32,6 +35,10 @@ export function Parallax({
   const scaleRaw = useTransform(scrollYProgress, [0, 0.5, 1], [scale, 1, scale]);
   const y = useSpring(yRaw, { stiffness: 90, damping: 28 });
   const animatedScale = useSpring(scaleRaw, { stiffness: 90, damping: 28 });
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
@@ -57,6 +64,13 @@ export function Floating3D({
   intensity = 12,
   duration = 5,
 }: Floating3DProps) {
+  const reduceMotion = useReducedMotion();
+  const isMobile = useMediaQuery("(max-width: 767px)");
+
+  if (reduceMotion || isMobile) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={cn("will-change-transform", className)}
