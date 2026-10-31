@@ -1,10 +1,21 @@
+export interface ServiceFaq {
+  question: string;
+  questionAr: string;
+  answer: string;
+  answerAr: string;
+}
+
 export interface Service {
   id: string;
   slug: string;
   title: string;
   titleAr: string;
+  h1: string;
+  h1Ar: string;
   shortDescription: string;
   shortDescriptionAr: string;
+  intro: string;
+  introAr: string;
   description: string;
   descriptionAr: string;
   seoTitle: string;
@@ -16,11 +27,19 @@ export interface Service {
   technologies: string[];
   features: string[];
   featuresAr: string[];
+  benefits: string[];
+  benefitsAr: string[];
+  suitableFor: string;
+  suitableForAr: string;
   problems: string[];
   problemsAr: string[];
   approach: string[];
   approachAr: string[];
   relatedServices: string[];
+  featuredProjectSlugs: string[];
+  ctaLabel: string;
+  ctaLabelAr: string;
+  faqs: ServiceFaq[];
   keywords: string[];
 }
 
@@ -30,20 +49,26 @@ export const services: Service[] = [
     slug: "web-development",
     title: "Web Development",
     titleAr: "تطوير مواقع الويب",
+    h1: "Web Development Company in Egypt",
+    h1Ar: "شركة تصميم مواقع وتطوير ويب في مصر",
     shortDescription:
       "Responsive, high-performance websites that help businesses grow online.",
     shortDescriptionAr:
       "مواقع سريعة ومتجاوبة تساعد الشركات على النمو عبر الإنترنت.",
+    intro:
+      "BARQ STUDIO builds clear, fast websites and web applications for businesses that need a credible digital presence — from corporate sites to product-facing web apps.",
+    introAr:
+      "برق ستوديو تبني مواقع وتطبيقات ويب واضحة وسريعة للشركات التي تحتاج حضوراً رقمياً موثوقاً — من مواقع الشركات إلى تطبيقات الويب الموجهة للمنتج.",
     description:
-      "We build responsive, high-performance websites that provide excellent user experiences and help businesses grow online. From corporate sites and landing pages to custom web applications, every project is designed for clarity, speed, and conversion.",
+      "We plan structure and content, design usable interfaces, and implement with modern stacks such as React, Next.js, TypeScript, and Tailwind. Our focus is clarity, mobile experience, maintainability, and solid SEO foundations.",
     descriptionAr:
-      "نبني مواقع سريعة ومتجاوبة توفر تجربة مستخدم ممتازة وتساعد الشركات على النمو عبر الإنترنت. من المواقع المؤسسية والصفحات التعريفية إلى تطبيقات الويب المخصصة، نصمم كل مشروع للوضوح والسرعة والتحويل.",
-    seoTitle: "Web Development Company in Egypt",
-    seoTitleAr: "شركة تطوير مواقع إلكترونية في مصر",
+      "نخطط الهيكل والمحتوى، ونصمم واجهات سهلة الاستخدام، وننفّذ بأطر حديثة مثل React و Next.js و TypeScript و Tailwind. تركيزنا على الوضوح وتجربة الجوال وقابلية الصيانة وأساسيات تحسين محركات البحث.",
+    seoTitle: "Web Development Company Egypt | BARQ STUDIO",
+    seoTitleAr: "شركة تصميم مواقع في مصر | برق ستوديو",
     seoDescription:
-      "BARQ STUDIO builds modern websites, landing pages, and web applications for businesses in Egypt. Fast, responsive, and SEO-ready web development.",
+      "BARQ STUDIO is a web development company in Egypt (شركة تصميم مواقع في مصر) building business websites, landing pages, and web apps with React, Next.js, and modern performance practices.",
     seoDescriptionAr:
-      "برق ستوديو تطور مواقع حديثة وصفحات هبوط وتطبيقات ويب للشركات في مصر. تطوير مواقع سريع ومتجاوب وجاهز لمحركات البحث.",
+      "برق ستوديو شركة تصميم مواقع في مصر لبناء مواقع أعمال وصفحات هبوط وتطبيقات ويب باستخدام React و Next.js وممارسات أداء حديثة.",
     icon: "Monitor",
     image: "/services/web.jpg",
     technologies: ["React", "Next.js", "Vue.js", "Nuxt.js", "TypeScript", "Tailwind CSS"],
@@ -51,16 +76,30 @@ export const services: Service[] = [
       "Business and corporate websites",
       "Landing pages",
       "Web applications",
-      "E-commerce websites",
-      "Performance and SEO foundations",
+      "Performance and technical SEO foundations",
     ],
     featuresAr: [
       "مواقع أعمال ومواقع شركات",
       "صفحات هبوط",
       "تطبيقات ويب",
-      "مواقع تجارة إلكترونية",
-      "أساسيات الأداء وتحسين محركات البحث",
+      "أساسيات الأداء وتحسين محركات البحث التقني",
     ],
+    benefits: [
+      "Clearer brand presence",
+      "Fast and usable pages",
+      "Easier content and feature growth",
+      "Stronger foundations for SEO and conversions",
+    ],
+    benefitsAr: [
+      "حضور أوضح للعلامة التجارية",
+      "صفحات سريعة وسهلة الاستخدام",
+      "نمو أسهل للمحتوى والميزات",
+      "أساس أقوى لتحسين الظهور والتحويل",
+    ],
+    suitableFor:
+      "SMEs, startups, and teams that need a new or rebuilt marketing website or a custom web application.",
+    suitableForAr:
+      "الشركات الصغيرة والمتوسطة والشركات الناشئة والفرق التي تحتاج موقعاً تسويقياً جديداً أو إعادة بناء، أو تطبيقاً ويب مخصصاً.",
     problems: [
       "Outdated websites that do not reflect the brand",
       "Slow pages that hurt conversions and SEO",
@@ -85,13 +124,53 @@ export const services: Service[] = [
       "نبني بأطر حديثة مع مراعاة إمكانية الوصول",
       "نختبر الأداء والتجاوب وسهولة الاستخدام قبل الإطلاق",
     ],
-    relatedServices: ["ecommerce", "uiux", "crm"],
+    relatedServices: ["ecommerce", "uiux", "mobile"],
+    featuredProjectSlugs: [
+      "real-estate-platform",
+      "insurance-dashboard",
+      "saas-analytics-platform",
+    ],
+    ctaLabel: "Discuss Your Website Project",
+    ctaLabelAr: "ناقش مشروع موقعك",
+    faqs: [
+      {
+        question: "Do you only build marketing websites?",
+        questionAr: "هل تبنون مواقع تسويقية فقط؟",
+        answer:
+          "No. BARQ STUDIO also builds custom web applications when project requirements call for them.",
+        answerAr:
+          "لا. تبني برق ستوديو أيضاً تطبيقات ويب مخصصة عندما تتطلب متطلبات المشروع ذلك.",
+      },
+      {
+        question: "Which technologies do you use?",
+        questionAr: "ما التقنيات التي تستخدمونها؟",
+        answer:
+          "React, Next.js, Vue/Nuxt, TypeScript, and Tailwind, depending on project requirements.",
+        answerAr:
+          "React و Next.js و Vue/Nuxt و TypeScript و Tailwind حسب متطلبات كل مشروع.",
+      },
+      {
+        question: "Is SEO included in website development?",
+        questionAr: "هل يشمل تطوير الموقع تحسين محركات البحث؟",
+        answer:
+          "Technical SEO foundations such as structure, semantics, and performance can be included. Ongoing content SEO is scoped separately.",
+        answerAr:
+          "يمكن تضمين أساسيات تحسين محركات البحث التقنية مثل الهيكل والدلالة والأداء. تحسين المحتوى المستمر يُحدد نطاقه بشكل منفصل.",
+      },
+      {
+        question: "Can you redesign an existing website?",
+        questionAr: "هل يمكنكم إعادة تصميم موقع قائم؟",
+        answer:
+          "Yes, when the project scope and requirements are clearly defined.",
+        answerAr: "نعم، عندما يكون نطاق المشروع والمتطلبات واضحة.",
+      },
+    ],
     keywords: [
-      "web development Egypt",
-      "website development company",
+      "Web Development Company Egypt",
+      "Website Design Company Egypt",
+      "شركة تصميم مواقع في مصر",
       "تطوير مواقع إلكترونية",
-      "شركة برمجة في مصر",
-      "تصميم مواقع إلكترونية",
+      "web development Egypt",
     ],
   },
   {
@@ -99,20 +178,26 @@ export const services: Service[] = [
     slug: "mobile-app-development",
     title: "Mobile App Development",
     titleAr: "تطوير تطبيقات الجوال",
+    h1: "Mobile App Development in Egypt",
+    h1Ar: "تطوير وتصميم تطبيقات الجوال في مصر",
     shortDescription:
       "Modern mobile applications with seamless experiences across iOS and Android.",
     shortDescriptionAr:
       "تطبيقات جوال حديثة بتجربة سلسة على iOS و Android.",
+    intro:
+      "Practical mobile products for businesses that need reliable access on iOS and Android — without unnecessary complexity.",
+    introAr:
+      "منتجات جوال عملية للشركات التي تحتاج وصولاً موثوقاً على iOS و Android — دون تعقيد غير ضروري.",
     description:
-      "We create modern mobile applications that deliver seamless experiences across iOS and Android. Using cross-platform approaches when suitable, we focus on usability, performance, and maintainable architecture.",
+      "Cross-platform development when suitable, using React Native, Expo, TypeScript, and APIs. Focus on core user journeys, clear interfaces on small screens, and real-device testing before release.",
     descriptionAr:
-      "نطور تطبيقات جوال حديثة تقدم تجارب سلسة على iOS و Android. نستخدم الحلول متعددة المنصات عند الحاجة، مع التركيز على سهولة الاستخدام والأداء والبنية القابلة للصيانة.",
-    seoTitle: "Mobile App Development Egypt",
-    seoTitleAr: "تطوير تطبيقات الجوال في مصر",
+      "تطوير متعدد المنصات عند المناسبة باستخدام React Native و Expo و TypeScript وواجهات البرمجة. نركز على رحلات المستخدم الأساسية وواجهات واضحة على الشاشات الصغيرة والاختبار على أجهزة حقيقية قبل الإطلاق.",
+    seoTitle: "Mobile App Development Egypt | BARQ STUDIO",
+    seoTitleAr: "شركة تصميم تطبيقات | برق ستوديو",
     seoDescription:
-      "Mobile app development in Egypt by BARQ STUDIO for iOS and Android using React Native and Expo. Practical apps for growing businesses.",
+      "Mobile app development in Egypt by BARQ STUDIO — iOS and Android apps with React Native and Expo, focused on usability and maintainable architecture.",
     seoDescriptionAr:
-      "تطوير تطبيقات الجوال في مصر من برق ستوديو لنظامي iOS و Android باستخدام React Native و Expo. تطبيقات عملية للشركات النامية.",
+      "تطوير تطبيقات الجوال في مصر من برق ستوديو — تطبيقات iOS و Android باستخدام React Native و Expo مع التركيز على سهولة الاستخدام والبنية القابلة للصيانة.",
     icon: "Smartphone",
     image: "/services/mobile.jpg",
     technologies: ["React Native", "Expo", "TypeScript", "REST APIs"],
@@ -121,7 +206,7 @@ export const services: Service[] = [
       "Android applications",
       "Cross-platform apps",
       "React Native solutions",
-      "App store deployment support",
+      "Store deployment support",
     ],
     featuresAr: [
       "تطبيقات iOS",
@@ -130,6 +215,22 @@ export const services: Service[] = [
       "حلول React Native",
       "دعم النشر على المتاجر",
     ],
+    benefits: [
+      "A maintainable codebase when cross-platform is suitable",
+      "Clearer mobile user experience",
+      "A focused path toward an MVP",
+      "App-store deployment support when included in project scope",
+    ],
+    benefitsAr: [
+      "قاعدة كود قابلة للصيانة عند مناسبة الحلول متعددة المنصات",
+      "تجربة مستخدم أوضح على الجوال",
+      "مسار مركّز نحو نسخة أولى (MVP)",
+      "دعم النشر على المتاجر عند إدراجه في نطاق المشروع",
+    ],
+    suitableFor:
+      "Operations and field teams, customer-facing applications, and products that need mobile as a primary channel.",
+    suitableForAr:
+      "فرق التشغيل والميدان، والتطبيقات الموجهة للعملاء، والمنتجات التي تحتاج الجوال كقناة أساسية.",
     problems: [
       "Business processes that need mobile access",
       "Separate native builds that are costly to maintain",
@@ -155,12 +256,48 @@ export const services: Service[] = [
       "نختبر على أجهزة حقيقية قبل الإطلاق",
     ],
     relatedServices: ["web", "uiux", "ai"],
+    featuredProjectSlugs: ["healthcare-management"],
+    ctaLabel: "Start Your App Project",
+    ctaLabelAr: "ابدأ مشروع تطبيقك",
+    faqs: [
+      {
+        question: "Should I build a native or cross-platform application?",
+        questionAr: "هل أبني تطبيقاً أصلياً أم متعدد المنصات؟",
+        answer:
+          "The decision depends on product requirements. Cross-platform development is considered when it fits the project.",
+        answerAr:
+          "يعتمد القرار على متطلبات المنتج. ننظر في التطوير متعدد المنصات عندما يناسب المشروع.",
+      },
+      {
+        question: "Do you work with React Native?",
+        questionAr: "هل تعملون بـ React Native؟",
+        answer:
+          "Yes, when the project requirements are suitable for React Native.",
+        answerAr: "نعم، عندما تكون متطلبات المشروع مناسبة لـ React Native.",
+      },
+      {
+        question: "Can you help build an MVP?",
+        questionAr: "هل يمكنكم المساعدة في بناء نسخة أولى (MVP)؟",
+        answer:
+          "Yes. We can define the essential user journeys and prioritize the first version.",
+        answerAr:
+          "نعم. يمكننا تحديد رحلات المستخدم الأساسية وترتيب أولويات النسخة الأولى.",
+      },
+      {
+        question: "Can the app connect to an existing backend?",
+        questionAr: "هل يمكن ربط التطبيق بخادم خلفي قائم؟",
+        answer:
+          "Yes, when the backend provides suitable APIs, such as REST APIs.",
+        answerAr:
+          "نعم، عندما يوفّر الخادم الخلفي واجهات برمجة مناسبة مثل REST APIs.",
+      },
+    ],
     keywords: [
-      "mobile app development Egypt",
+      "Mobile App Development Egypt",
+      "شركة تصميم تطبيقات",
       "React Native company",
-      "شركة تطوير تطبيقات في مصر",
+      "تطوير تطبيقات الجوال",
       "تصميم تطبيقات موبايل",
-      "تطوير تطبيقات",
     ],
   },
   {
@@ -168,37 +305,59 @@ export const services: Service[] = [
     slug: "ecommerce-development",
     title: "E-commerce Solutions",
     titleAr: "حلول التجارة الإلكترونية",
+    h1: "E-commerce Development in Egypt",
+    h1Ar: "تصميم وتطوير متاجر إلكترونية في مصر",
     shortDescription:
       "Scalable online stores designed to simplify shopping and support growth.",
     shortDescriptionAr:
       "متاجر إلكترونية قابلة للتوسع تبسط التسوق وتدعم النمو.",
+    intro:
+      "Online stores built for clarity and conversion — from product catalogs to checkout — for businesses ready to sell digitally.",
+    introAr:
+      "متاجر إلكترونية مبنية للوضوح والتحويل — من كتالوج المنتجات حتى الدفع — للشركات الجاهزة للبيع رقمياً.",
     description:
-      "We develop scalable online stores designed to simplify shopping experiences and support business growth. From product catalogs and carts to checkout flows, we focus on clarity, trust, and conversion.",
+      "We plan shopping journeys, product experiences, and checkout flows. Solutions may include product catalogs, carts, orders, and payment integration, using technologies that fit the project requirements.",
     descriptionAr:
-      "نطور متاجر إلكترونية قابلة للتوسع تبسط تجربة التسوق وتدعم نمو الأعمال. من كتالوج المنتجات والسلة إلى مسار الدفع، نركز على الوضوح والثقة والتحويل.",
-    seoTitle: "E-commerce Development Egypt",
-    seoTitleAr: "تطوير متاجر إلكترونية في مصر",
+      "نخطط رحلات التسوق وتجربة المنتج ومسارات الدفع. قد تشمل الحلول كتالوج المنتجات والسلة والطلبات وتكامل الدفع، باستخدام تقنيات تناسب متطلبات المشروع.",
+    seoTitle: "E-commerce Development Egypt | BARQ STUDIO",
+    seoTitleAr: "شركة تصميم متاجر إلكترونية | برق ستوديو",
     seoDescription:
-      "E-commerce development in Egypt by BARQ STUDIO: online stores, catalogs, carts, and checkout flows for businesses ready to sell online.",
+      "E-commerce development in Egypt by BARQ STUDIO — online stores with catalogs, carts, checkout, and payment integration when required.",
     seoDescriptionAr:
-      "تطوير متاجر إلكترونية في مصر من برق ستوديو: متاجر أونلاين وكتالوج وسلة ومسار دفع للشركات الجاهزة للبيع عبر الإنترنت.",
+      "تطوير متاجر إلكترونية في مصر من برق ستوديو — متاجر أونلاين مع كتالوج وسلة ومسار دفع وتكامل دفع عند الحاجة.",
     icon: "ShoppingBag",
     image: "/services/web.jpg",
     technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe"],
     features: [
       "Online stores",
       "Product management",
-      "Shopping cart",
-      "Checkout integration",
+      "Shopping carts",
+      "Checkout flows",
       "Payment integration when required",
     ],
     featuresAr: [
       "متاجر إلكترونية",
       "إدارة المنتجات",
-      "سلة التسوق",
-      "تكامل مسار الدفع",
+      "سلال تسوق",
+      "مسارات الدفع",
       "تكامل الدفع عند الحاجة",
     ],
+    benefits: [
+      "More organized online ordering",
+      "Better mobile product browsing",
+      "Clearer product and checkout journeys",
+      "An architecture that can support future growth",
+    ],
+    benefitsAr: [
+      "طلبات أونلاين أكثر تنظيماً",
+      "تصفح منتجات أفضل على الجوال",
+      "رحلات منتج ودفع أوضح",
+      "بنية تدعم النمو المستقبلي",
+    ],
+    suitableFor:
+      "Retail and product businesses moving from manual or fragmented selling to a structured online storefront.",
+    suitableForAr:
+      "أعمال التجزئة والمنتجات التي تنتقل من البيع اليدوي أو المجزأ إلى واجهة متجر إلكتروني منظمة.",
     problems: [
       "Manual order handling that does not scale",
       "Stores that are hard to browse on mobile",
@@ -224,12 +383,47 @@ export const services: Service[] = [
       "نهيئ البنية للنمو المستقبلي",
     ],
     relatedServices: ["web", "uiux", "crm"],
+    featuredProjectSlugs: ["ecommerce-dashboard"],
+    ctaLabel: "Plan Your Online Store",
+    ctaLabelAr: "خطط لمتجرك الإلكتروني",
+    faqs: [
+      {
+        question: "Can you integrate online payments?",
+        questionAr: "هل يمكن دمج الدفع الإلكتروني؟",
+        answer:
+          "Payment integration can be included when required and supported by the chosen provider and project scope.",
+        answerAr:
+          "يمكن تضمين تكامل الدفع عند الحاجة وعندما يدعمه مزوّد الدفع المختار ونطاق المشروع.",
+      },
+      {
+        question: "Do you build custom online stores?",
+        questionAr: "هل تبنون متاجر إلكترونية مخصصة؟",
+        answer:
+          "Yes. The solution is planned around the product catalog and customer journey.",
+        answerAr: "نعم. تُخطَّط الحل حول كتالوج المنتجات ورحلة العميل.",
+      },
+      {
+        question: "Can the store support order and inventory management?",
+        questionAr: "هل يدعم المتجر إدارة الطلبات والمخزون؟",
+        answer:
+          "The system can be designed to provide clearer order and operational visibility according to requirements.",
+        answerAr:
+          "يمكن تصميم النظام لتوفير رؤية أوضح للطلبات والعمليات وفق المتطلبات.",
+      },
+      {
+        question: "Can an online store connect to a CRM?",
+        questionAr: "هل يمكن ربط المتجر بنظام CRM؟",
+        answer:
+          "Yes, when the business workflow and integration requirements are defined.",
+        answerAr: "نعم، عندما تكون سير العمل ومتطلبات التكامل واضحة.",
+      },
+    ],
     keywords: [
-      "ecommerce website development",
+      "E-commerce Development Egypt",
+      "شركة تصميم متاجر إلكترونية",
       "online store Egypt",
-      "تصميم متجر إلكتروني",
       "تطوير متجر إلكتروني",
-      "شركة تجارة إلكترونية",
+      "تصميم متجر إلكتروني",
     ],
   },
   {
@@ -237,37 +431,61 @@ export const services: Service[] = [
     slug: "crm-development",
     title: "CRM & Custom Business Systems",
     titleAr: "أنظمة CRM والأنظمة المخصصة",
+    h1: "Custom CRM Development in Egypt",
+    h1Ar: "تطوير أنظمة CRM وأنظمة أعمال مخصصة في مصر",
     shortDescription:
       "Custom systems that help companies manage operations, customers, and workflows.",
     shortDescriptionAr:
       "أنظمة مخصصة تساعد الشركات على إدارة العمليات والعملاء وسير العمل.",
+    intro:
+      "Software designed around how your team actually works — customers, operations, and internal processes — instead of forcing your business into a rigid off-the-shelf system.",
+    introAr:
+      "برمجيات مصممة وفق طريقة عمل فريقك فعلياً — العملاء والعمليات والعمليات الداخلية — بدل إجبار عملك على نظام جاهز جامد.",
     description:
-      "We develop custom business systems that help companies manage operations, customers, teams, and workflows efficiently. From CRM platforms to admin dashboards and internal tools, we build software around real operational needs.",
+      "We help define workflows, prioritize modules, and build role-based dashboards and internal tools using technologies such as Next.js, Node.js, PostgreSQL, APIs, and TypeScript when suitable.",
     descriptionAr:
-      "نطور أنظمة أعمال مخصصة تساعد الشركات على إدارة العمليات والعملاء والفرق وسير العمل بكفاءة. من منصات CRM إلى لوحات الإدارة والأدوات الداخلية، نبني برمجيات حول الاحتياجات التشغيلية الحقيقية.",
-    seoTitle: "Custom CRM Development Egypt",
-    seoTitleAr: "تطوير أنظمة CRM مخصصة في مصر",
+      "نساعد على تحديد سير العمل وترتيب أولويات الوحدات وبناء لوحات تحكم وأدوات داخلية بصلاحيات حسب الدور باستخدام تقنيات مثل Next.js و Node.js و PostgreSQL وواجهات البرمجة و TypeScript عند المناسبة.",
+    seoTitle: "Custom CRM Development Egypt | BARQ STUDIO",
+    seoTitleAr: "تطوير أنظمة CRM مخصصة في مصر | برق ستوديو",
     seoDescription:
-      "Custom CRM development in Egypt by BARQ STUDIO. Admin dashboards, management tools, and internal software tailored to your workflows.",
+      "Custom CRM and business systems in Egypt by BARQ STUDIO — dashboards, management tools, and internal software shaped around real workflows.",
     seoDescriptionAr:
-      "تطوير أنظمة CRM مخصصة في مصر من برق ستوديو. لوحات إدارة وأدوات داخلية مصممة وفق سير عملك.",
+      "تطوير أنظمة CRM وأنظمة أعمال مخصصة في مصر من برق ستوديو — لوحات تحكم وأدوات إدارة وبرمجيات داخلية وفق سير العمل الحقيقي.",
     icon: "LayoutDashboard",
     image: "/services/backend.jpg",
     technologies: ["Next.js", "Node.js", "PostgreSQL", "REST APIs", "TypeScript"],
     features: [
-      "CRM systems",
+      "Custom CRM systems",
       "Admin dashboards",
       "Management systems",
-      "Internal business tools",
-      "Custom software",
+      "Internal tools",
+      "Custom business software",
     ],
     featuresAr: [
-      "أنظمة CRM",
+      "أنظمة CRM مخصصة",
       "لوحات تحكم إدارية",
       "أنظمة إدارة",
-      "أدوات أعمال داخلية",
-      "برمجيات مخصصة",
+      "أدوات داخلية",
+      "برمجيات أعمال مخصصة",
     ],
+    benefits: [
+      "Less scattered business data",
+      "Clearer ownership and follow-ups",
+      "Better visibility into workflows",
+      "Less dependence on disconnected spreadsheets",
+      "A shared view of customer and operational activity",
+    ],
+    benefitsAr: [
+      "بيانات أعمال أقل تشتتاً",
+      "ملكية ومتابعة أوضح",
+      "رؤية أفضل لسير العمل",
+      "اعتماد أقل على جداول بيانات منفصلة",
+      "رؤية مشتركة لنشاط العملاء والعمليات",
+    ],
+    suitableFor:
+      "Growing teams that manage customers and operations across spreadsheets, chats, or disconnected tools, and need a tailored system.",
+    suitableForAr:
+      "الفرق النامية التي تدير العملاء والعمليات عبر جداول ودردشات أو أدوات منفصلة وتحتاج نظاماً مخصصاً.",
     problems: [
       "Customer and operations data scattered across tools",
       "Manual follow-ups and unclear ownership",
@@ -293,11 +511,50 @@ export const services: Service[] = [
       "نبني بشكل تدريجي ليتمكن الفريق من التبني بثقة",
     ],
     relatedServices: ["web", "ai", "uiux"],
+    featuredProjectSlugs: [
+      "crm-system",
+      "insurance-dashboard",
+      "saas-analytics-platform",
+    ],
+    ctaLabel: "Discuss Your CRM System",
+    ctaLabelAr: "ناقش نظام الـ CRM",
+    faqs: [
+      {
+        question: "Do you only build traditional CRM systems?",
+        questionAr: "هل تبنون أنظمة CRM تقليدية فقط؟",
+        answer:
+          "No. We build custom CRM solutions and broader internal business systems based on workflow requirements.",
+        answerAr:
+          "لا. نبني حلول CRM مخصصة وأنظمة أعمال داخلية أوسع وفق متطلبات سير العمل.",
+      },
+      {
+        question: "Can we start with a small number of modules?",
+        questionAr: "هل يمكننا البدء بعدد صغير من الوحدات؟",
+        answer:
+          "Yes. The project can prioritize the highest-value modules first.",
+        answerAr: "نعم. يمكن للمشروع ترتيب أولوية الوحدات الأعلى قيمة أولاً.",
+      },
+      {
+        question: "Can the system support user roles and permissions?",
+        questionAr: "هل يدعم النظام أدوار المستخدمين والصلاحيات؟",
+        answer:
+          "Role-based access can be included according to system requirements.",
+        answerAr: "يمكن تضمين صلاحيات حسب الدور وفق متطلبات النظام.",
+      },
+      {
+        question: "Can AI automation be added later?",
+        questionAr: "هل يمكن إضافة أتمتة بالذكاء الاصطناعي لاحقاً؟",
+        answer:
+          "AI automation can be considered when there is a clear use case and suitable integration requirements.",
+        answerAr:
+          "يمكن النظر في أتمتة الذكاء الاصطناعي عندما تكون حالة الاستخدام ومتطلبات التكامل واضحة.",
+      },
+    ],
     keywords: [
-      "custom CRM development",
+      "Custom CRM Development",
+      "CRM Development Company Egypt",
+      "تطوير أنظمة CRM مخصصة في مصر",
       "business systems Egypt",
-      "تطوير أنظمة CRM",
-      "تطوير أنظمة إدارية",
       "لوحات تحكم مخصصة",
     ],
   },
@@ -306,20 +563,26 @@ export const services: Service[] = [
     slug: "ui-ux-design",
     title: "UI/UX Design",
     titleAr: "تصميم UI/UX",
+    h1: "UI/UX Design Agency in Egypt",
+    h1Ar: "تصميم واجهات وتجربة مستخدم UI/UX في مصر",
     shortDescription:
       "Intuitive, user-centered interfaces that combine usability and aesthetics.",
     shortDescriptionAr:
       "واجهات بديهية تركز على المستخدم وتجمع بين سهولة الاستخدام والجمال.",
+    intro:
+      "Interfaces that look intentional and remain usable — aligned with real user journeys and what engineering can build.",
+    introAr:
+      "واجهات تبدو مقصودة وتبقى سهلة الاستخدام — متوافقة مع رحلات المستخدم الحقيقية وما يمكن للهندسة بناؤه.",
     description:
-      "We design intuitive, user-centered interfaces that combine usability, aesthetics, and business goals. From research and wireframes to polished UI and design systems, we create experiences people can navigate with confidence.",
+      "The design process can include research, information architecture, wireframes, high-fidelity UI, prototypes, and handoff using Figma and design-system practices.",
     descriptionAr:
-      "نصمم واجهات بديهية تركز على المستخدم وتجمع بين سهولة الاستخدام والجمال وأهداف العمل. من البحث والمخططات إلى واجهات مصقولة وأنظمة تصميم، نصنع تجارب يتنقل فيها المستخدم بثقة.",
-    seoTitle: "UI UX Design Services Egypt",
-    seoTitleAr: "خدمات تصميم مواقع وواجهات UI UX في مصر",
+      "يمكن أن تشمل عملية التصميم البحث وهندسة المعلومات والمخططات وواجهات عالية الدقة والنماذج الأولية وتسليم التصميم باستخدام Figma وممارسات أنظمة التصميم.",
+    seoTitle: "UI/UX Design Agency Egypt | BARQ STUDIO",
+    seoTitleAr: "تصميم UI/UX في مصر | برق ستوديو",
     seoDescription:
-      "UI/UX design services by BARQ STUDIO: research, wireframes, prototypes, and design systems for web and mobile products.",
+      "UI/UX design agency services in Egypt by BARQ STUDIO — research, wireframes, UI, prototypes, and design systems for web and mobile.",
     seoDescriptionAr:
-      "خدمات تصميم UI/UX من برق ستوديو: بحث ومخططات ونماذج أولية وأنظمة تصميم لمنتجات الويب والجوال.",
+      "خدمات تصميم UI/UX في مصر من برق ستوديو — بحث ومخططات وواجهات ونماذج أولية وأنظمة تصميم للويب والجوال.",
     icon: "Palette",
     image: "/services/design.jpg",
     technologies: ["Figma", "Design Systems", "Prototyping", "User Research"],
@@ -327,16 +590,32 @@ export const services: Service[] = [
       "UX research",
       "Wireframes",
       "UI design",
-      "Prototypes",
+      "Interactive prototypes",
       "Design systems",
     ],
     featuresAr: [
       "بحث تجربة المستخدم",
       "مخططات Wireframes",
       "تصميم واجهات",
-      "نماذج أولية",
+      "نماذج أولية تفاعلية",
       "أنظمة تصميم",
     ],
+    benefits: [
+      "Clearer user journeys",
+      "Consistency across screens",
+      "Design decisions before costly implementation",
+      "More usable and coherent product experiences",
+    ],
+    benefitsAr: [
+      "رحلات مستخدم أوضح",
+      "اتساق عبر الشاشات",
+      "قرارات تصميم قبل التنفيذ المكلف",
+      "تجارب منتج أكثر سهولة وتماسكاً",
+    ],
+    suitableFor:
+      "Teams preparing to build a product or improving an existing web or mobile experience.",
+    suitableForAr:
+      "الفرق التي تستعد لبناء منتج أو تحسين تجربة ويب أو جوال قائمة.",
     problems: [
       "Interfaces that look polished but confuse users",
       "Inconsistent screens across products",
@@ -362,12 +641,51 @@ export const services: Service[] = [
       "نسلم مواصفات ومكونات واضحة للتطوير",
     ],
     relatedServices: ["web", "mobile", "ecommerce"],
+    featuredProjectSlugs: [
+      "real-estate-platform",
+      "healthcare-management",
+      "ecommerce-dashboard",
+    ],
+    ctaLabel: "Improve Your Product UX",
+    ctaLabelAr: "حسّن تجربة منتجك",
+    faqs: [
+      {
+        question: "Do you offer design-only projects?",
+        questionAr: "هل تقدمون مشاريع تصميم فقط؟",
+        answer:
+          "Yes. UI/UX design can be scoped independently or alongside development.",
+        answerAr:
+          "نعم. يمكن تحديد نطاق تصميم UI/UX بشكل مستقل أو إلى جانب التطوير.",
+      },
+      {
+        question: "Do you create design systems?",
+        questionAr: "هل تنشئون أنظمة تصميم؟",
+        answer:
+          "Yes, when the product and its scale require a reusable design system.",
+        answerAr:
+          "نعم، عندما يتطلب المنتج وحجمه نظام تصميم قابلاً لإعادة الاستخدام.",
+      },
+      {
+        question: "Do you design both web and mobile interfaces?",
+        questionAr: "هل تصممون واجهات الويب والجوال؟",
+        answer: "Yes, based on the product requirements.",
+        answerAr: "نعم، وفق متطلبات المنتج.",
+      },
+      {
+        question: "Can you redesign an existing product?",
+        questionAr: "هل يمكنكم إعادة تصميم منتج قائم؟",
+        answer:
+          "Yes, after understanding its current experience, goals, and constraints.",
+        answerAr:
+          "نعم، بعد فهم التجربة الحالية والأهداف والقيود.",
+      },
+    ],
     keywords: [
+      "UI/UX Design Agency Egypt",
+      "تصميم واجهات وتجربة مستخدم",
       "UI UX design services",
-      "product design Egypt",
       "تصميم واجهات المستخدم",
-      "تصميم تجربة مستخدم",
-      "تصميم UI UX",
+      "product design Egypt",
     ],
   },
   {
@@ -375,20 +693,26 @@ export const services: Service[] = [
     slug: "ai-automation",
     title: "AI Automation",
     titleAr: "أتمتة الأعمال بالذكاء الاصطناعي",
+    h1: "AI Automation Services in Egypt",
+    h1Ar: "أتمتة الأعمال بالذكاء الاصطناعي في مصر",
     shortDescription:
       "Practical AI-powered automation that improves workflows and reduces repetitive work.",
     shortDescriptionAr:
       "أتمتة عملية بالذكاء الاصطناعي تحسّن سير العمل وتقلل المهام المتكررة.",
+    intro:
+      "Practical automation for repetitive work and slow handoffs — focused on clear use cases rather than AI hype.",
+    introAr:
+      "أتمتة عملية للمهام المتكررة وعمليات التسليم البطيئة — مع التركيز على حالات استخدام واضحة بدل المبالغة حول الذكاء الاصطناعي.",
     description:
-      "We help businesses automate repetitive tasks and improve workflows using modern AI-powered solutions. From workflow automation and chatbots to API integrations, we focus on practical outcomes rather than hype.",
+      "We identify repetitive workflows, evaluate where automation or AI can provide value, and connect suitable systems through APIs and webhooks. The implementation should be based on actual business requirements and real usage.",
     descriptionAr:
-      "نساعد الشركات على أتمتة المهام المتكررة وتحسين سير العمل باستخدام حلول حديثة مدعومة بالذكاء الاصطناعي. من أتمتة العمليات وروبوتات المحادثة إلى تكاملات API، نركز على نتائج عملية لا على المبالغة.",
-    seoTitle: "AI Automation Services Egypt",
-    seoTitleAr: "خدمات أتمتة الذكاء الاصطناعي في مصر",
+      "نحدد سير العمل المتكرر، ونقيّم أين يمكن للأتمتة أو الذكاء الاصطناعي أن يضيف قيمة، ونربط الأنظمة المناسبة عبر واجهات البرمجة و Webhooks. يجب أن يستند التنفيذ إلى متطلبات العمل الفعلية والاستخدام الحقيقي.",
+    seoTitle: "AI Automation Services Egypt | BARQ STUDIO",
+    seoTitleAr: "خدمات أتمتة الذكاء الاصطناعي في مصر | برق ستوديو",
     seoDescription:
-      "AI automation services in Egypt by BARQ STUDIO: workflow automation, chatbots, process automation, and API integrations for real operational gains.",
+      "AI automation services in Egypt by BARQ STUDIO — workflow automation, chatbots, process automation, and API integrations focused on practical operational gains.",
     seoDescriptionAr:
-      "خدمات أتمتة الذكاء الاصطناعي في مصر من برق ستوديو: أتمتة سير العمل وروبوتات محادثة وأتمتة العمليات وتكاملات API.",
+      "خدمات أتمتة الذكاء الاصطناعي في مصر من برق ستوديو — أتمتة سير العمل وروبوتات محادثة وأتمتة العمليات وتكاملات API لنتائج تشغيلية عملية.",
     icon: "Bot",
     image: "/services/backend.jpg",
     technologies: ["OpenAI", "Node.js", "REST APIs", "Webhooks", "Automation"],
@@ -396,16 +720,32 @@ export const services: Service[] = [
       "Workflow automation",
       "AI integrations",
       "Chatbots",
-      "Business process automation",
+      "Process automation",
       "API integrations",
     ],
     featuresAr: [
       "أتمتة سير العمل",
       "تكاملات الذكاء الاصطناعي",
       "روبوتات محادثة",
-      "أتمتة العمليات التجارية",
+      "أتمتة العمليات",
       "تكاملات API",
     ],
+    benefits: [
+      "Reduce repetitive manual work where suitable",
+      "Improve inquiry handling through appropriate automation",
+      "Reduce repeated copy-and-paste between connected tools",
+      "Create more consistent workflows",
+    ],
+    benefitsAr: [
+      "تقليل العمل اليدوي المتكرر عند المناسبة",
+      "تحسين التعامل مع الاستفسارات عبر أتمتة مناسبة",
+      "تقليل النسخ واللصق المتكرر بين الأدوات المتصلة",
+      "إنشاء سير عمل أكثر اتساقاً",
+    ],
+    suitableFor:
+      "Businesses with repeatable processes and systems that can be connected, especially alongside CRM and web applications.",
+    suitableForAr:
+      "الشركات ذات العمليات المتكررة والأنظمة القابلة للربط، خاصة إلى جانب أنظمة CRM وتطبيقات الويب.",
     problems: [
       "Teams spending hours on repetitive manual tasks",
       "Slow response times to customer inquiries",
@@ -431,12 +771,48 @@ export const services: Service[] = [
       "نراقب النتائج ونحسّن بناءً على الاستخدام الفعلي",
     ],
     relatedServices: ["crm", "web", "mobile"],
+    featuredProjectSlugs: [],
+    ctaLabel: "Explore Automation Opportunities",
+    ctaLabelAr: "استكشف فرص الأتمتة",
+    faqs: [
+      {
+        question: "Is AI automation limited to chatbots?",
+        questionAr: "هل تقتصر أتمتة الذكاء الاصطناعي على روبوتات المحادثة؟",
+        answer:
+          "No. It can also include workflow and process automation.",
+        answerAr: "لا. يمكن أن تشمل أيضاً أتمتة سير العمل والعمليات.",
+      },
+      {
+        question: "Can you connect automation to existing systems?",
+        questionAr: "هل يمكن ربط الأتمتة بأنظمة قائمة؟",
+        answer:
+          "Yes, when the existing systems provide suitable APIs or integration options.",
+        answerAr:
+          "نعم، عندما توفّر الأنظمة الحالية واجهات برمجة أو خيارات تكامل مناسبة.",
+      },
+      {
+        question: "Do you guarantee a specific ROI?",
+        questionAr: "هل تضمنون عائداً استثمارياً محدداً؟",
+        answer:
+          "No. Expected value depends on the workflow, scope, and implementation. Requirements should be assessed before making any business estimate.",
+        answerAr:
+          "لا. تعتمد القيمة المتوقعة على سير العمل والنطاق والتنفيذ. يجب تقييم المتطلبات قبل أي تقدير تجاري.",
+      },
+      {
+        question: "Can AI automation work with a CRM?",
+        questionAr: "هل يمكن أن تعمل أتمتة الذكاء الاصطناعي مع نظام CRM؟",
+        answer:
+          "Yes. It can complement CRM and custom business systems when the use case is clear.",
+        answerAr:
+          "نعم. يمكن أن تكمل أنظمة CRM وأنظمة الأعمال المخصصة عندما تكون حالة الاستخدام واضحة.",
+      },
+    ],
     keywords: [
-      "AI automation services",
-      "business process automation",
+      "AI Automation Services Egypt",
+      "AI Automation for Businesses",
+      "خدمات أتمتة الذكاء الاصطناعي في مصر",
       "أتمتة الأعمال بالذكاء الاصطناعي",
-      "أتمتة العمليات",
-      "تكامل الذكاء الاصطناعي",
+      "business process automation",
     ],
   },
 ];
@@ -449,7 +825,8 @@ export function getServiceById(id: string): Service | undefined {
   return services.find((service) => service.id === id);
 }
 
-export const legacyServiceRedirects: Record<string, string> = {
-  "frontend-development": "web-development",
-  "backend-development": "crm-development",
-};
+export function getRelatedServices(service: Service): Service[] {
+  return service.relatedServices
+    .map((id) => getServiceById(id))
+    .filter((item): item is Service => Boolean(item));
+}

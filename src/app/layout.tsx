@@ -30,8 +30,7 @@ const cairo = Cairo({
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: "BARQ STUDIO Egypt | Software Development Company in Egypt",
-    absoluteTitle: true,
+    path: "/",
   }),
   manifest: "/manifest.json",
   icons: {

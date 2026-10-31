@@ -78,9 +78,9 @@ export function HeroSection() {
             initial={initial}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.14 }}
-            className="mt-3 text-sm font-medium text-primary sm:text-base"
+            className="mt-3 text-base font-semibold text-primary sm:mt-4 sm:text-lg"
           >
-            {t.hero.brand}
+            {t.hero.lead}
           </motion.p>
 
           <motion.p
@@ -90,6 +90,15 @@ export function HeroSection() {
             className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg"
           >
             {t.hero.description}
+          </motion.p>
+
+          <motion.p
+            initial={initial}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base"
+          >
+            {t.hero.services}
           </motion.p>
 
           <motion.div
@@ -117,7 +126,7 @@ export function HeroSection() {
                 size="lg"
                 className="w-full border-primary/25 bg-secondary/40 backdrop-blur-md sm:w-auto"
               >
-                <Link href="/portfolio" className="rtl:flex-row-reverse">
+                <Link href="/services" className="rtl:flex-row-reverse">
                   <Play className="h-4 w-4 fill-current" />
                   {t.hero.cta2}
                 </Link>

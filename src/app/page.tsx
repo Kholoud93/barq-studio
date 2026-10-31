@@ -17,7 +17,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata = createMetadata({
   title: "BARQ STUDIO Egypt | Software Development Company in Egypt",
   description:
-    "BARQ STUDIO is a software development company in Egypt for web development, mobile apps, e-commerce, custom CRM, UI/UX design, and AI automation services.",
+    "BARQ STUDIO (برق ستوديو) is a software development company in Egypt — web development, mobile apps, e-commerce, custom CRM, UI/UX, and AI automation for growing businesses.",
   path: "/",
   absoluteTitle: true,
   keywords: [

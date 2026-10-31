@@ -6,6 +6,7 @@ export const metadata = createMetadata({
   description:
     "Practical guides and ideas about web development, mobile apps, CRM systems, UX design, and digital growth from BARQ STUDIO in Egypt.",
   path: "/blog",
+  absoluteTitle: true,
   keywords: [
     "web development insights",
     "نصائح تطوير مواقع",

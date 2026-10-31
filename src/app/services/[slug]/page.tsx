@@ -1,6 +1,10 @@
 import { notFound } from "next/navigation";
 import { ServiceDetailContent } from "@/components/pages/service-detail-content";
-import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/shared/json-ld";
+import {
+  BreadcrumbJsonLd,
+  ServiceFaqJsonLd,
+  ServiceJsonLd,
+} from "@/components/shared/json-ld";
 import { services, getServiceBySlug } from "@/data/services";
 import { createMetadata, siteConfig } from "@/lib/metadata";
 
@@ -18,7 +22,7 @@ export async function generateMetadata({ params }: ServicePageProps) {
   if (!service) return {};
 
   return createMetadata({
-    title: `${service.seoTitle} | BARQ STUDIO Egypt`,
+    title: service.seoTitle,
     description: service.seoDescription,
     path: `/services/${service.slug}`,
     absoluteTitle: true,
@@ -45,18 +49,18 @@ export default async function ServicePage({ params }: ServicePageProps) {
   return (
     <>
       <ServiceJsonLd
-        name={service.title}
-        nameAr={service.titleAr}
-        description={service.description}
-        descriptionAr={service.descriptionAr}
+        name={service.h1}
+        nameAr={service.h1Ar}
+        description={service.seoDescription}
         url={url}
-        serviceType={service.titleAr}
+        serviceType={service.title}
       />
+      <ServiceFaqJsonLd faqs={service.faqs} />
       <BreadcrumbJsonLd
         items={[
           { name: "الرئيسية", url: siteConfig.url },
           { name: "الخدمات", url: `${siteConfig.url}/services` },
-          { name: service.titleAr, url },
+          { name: service.h1Ar, url },
         ]}
       />
       <ServiceDetailContent service={service} />

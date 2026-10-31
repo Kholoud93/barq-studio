@@ -65,7 +65,7 @@ export function ServicesContent() {
                       <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-primary/20 neon-rim">
                         <Image
                           src={service.image}
-                          alt={title}
+                          alt={`${title} — BARQ STUDIO`}
                           fill
                           sizes="(max-width: 1024px) 100vw, 50vw"
                           className="object-cover"

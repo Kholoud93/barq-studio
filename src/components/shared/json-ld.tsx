@@ -1,5 +1,5 @@
 import { siteConfig } from "@/lib/metadata";
-import { services } from "@/data/services";
+import { services, type ServiceFaq } from "@/data/services";
 import { faqs } from "@/data/faq";
 
 export function OrganizationJsonLd() {
@@ -174,14 +174,12 @@ export function ServiceJsonLd({
   name,
   nameAr,
   description,
-  descriptionAr,
   url,
   serviceType,
 }: {
   name: string;
   nameAr: string;
   description: string;
-  descriptionAr: string;
   url: string;
   serviceType: string;
 }) {
@@ -190,27 +188,45 @@ export function ServiceJsonLd({
     "@type": "Service",
     name,
     alternateName: nameAr,
-    description: `${description} ${descriptionAr}`,
+    description,
     url,
     serviceType,
     provider: {
       "@id": `${siteConfig.url}/#organization`,
     },
-    areaServed: [
-      {
-        "@type": "Country",
-        name: "Egypt",
-      },
-      {
-        "@type": "Place",
-        name: "Middle East",
-      },
-    ],
+    areaServed: {
+      "@type": "Country",
+      name: "Egypt",
+    },
     brand: {
       "@type": "Brand",
       name: siteConfig.name,
       alternateName: ["BARQ STUDIO Egypt", siteConfig.nameAr],
     },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+export function ServiceFaqJsonLd({ faqs: serviceFaqs }: { faqs: ServiceFaq[] }) {
+  if (serviceFaqs.length === 0) return null;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: serviceFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.questionAr,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answerAr,
+      },
+    })),
   };
 
   return (
