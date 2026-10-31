@@ -34,9 +34,13 @@ export const metadata: Metadata = {
   }),
   manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/logo.svg",
+    icon: [
+      { url: "/favicon-32.jpg", sizes: "32x32", type: "image/jpeg" },
+      { url: "/logo-192.jpg", sizes: "192x192", type: "image/jpeg" },
+      { url: "/logo.jpg", sizes: "1024x1024", type: "image/jpeg" },
+    ],
+    shortcut: "/favicon-32.jpg",
+    apple: "/logo-192.jpg",
   },
   verification: {
     google: "-icZ7O-6xbgU22W9_PdWb1fhMb2_F8c1JCm1vrHB-6g",

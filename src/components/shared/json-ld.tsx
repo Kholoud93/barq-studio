@@ -24,7 +24,7 @@ export function OrganizationJsonLd() {
     url: siteConfig.url,
     logo: {
       "@type": "ImageObject",
-      url: `${siteConfig.url}/logo.svg`,
+      url: `${siteConfig.url}/logo.jpg`,
       caption: `${siteConfig.nameAr} | ${siteConfig.name} Egypt`,
     },
     image: `${siteConfig.url}/og-image.svg`,
