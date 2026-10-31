@@ -48,8 +48,13 @@ function getPrefsSnapshot(): Prefs {
   return prefs;
 }
 
+const serverPrefsSnapshot: Prefs = {
+  locale: defaultLocale,
+  theme: defaultTheme,
+};
+
 function getServerPrefsSnapshot(): Prefs {
-  return { locale: defaultLocale, theme: defaultTheme };
+  return serverPrefsSnapshot;
 }
 
 function readStoredPrefs(): Prefs {
