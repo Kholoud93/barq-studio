@@ -38,7 +38,8 @@ export function HeroSection() {
           src="/scenes/hero-astronaut-moon.jpg"
           alt=""
           fill
-          priority
+          preload
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover object-center scale-105 opacity-95"
         />

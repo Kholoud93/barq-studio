@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -23,11 +24,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ContactCTA } from "@/components/home/contact-cta";
 import { useApp } from "@/providers/app-provider";
 import type { Service } from "@/data/services";
 import { getRelatedServices } from "@/data/services";
 import { getProjectBySlug, getProjectsByService } from "@/data/projects";
+
+const ContactCTA = dynamic(
+  () =>
+    import("@/components/home/contact-cta").then((mod) => ({
+      default: mod.ContactCTA,
+    })),
+  { ssr: true }
+);
 
 const iconMap = {
   Monitor,

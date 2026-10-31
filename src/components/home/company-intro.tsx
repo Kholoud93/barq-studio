@@ -16,7 +16,10 @@ export function CompanyIntro() {
           src="/scenes/about-lightning-rock.jpg"
           alt=""
           fill
-          sizes="100vw"
+          loading="lazy"
+          decoding="async"
+          sizes="(max-width: 768px) 100vw, 900px"
+          quality={60}
           className="hidden object-cover object-center opacity-45 dark:block"
         />
         <div className="absolute inset-0 hidden bg-gradient-to-b from-background/50 via-background/65 to-background dark:block" />

@@ -61,7 +61,8 @@ export function BlogPostContent({ post }: { post: BlogPost }) {
             src={post.image}
             alt={title}
             fill
-            priority
+            preload
+            fetchPriority="high"
             sizes="(max-width: 768px) 100vw, 768px"
             className="object-cover"
           />

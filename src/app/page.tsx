@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/home/hero-section";
 import { SeoPositioning } from "@/components/home/seo-positioning";
 import { CompanyIntro } from "@/components/home/company-intro";
@@ -10,9 +11,16 @@ import { FeaturedProjects } from "@/components/home/featured-projects";
 import { Testimonials } from "@/components/home/testimonials";
 import { BlogPreview } from "@/components/home/blog-preview";
 import { FAQ } from "@/components/home/faq";
-import { ContactCTA } from "@/components/home/contact-cta";
 import { FaqJsonLd } from "@/components/shared/json-ld";
 import { createMetadata } from "@/lib/metadata";
+
+const ContactCTA = dynamic(
+  () =>
+    import("@/components/home/contact-cta").then((mod) => ({
+      default: mod.ContactCTA,
+    })),
+  { ssr: true }
+);
 
 export const metadata = createMetadata({
   title: "BARQ STUDIO Egypt | Software Development Company in Egypt",
