@@ -409,6 +409,7 @@ const en = {
     email: "Email",
     phone: "Phone",
     whatsapp: "WhatsApp",
+    facebook: "Facebook",
     location: "Location",
     hours: "Business Hours",
     hoursValue: "Sun - Thu, 9:00 AM - 6:00 PM",

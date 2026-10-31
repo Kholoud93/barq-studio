@@ -392,6 +392,7 @@ const ar: TranslationKeys = {
     email: "البريد الإلكتروني",
     phone: "الهاتف",
     whatsapp: "واتساب",
+    facebook: "فيسبوك",
     location: "الموقع",
     hours: "ساعات العمل",
     hoursValue: "الأحد - الخميس، 9:00 ص - 6:00 م",

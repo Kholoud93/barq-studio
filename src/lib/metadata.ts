@@ -29,6 +29,7 @@ export const siteConfig = {
   social: {
     github: "https://github.com/Kholoud93",
     whatsapp: "https://wa.me/201200715693",
+    facebook: "https://www.facebook.com/people/Barq-Studio/61595850401122/",
   },
 };
 
