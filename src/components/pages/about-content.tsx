@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,9 +17,16 @@ import {
 import { AnimatedSection, AnimatedItem } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
 import { Button } from "@/components/ui/button";
-import { Statistics } from "@/components/home/statistics";
 import { useApp } from "@/providers/app-provider";
 import { siteConfig } from "@/lib/metadata";
+
+const Statistics = dynamic(
+  () =>
+    import("@/components/home/statistics").then((mod) => ({
+      default: mod.Statistics,
+    })),
+  { ssr: true }
+);
 
 const valueIcons = [Target, Users, Lightbulb, RefreshCw, Heart];
 
@@ -39,7 +47,8 @@ export function AboutContent() {
           src="/scenes/about-lightning-rock.jpg"
           alt=""
           fill
-          priority
+          preload
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover object-center"
         />
