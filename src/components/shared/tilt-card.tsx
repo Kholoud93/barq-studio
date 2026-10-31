@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useMotionTemplate,
@@ -29,6 +29,7 @@ export function TiltCard({
   const ref = useRef<HTMLDivElement>(null);
   const rectRef = useRef<DOMRect | null>(null);
   const frameRef = useRef(0);
+  const hoveringRef = useRef(false);
   const [active, setActive] = useState(false);
   const reduceMotion = useReducedMotion();
 
@@ -40,7 +41,7 @@ export function TiltCard({
   const rotateY = useSpring(useTransform(rawX, [-0.5, 0.5], [-maxTilt, maxTilt]), springConfig);
   const glareX = useSpring(useTransform(rawX, [-0.5, 0.5], [0, 100]), springConfig);
   const glareY = useSpring(useTransform(rawY, [-0.5, 0.5], [0, 100]), springConfig);
-  const glareBg = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(184,243,75,0.28), transparent 55%)`;
+  const glareBg = useMotionTemplate`radial-gradient(circle at ${glareX}% ${glareY}%, rgba(184,243,75,0.28), transparent_55%)`;
 
   function cacheRect() {
     const el = ref.current;
@@ -48,8 +49,29 @@ export function TiltCard({
     rectRef.current = el.getBoundingClientRect();
   }
 
+  useEffect(() => {
+    const invalidate = () => {
+      if (!hoveringRef.current) {
+        rectRef.current = null;
+        return;
+      }
+      cacheRect();
+    };
+    window.addEventListener("scroll", invalidate, { passive: true, capture: true });
+    window.addEventListener("resize", invalidate, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", invalidate, true);
+      window.removeEventListener("resize", invalidate);
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+        frameRef.current = 0;
+      }
+    };
+  }, []);
+
   function updateFromPoint(clientX: number, clientY: number) {
     if (reduceMotion) return;
+    if (!rectRef.current) cacheRect();
     const rect = rectRef.current;
     if (!rect || rect.width === 0 || rect.height === 0) return;
     const px = (clientX - rect.left) / rect.width - 0.5;
@@ -69,7 +91,9 @@ export function TiltCard({
   }
 
   function reset() {
+    hoveringRef.current = false;
     setActive(false);
+    rectRef.current = null;
     rawX.set(0);
     rawY.set(0);
     if (frameRef.current) {
@@ -83,6 +107,7 @@ export function TiltCard({
       ref={ref}
       onMouseMove={onMove}
       onMouseEnter={() => {
+        hoveringRef.current = true;
         setActive(true);
         cacheRect();
       }}
