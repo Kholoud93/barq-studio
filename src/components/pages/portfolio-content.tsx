@@ -1,17 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { SectionHeader } from "@/components/shared/section-header";
 import { GradientText } from "@/components/shared/gradient-text";
 import { ProjectCard } from "@/components/shared/project-card";
-import { ContactCTA } from "@/components/home/contact-cta";
 import { useApp } from "@/providers/app-provider";
 import { matchesProjectFilter, type ProjectFilter } from "@/lib/project-filters";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/data/projects";
+
+const ContactCTA = dynamic(
+  () =>
+    import("@/components/home/contact-cta").then((mod) => ({
+      default: mod.ContactCTA,
+    })),
+  { ssr: true }
+);
 
 interface PortfolioContentProps {
   projects: Project[];
@@ -37,7 +45,8 @@ export function PortfolioContent({ projects }: PortfolioContentProps) {
           src="/scenes/section-rocky-glow.jpg"
           alt=""
           fill
-          priority
+          preload
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover opacity-90 dark:opacity-100"
         />
@@ -59,12 +68,15 @@ export function PortfolioContent({ projects }: PortfolioContentProps) {
       </section>
 
       <AnimatedSection className="relative overflow-hidden py-16 sm:py-24">
-        <div className="pointer-events-none absolute inset-0">
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
           <Image
             src="/scenes/section-rocky-glow.jpg"
             alt=""
             fill
-            sizes="100vw"
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 768px) 100vw, 900px"
+            quality={60}
             className="object-cover opacity-70 dark:opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/18 to-background/55 dark:from-background/50 dark:via-background/70 dark:to-background" />
