@@ -20,7 +20,7 @@ export const siteConfig = {
   descriptionEn:
     "BARQ STUDIO is a software development company in Egypt offering web development, mobile apps, e-commerce, custom CRM systems, UI/UX design, and AI automation for businesses and startups.",
   url: siteUrl.replace(/\/$/, ""),
-  email: "kholouudaiman93@gmail.com",
+  email: "barqstudio28@gmail.com",
   phone: "+20 12 00715693",
   whatsapp: "201200715693",
   whatsappUrl: "https://wa.me/201200715693",
